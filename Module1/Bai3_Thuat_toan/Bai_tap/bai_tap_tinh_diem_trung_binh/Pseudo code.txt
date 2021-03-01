@@ -1,0 +1,5 @@
+Start
+input điểm Toán, điểm Lý,điểm Hóa
+Average=(điểm Toán + điểm Lý + điểm Hóa)/3
+display Average
+end
