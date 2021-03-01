@@ -2,14 +2,12 @@ start
 input n
 input a1,..,an
 Max=a1; i=2
-if i<n
-  if a1 <= ai
+while (i<n)
+ do  if a1 <= ai
      Max = ai
      i=i+1
   esle 
      i=i+1
   end if
-esle 
-   display Max
-end if
+display Max
 end
