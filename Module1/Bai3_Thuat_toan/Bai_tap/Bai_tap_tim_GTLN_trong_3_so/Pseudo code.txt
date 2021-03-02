@@ -1,6 +1,5 @@
 start
 input a,b,c
-Max=a
 If a>=b
    if a>=c
    display Max=a
@@ -8,7 +7,6 @@ If a>=b
       display Max=c
    end if
 else
-     Max=b
      if b>=c
      display Max=b
      else 
