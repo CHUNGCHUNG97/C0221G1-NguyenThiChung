@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/chung.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai5_Form_Table/Bai_tap/tao_bang_nang_cao.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai5_Form_Table/Bai_tap/tao_bang_nang_cao.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1pGuE0xKJQEwtHjnAbtV0YVIxn3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="" />
+      <created>1614821632806</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614821632806</updated>
+      <workItem from="1614821634896" duration="14293000" />
+    </task>
+    <task id="LOCAL-00001" summary="tao bang co ban">
+      <created>1614830674642</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614830674642</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tao bang co ban" />
+    <option name="LAST_COMMIT_MESSAGE" value="tao bang co ban" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="354" y="28" key="CommitChangelistDialog2" timestamp="1614830674154">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="354" y="28" key="CommitChangelistDialog2/0.0.1458.864@0.0.1458.864" timestamp="1614830674154" />
+    <state x="322" y="166" key="Vcs.Push.Dialog.v2" timestamp="1614830681378">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="322" y="166" key="Vcs.Push.Dialog.v2/0.0.1458.864@0.0.1458.864" timestamp="1614830681378" />
+  </component>
+</project>
