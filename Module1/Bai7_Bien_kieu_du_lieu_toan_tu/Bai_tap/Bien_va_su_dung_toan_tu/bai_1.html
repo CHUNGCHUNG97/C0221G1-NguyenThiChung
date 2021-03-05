@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Tính điểm trung bình</p>
+
+<button onclick="tinhdiemTB()">Try it</button>
+
+<script>
+
+
+    function tinhdiemTB() {
+        let physical = parseInt(prompt('nhập điểm lý'));
+        let chemistry = parseInt(prompt('nhập điểm hóa'));
+        let disciple = parseInt(prompt('nhập điểm sinh'));
+        let average = (physical + chemistry + disciple)/3;
+        let sum = physical+chemistry+disciple;
+        document.write(average);
+        document.write('</br>');
+        document.write(sum);
+    }
+
+</script>
+</body>
+</html>

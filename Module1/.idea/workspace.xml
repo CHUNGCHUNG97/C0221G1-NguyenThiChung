@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/bai_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai6_javascript/Thuc_hanh/thuc_hanh_2/chung.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai5_Form_Table/Bai_tap/tao_bang_nang_cao.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai5_Form_Table/Bai_tap/tao_bang_nang_cao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/Bien_va_su_dung_toan_tu/Bai_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/Bien_va_su_dung_toan_tu/Bai_4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/Bien_va_su_dung_toan_tu/bai_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/Bien_va_su_dung_toan_tu/bai_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/Ung_dung_chuyen_doi_tien_te/chuyen_doi_tien_te.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/ung_dung_may_tinh/Ung_dung_may_tinh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Thuc_hanh/Khai_bao_su_dung_bien/bai_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Thuc_hanh/Khai_bao_su_dung_bien/bai_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Thuc_hanh/Khai_bao_su_dung_bien/bai_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vd.html" beforeDir="false" afterPath="$PROJECT_DIR$/vd.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -47,7 +52,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614821632806</updated>
-      <workItem from="1614821634896" duration="14293000" />
+      <workItem from="1614821634896" duration="17476000" />
+      <workItem from="1614899727157" duration="2495000" />
+      <workItem from="1614907334365" duration="15560000" />
     </task>
     <task id="LOCAL-00001" summary="tao bang co ban">
       <created>1614830674642</created>

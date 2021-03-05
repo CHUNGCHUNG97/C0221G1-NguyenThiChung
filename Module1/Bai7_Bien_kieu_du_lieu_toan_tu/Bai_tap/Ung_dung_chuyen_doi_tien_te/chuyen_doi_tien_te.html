@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="soluong" placeholder="Nhập số tiền muốn chuyển">
+<select id="from">
+    <option value="1" >VND</option>
+    <option value="24000" selected>USD</option>
+    <option value="12000">Lao</option>
+</select>
+<select id="to">
+    <option value="1" selected>VND</option>
+    <option value="24000">USD</option>
+    <option value="28000">EURO</option>
+</select>
+<button onclick="tinhTien()"> Tính toán</button>
+<label id="ketqua"></label>
+<script>
+    function tinhTien() {
+        let soluong = document.getElementById("soluong").value;
+        let fromvalue = document.getElementById("from").value;
+        let toValue = document.getElementById("to").value;
+        let ketqua = soluong*(fromvalue/toValue);
+        document.getElementById("ketqua").innerText = ketqua;
+    }
+</script>
+</body>
+</html>

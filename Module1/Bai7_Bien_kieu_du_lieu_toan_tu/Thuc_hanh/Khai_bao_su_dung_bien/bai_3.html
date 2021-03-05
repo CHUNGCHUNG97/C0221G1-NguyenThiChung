@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Kiểm tra a có chia hết cho b</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<script>
+    function myFunction() {
+        let a = prompt("Nhập a", 8);
+        let b = prompt("Nhập b", 5);
+        if (a % b == 0) {
+            document.getElementById("demo").innerHTML =
+                "a chia hết cho b";
+        }
+        else{
+            document.getElementById("demo").innerHTML ="a không chia hết cho b"
+        }
+    }
+</script>
+</body>
+</html>
