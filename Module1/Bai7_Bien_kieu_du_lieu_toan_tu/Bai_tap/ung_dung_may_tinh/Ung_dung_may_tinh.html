@@ -7,8 +7,6 @@
 <body>
 
 
-
-
 <input id="soThuNhat">
 <input id="soThuHai"><br><br>
 <button id="cong" value="cong" onClick="calculator(event.target.value)">Addition(+)</button>
@@ -19,21 +17,20 @@
 <script>
 
 
-
     function calculator(value) {
         let a = document.getElementById("soThuNhat").value;
         let b = document.getElementById("soThuHai").value;
         let kq;
         if (value == 'cong') {
-            kq = a/1 + b/1;
+            kq = parseInt(a) + parseInt(b);
         } else if (value == 'tru') {
-            kq = a/1 - b/1;
+            kq = parseInt(a) - parseInt(b);
         } else if (value == 'nhan') {
-            kq = a/1 * b/1;
+            kq = parseInt(a) * parseInt(b);
         } else {
-            kq = (a/1) / (b/1);
+            kq = parseInt(a) / parseInt(b);
         }
-        document.getElementById('kq').innerText=kq;
+        document.getElementById('kq').innerText = kq;
     }
 
     //
