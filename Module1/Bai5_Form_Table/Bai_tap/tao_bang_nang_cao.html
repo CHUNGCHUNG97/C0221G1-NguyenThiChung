@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
-<table border-collapse="collapse" ; width="60%">
     <style>
         table {
-            border-collapse: collapse;
+            border: 1px solid
         }
-th,td{
-    padding : 20px;
-}
-        table tr:nth-child(1){
-            background-color:gold;
-        }
-        table td:nth-child(1){
-            background-color:gold;
-        }
-        table td:nth-child(10){
-            background-color:gold;
+
+        table tr:nth-child(even) td:nth-child(odd) {
+            background-color: black;
         }
 
     </style>
+</head>
+<body>
+<table style="border: solid">
+
     <tr>
         <th></th>
         <th>1</th>
@@ -46,9 +39,11 @@ th,td{
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>B</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -68,9 +63,11 @@ th,td{
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>D</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -90,9 +87,11 @@ th,td{
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>F</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -112,6 +111,7 @@ th,td{
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>H</td>
@@ -123,6 +123,7 @@ th,td{
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     <tr>
         <td></td>
@@ -136,6 +137,7 @@ th,td{
         <td></td>
         <td></td>
     </tr>
+
 </table>
 </body>
 </html>

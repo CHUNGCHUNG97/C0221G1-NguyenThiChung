@@ -5,16 +5,61 @@
     <title>Title</title>
 </head>
 <body>
-<input  id="soThuNhat">
+
+
+
+
+<input id="soThuNhat">
 <input id="soThuHai"><br><br>
-<button onClick="phepCong">Addition(+)</button>
-<button onClick="phepCong">Subtraction(-)</button>
-<button onClick="phepCong">Addition(X)</button>
-<button onClick="phepCong">Addition(/)</button>
+<button id="cong" value="cong" onClick="calculator(event.target.value)">Addition(+)</button>
+<button id="tru" value="tru" onClick="calculator(event.target.value)">Subtraction(-)</button>
+<button id="nhan" value="nhan" onClick="calculator(event.target.value)">Addition(X)</button>
+<button id="chia" value="chia" onClick="calculator(event.target.value)">Divide(/)</button>
+<label id="kq"></label>
 <script>
-    let a=document.getElementById("soThuNhat");
-    let b=document.getElementById("soThuHai");
-    let phepCong
+
+
+
+    function calculator(value) {
+        let a = document.getElementById("soThuNhat").value;
+        let b = document.getElementById("soThuHai").value;
+        let kq;
+        if (value == 'cong') {
+            kq = a/1 + b/1;
+        } else if (value == 'tru') {
+            kq = a/1 - b/1;
+        } else if (value == 'nhan') {
+            kq = a/1 * b/1;
+        } else {
+            kq = (a/1) / (b/1);
+        }
+        document.getElementById('kq').innerText=kq;
+    }
+
+    //
+    // function cong() {
+    //     let a = document.getElementById("soThuNhat").value;
+    //     let b = document.getElementById("soThuHai").value;
+    //     document.getElementById('kq').innerText = parseInt(a) + parseInt(b);
+    // }
+    //
+    // function tru() {
+    //     let a = document.getElementById("soThuNhat").value;
+    //     let b = document.getElementById("soThuHai").value;
+    //     document.getElementById('kq').innerText = parseInt(a) - parseInt(b);
+    // }
+    //
+    // function nhan() {
+    //     let a = document.getElementById("soThuNhat").value;
+    //     let b = document.getElementById("soThuHai").value;
+    //     document.getElementById('kq').innerText = parseInt(a) * parseInt(b);
+    // }
+    //
+    // function chia() {
+    //     let a = document.getElementById("soThuNhat").value;
+    //     let b = document.getElementById("soThuHai").value;
+    //     document.getElementById('kq').innerText = parseInt(a) / parseInt(b);
+    // }
 </script>
 </body>
 </html>
