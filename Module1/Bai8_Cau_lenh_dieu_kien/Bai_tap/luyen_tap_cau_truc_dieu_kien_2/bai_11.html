@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function thueTNCN(luongThang) {
+        let thueSuat;
+        if (luongThang > 0 && luongThang <= 5000000) {
+            thueSuat = 5 / 100;
+        } else if (luongThang > 5000000 && luongThang <= 10000000) {
+            thueSuat = 10 / 100;
+        } else if (luongThang > 10000000 && luongThang <= 18000000) {
+            thueSuat = 15 / 100;
+        } else if (luongThang > 18000000 && luongThang <= 32000000) {
+            thueSuat = 20 / 100;
+        } else if (luongThang > 32000000 && luongThang <= 52000000) {
+            thueSuat = 25 / 100;
+        } else if (luongThang > 52000000 && luongThang <= 80000000) {
+            thueSuat = 30 / 100;
+        } else {
+            thueSuat = 35 / 100;
+        }
+        let thueTNCN = luongThang * thueSuat;
+        alert("thuế TNCN là " + thueTNCN);
+    }
+
+    thueTNCN(100000000);
+</script>
+</body>
+</html>

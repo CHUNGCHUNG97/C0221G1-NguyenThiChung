@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <style>
+        table {
+            margin-top: 20%;
+            margin-left: 40%;
+            border: solid 2px black;
+        }
+
+        td button {
+            padding: 0;
+            margin: 2px !important;
+            height: 40px;
+            width: 40px;
+            font-size: 15px;
+            font-family: 'Orbitron', sans-serif;
+            -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+        }
+
+        th input {
+            height: 40px;
+            margin: 0 !important;
+            padding: 5% !important;
+            background-color: whitesmoke;
+            /*font-size:18px;*/
+            width: 85%;
+            font-family: 'Orbitron', sans-serif;
+            -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+        }
+
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th colspan="4"><input id="number"></th>
+    </tr>
+    <tr>
+        <td>
+            <button onClick="kyTuSo(event.target)">1</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">2</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">3</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onClick="kyTuSo(event.target)">4</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">5</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">6</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onClick="kyTuSo(event.target)">7</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">8</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">9</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">*</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onClick="xoa()">C</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">0</button>
+        </td>
+        <td>
+            <button onClick="bang()">=</button>
+        </td>
+        <td>
+            <button onClick="kyTuSo(event.target)">/</button>
+        </td>
+    </tr>
+</table>
+
+<script>
+function kyTuSo(value){
+    document.getElementById("number").value += value.innerText;
+}
+function xoa(){
+    let giaTri=document.getElementById('number').value;
+    giaTri = giaTri.substring(0, giaTri.length - 1);
+    document.getElementById("number").value=giaTri;
+}
+function bang(){
+    let giaTriMoi=document.getElementById('number').value;
+    giaTriMoi=eval(giaTriMoi);
+    document.getElementById('number').value=giaTriMoi;
+}
+
+
+
+</script>
+</body>
+</html>

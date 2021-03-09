@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Do you love me?</h1><br>
+<button onclick="clickYes()">Yes</button>
+<button onmouseover="clickNo()" id="clickNo" style="position:relative;left:10px; top:10px">No</button>
+<script>
+function clickYes(){
+    alert("<3");
+}
+function clickNo(){
+    let changePosition=document.getElementById("clickNo");
+    changePosition.style.left=Math.random()* 1000+'px';
+    changePosition.style.top=Math.random()* 1000+'px';
+}
+</script>
+</body>
+</html>

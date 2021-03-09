@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function rose(doanhSo){
+        let phanTram;
+        if(doanhSo>1000000000){
+            phanTram=20;
+            alert("hoa hồng nhận được là " + (phanTram*doanhSo)/100);
+        }else if(doanhSo>=500000000 && doanhSo<10000000000){
+            phanTram=15;
+            alert("hoa hồng nhận được là " + (phanTram*doanhSo)/100);
+        }else if(doanhSo>=100000000 && doanhSo<500000000){
+            phanTram=10;
+            alert("hoa hồng nhận được là " + (phanTram*doanhSo)/100);
+        }else{
+            phanTram=5;
+            alert("hoa hồng nhận được là " + (phanTram*doanhSo)/100);
+        }
+    }
+    rose(600000000);
+
+</script>
+</body>
+</html>

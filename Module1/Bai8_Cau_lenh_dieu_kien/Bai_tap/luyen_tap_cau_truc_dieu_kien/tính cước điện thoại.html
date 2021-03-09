@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function cuocDienThoai(soPhutNoiMang, soPhutNgoaiMang) {
+        let cuocNoiMang;
+        let cuocNgoaiMang;
+        // let cuocDienThoai = soPhutNgoaiMang * cuocNgoaiMang + soPhutNoiMang * cuocNoiMang;
+        if (soPhutNoiMang >= 100) {
+            cuocNoiMang = 200;
+            if (soPhutNgoaiMang >= 100) {
+                cuocNgoaiMang = 550;
+            } else {
+                cuocNgoaiMang = 600;
+            }
+        } else {
+            cuocNoiMang = 220;
+            if (soPhutNgoaiMang < 100) {
+                cuocNgoaiMang = 600;
+            } else {
+                cuocNgoaiMang = 550;
+            }
+        }
+        let cuocDienThoai = soPhutNgoaiMang * cuocNgoaiMang + soPhutNoiMang * cuocNoiMang;
+        alert("cước điện thoại cần thanh toán là " + cuocDienThoai);
+    }
+
+    cuocDienThoai(300, 50);
+
+</script>
+</body>
+</html>
