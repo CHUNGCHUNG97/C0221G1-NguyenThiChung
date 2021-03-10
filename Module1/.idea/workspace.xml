@@ -2,39 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/cau_lenh_switchcase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/do_you_love_me.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/bai_6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien/tính cước điện thoại.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/may_tinh_don_gian.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/tinh_chi_so_can_nang_co_the.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/Kiem_tra_nam_nhaun.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/Luyen_tap_switchcase/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/Luyen_tap_switchcase/bai_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/luyen_tap_if_else.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/luyen_tap_if_else_if.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/toan_tu_3_ngoi/bai_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/toan_tu_3_ngoi/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Thuc_hanh/toan_tu_3_ngoi/su_kien_ban_phim.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/ung_dung_may_tinh/vidu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/ung_dung_may_tinh/vidu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_12.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai8_Cau_lenh_dieu_kien/Bai_tap/luyen_tap_cau_truc_dieu_kien_2/bai_12.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +55,7 @@
       <workItem from="1615166959137" duration="16869000" />
       <workItem from="1615252402295" duration="24968000" />
       <workItem from="1615288926515" duration="11892000" />
+      <workItem from="1615338332289" duration="974000" />
     </task>
     <task id="LOCAL-00001" summary="tao bang co ban">
       <created>1614830674642</created>

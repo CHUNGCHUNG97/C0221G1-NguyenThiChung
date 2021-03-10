@@ -15,13 +15,12 @@
     let soTienVay = parseFloat(prompt("số tiền vay ban đầu"));
     let laiSuat = parseFloat(prompt("lãi suất hằng tháng"));
     let soThangVay = parseFloat(prompt("số tháng vay"));
-
-    for (let i = 0; i <= n; i++) {
-        let tienLaiThangTruoc = soTienVay -
-            // let tienLaiThangDau=soTienVay*laiSuat;
-            let
-        laiSuatHangThang = (soTienVay - soTienVay * laiSuat) * laiSuat
+    let laiVayHangThang;
+    for (let i = 0; i <= soThangVay; i++) {
+        let tongNoPhaiTra=soTienVay*Math.pow((1+laiSuat),i)
+        laiVayHangThang=tongNoPhaiTra-soTienVay;
     }
+    alert('lãi vay phải trả là '+laiVayHangThang);
 </script>
 </body>
 </html>
