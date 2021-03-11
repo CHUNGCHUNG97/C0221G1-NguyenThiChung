@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nhietDo;
+    do {
+        nhietDo = prompt("nhập nhiệt độ phòng");
+        if (nhietDo < 20) {
+            alert('Nhiệt độ quá bé. Tăng nhiệt độ');
+        }
+        if (nhietDo > 100) {
+            alert("nhiệt độ quá lớn. Giảm nhiệt độ")
+        }
+    } while (nhietDo < 20 || nhietDo > 100)
+    alert("Nhiệt độ bạn cài đặt hợp lý: " + nhietDo + "độ C");
+</script>
+</body>
+</html>

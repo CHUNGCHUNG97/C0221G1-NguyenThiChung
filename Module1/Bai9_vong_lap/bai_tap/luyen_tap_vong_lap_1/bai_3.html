@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let soF0=0;
+let soF1=1;
+let dem=2;
+if(dem>=2){
+    document.write(soF0);
+    document.write("</br>");
+    document.write(soF1);
+    document.write("</br>");
+}
+while(dem<20){
+    let soF=soF0+soF1;
+    document.write(soF);
+    document.write("</br>");
+    soF0=soF1;
+    soF1=soF;
+    dem++
+}
+</script>
+</body>
+</html>

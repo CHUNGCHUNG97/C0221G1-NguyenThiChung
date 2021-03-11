@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soF0=0;
+    let soF1=1;
+    let num=parseInt(prompt("Nhập số lượng số trong dãy Fibonacce "));
+    let dem=2;
+    if(num>=2){
+        document.write(soF0+ "</br>"+ soF1+"</br>");
+    }
+    while(dem<num){
+        let soF=soF1+soF0;
+        document.write(soF+"</br>");
+        soF0=soF1;
+        soF1=soF;
+        dem++;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soF0 = 0;
+    let soF1 = 1;
+    let dem = 2;
+    let tong = soF0 + soF1;
+    while (dem < 20) {
+        let soF = soF1 + soF0;
+        soF0 = soF1;
+        soF1 = soF;
+        tong = tong + soF;
+        dem++;
+    }
+    document.write("tổng bằng " + tong);
+</script>
+</body>
+</html>

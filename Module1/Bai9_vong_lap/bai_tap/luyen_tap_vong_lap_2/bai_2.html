@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let n = parseInt(prompt("nhập số nguyên dương"));
+
+    let n;
+    do{
+        n = parseInt(prompt("nhap n"));
+    }while (n<=0);
+
+    let tich = 1;
+    for (let i = 1; i <= n; i++) {
+        tich *= i;
+    }
+    document.write(tich);
+
+
+    // } else {
+    //     document.write("n không phải số nguyên dương");
+    //     }
+
+</script>
+</body>
+</html>

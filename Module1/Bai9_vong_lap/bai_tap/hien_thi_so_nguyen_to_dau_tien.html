@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = 2;
+    let dem = 0;
+    while (dem < 10) {
+        let isSNT = true;
+        for (let i = 2; i < Math.sqrt(x); i++) {
+            if (x % i === 0) {
+                isSNT = false;
+                break;
+            }
+        }
+        if (isSNT === true) {
+            document.write(x);
+            document.write("</br>");
+            dem++;
+        }
+        x++;
+    }
+
+
+</script>
+</body>
+</html>
