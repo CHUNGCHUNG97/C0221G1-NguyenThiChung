@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function nhapSo(daySo) {
+        let str = daySo.toString();
+        let mangSo = [str[0]];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] % 2 === 0 && str[i + 1] % 2 === 0) {
+                mangSo.push('-', str[i + 1]);
+            } else {
+                mangSo.push(str[i + 1]);
+            }
+        }
+        document.write(mangSo.join(''));
+    }
+    nhapSo(1246)
+</script>
+</body>
+</html>

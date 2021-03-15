@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/bang_cuu_chuong.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/hien_thi_so_nguyen_to_dau_tien.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_1/bai_7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_3/hinh_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_3/hinh_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_3/hinh_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/bai_3/hinh_4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/bai_tap/luyen_tap_vong_lap_2/hinh_chu_nhat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/thuc_hanh/su_dung_vong_lap_for.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/thuc_hanh/vong_lap_do_while.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/thuc_hanh/vong_lap_long_nhau.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9_vong_lap/thuc_hanh/vong_lap_while/bai_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/dao_nguoc_phan_tu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tao_ban_co_caro_don_gian.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tao_va_thao_tac_voi_mang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tim_gia_tri_lon_nhat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tim_gia_tri_trong_mang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/ung_dung_may_tinh/vidu2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vd.html" beforeDir="false" afterPath="$PROJECT_DIR$/vd.html" afterDir="false" />
     </list>
@@ -51,6 +38,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bai10_mang_1" />
   </component>
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
@@ -77,7 +65,14 @@
       <workItem from="1615338332289" duration="974000" />
       <workItem from="1615346877281" duration="17648000" />
       <workItem from="1615426497468" duration="20672000" />
-      <workItem from="1615461004451" duration="8043000" />
+      <workItem from="1615461004451" duration="8107000" />
+      <workItem from="1615519562217" duration="20426000" />
+      <workItem from="1615547649054" duration="2283000" />
+      <workItem from="1615556682950" duration="2112000" />
+      <workItem from="1615558992102" duration="1900000" />
+      <workItem from="1615604224329" duration="6058000" />
+      <workItem from="1615720606017" duration="2223000" />
+      <workItem from="1615772043052" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="tao bang co ban">
       <created>1614830674642</created>
@@ -105,13 +100,21 @@
       <screen x="0" y="0" width="1458" height="864" />
     </state>
     <state x="354" y="28" key="CommitChangelistDialog2/0.0.1458.864@0.0.1458.864" timestamp="1614830674154" />
+    <state x="510" y="188" key="FileChooserDialogImpl" timestamp="1615772157870">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="510" y="188" key="FileChooserDialogImpl/0.0.1458.864@0.0.1458.864" timestamp="1615772157870" />
     <state x="322" y="166" key="Vcs.Push.Dialog.v2" timestamp="1614830681378">
       <screen x="0" y="0" width="1458" height="864" />
     </state>
     <state x="322" y="166" key="Vcs.Push.Dialog.v2/0.0.1458.864@0.0.1458.864" timestamp="1614830681378" />
-    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1615470558936">
+    <state x="386" y="197" key="run.anything.popup" timestamp="1615721042641">
       <screen x="0" y="0" width="1458" height="864" />
     </state>
-    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1458.864@0.0.1458.864" timestamp="1615470558936" />
+    <state x="386" y="197" key="run.anything.popup/0.0.1458.864@0.0.1458.864" timestamp="1615721042641" />
+    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1615560852439">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1458.864@0.0.1458.864" timestamp="1615560852439" />
   </component>
 </project>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [2, 34, 5, 63, 6, 47, 34, 5, 23, 4];
+    let isFounded = false;
+        let V = parseInt(prompt('nhập một số nguyên bất kỳ'));
+        for (let i = 0; i < arr.length; i++) {
+            if (V === arr[i]) {
+                document.write("V is in the array");
+                isFounded = true;
+                break;
+            }
+        }
+        if (!isFounded) {
+            document.write("V is not in the array");
+
+        }
+
+
+</script>
+</body>
+</html>

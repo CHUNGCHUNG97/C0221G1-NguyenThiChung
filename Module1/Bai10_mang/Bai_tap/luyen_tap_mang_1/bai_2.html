@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soNguyen=[80,4,5,67,52,13,41,15,6,22];
+    let max=soNguyen[0];
+    let a=0;
+    for (let i = 1; i <soNguyen.length ; i++) {
+        if (max<=soNguyen[i]){
+            max=soNguyen[i];
+            a=i;
+        }
+    }
+    document.write('số lớn nhất là '+max+ ' và vị trí phần tử đó là '+a)
+</script>
+</body>
+</html>

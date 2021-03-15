@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .caro-btn {
+            width: 30px;
+            height: 30px;
+            border: solid black 1px;
+
+
+        }
+
+        .item {
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            margin: -1px 1px !important;
+            background-color: #6b808c;
+            padding: 1px;
+
+        }
+    </style>
+
+
+<body>
+<div id="render"></div>
+
+
+<script>
+    draw(10, 20)
+    let position ;
+
+    function draw(hang, cot) {
+        let str = "";
+        for (let i = 0; i < hang; i++) {
+            for (let j = 0; j < cot; j++) {
+                str += '<div id="' + i + "va" + j + '" class="item" onclick="setPosition(event.target)"></div>'
+            }
+            str += "<br/>"
+        }
+        document.getElementById('render').innerHTML = str;
+    }
+
+    function setPosition(target) {
+        let id = target.id;
+        let i = id.split('va')[0];
+        let j = id.split('va')[1];
+        position =  {i: i, j: j};
+        console.log(position);
+    }
+
+
+</script>
+</body>
+</html>

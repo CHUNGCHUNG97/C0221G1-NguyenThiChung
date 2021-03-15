@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Sample Screen:</h3><br>
+<input type="text" id="nhap">
+<button onClick="nhapSo()">Add</button>
+<button onClick="xuatMang()">Display</button>
+<p id="result"></p>
+<script>
+    let array = [];
+
+    function nhapSo() {
+        let giaTri = document.getElementById('nhap').value;
+        array.push(giaTri);
+        document.getElementById('nhap').value = '';
+    }
+
+    function xuatMang() {
+        for (let i = 0; i < array.length; i++) {
+            let kq='Element '+ i+ " : "+ array[i] +"</br>";
+            document.getElementById("result").innerHTML += kq ;
+        }
+    }
+</script>
+</body>
+</html>

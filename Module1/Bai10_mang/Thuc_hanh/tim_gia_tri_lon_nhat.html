@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [27, 8, 5, 1, 16, 20, 7, 50];
+    let Max = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (Max <= arr[i]) {
+            Max = arr[i];
+        }
+    }
+    document.write(Max)
+</script>
+</body>
+</html>

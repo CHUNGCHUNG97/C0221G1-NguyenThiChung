@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tiengAnh = ["dad", "mother", "sister", 'brother', 'bird', 'chicken'];
+    let tiengViet = ['bố', 'mẹ', 'chị gái', 'anh trai', 'con chim', 'con gà'];
+    let isFounded = false;
+    do {
+        let dich = prompt('nhập từ cần dịch')
+        for (let i = 0; i < tiengAnh.length; i++) {
+            if (dich === tiengAnh[i]) {
+                document.write('nghĩa tiếng việt là ' + tiengViet[i]);
+                isFounded = true;
+                break;
+            }
+        }
+        if (!isFounded) {
+            alert('không tìm thấy nghĩa tiếng việt');
+        }
+    } while (isFounded === false);
+
+</script>
+</body>
+</html>
