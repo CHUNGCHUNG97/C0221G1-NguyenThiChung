@@ -6,17 +6,26 @@
 </head>
 <body>
 <h1>Type anything slowly</h1>
-<input id="default" style="height:100px ;width: 300px" onkeydown="textDefault()">
+<input id="default" style="height:100px ;width: 300px" onkeydown="textDefault(event)" onkeyup="fix()">
 <script>
-    function textDefault() {
-        const dongChu = 'chung chung';
-        let a = 3;
-        while (a <3) {
-            for (let i = 0; i < dongChu.length; i++) {
-                document.getElementById('default').innerHTML = dongChu[i];
-            }
-            a=1;
+    const text = "TÔI LÀ MỘT ĐƯA NGỐC!"
+    let index = 1;
+
+    function textDefault(e) {
+
+        let target = document.getElementById('default');
+        let str = text.substring(0,index)
+        target.value = str;
+        if(index==21){
+            index =1;
+            target.value = '';
         }
+        index++;
+    }
+    function fix(){
+        let target = document.getElementById('default');
+        let str = target.value.substr(0, target.value.length-1)
+        target.value = str;
     }
 </script>
 </body>

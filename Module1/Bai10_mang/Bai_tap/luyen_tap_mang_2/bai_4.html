@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = 'a fks f 13 45 kaj 4';
+    let a = str.split(' ')
+    let dem = 0;
+    for (let i = 0; i < a.length; i++) {
+       if(Number.isNaN(parseInt(a[i]))){
+           dem++
+       }
+    }
+    document.write(dem);
+</script>
+</body>
+</html>
