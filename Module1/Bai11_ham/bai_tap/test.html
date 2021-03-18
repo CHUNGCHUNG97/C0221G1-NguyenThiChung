@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table td {
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            min-width: 50px
+        }
+
+        table {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="them">
+<button onClick="themVaoMang()">THÊM</button>
+<div id="bang"></div>
+<script>
+    let mang = ['Chung', 'Thanh', 'Hien'];
+
+
+    function drawTable(mang) {
+        let strTable = '<table><tr><td>STT</td><td>Tên sản phẩm</td><td>Chức năng</td></tr>'
+        for (let i = 0; i < mang.length; i++) {
+            strTable += '<tr><td>' + i + '</td><td>' + mang[i] + '</td><td><button onclick="xoaPhanTuThuI(' + i + ')">Xóa</button>' +
+                '<button onclick="sua(' + i + ')">Sửa</button></td></tr>'
+        }
+        strTable += '</table>'
+
+        document.getElementById('bang').innerHTML = strTable;
+    }
+
+    drawTable(mang)
+
+    function themVaoMang() {
+        let value = document.getElementById('them').value;
+        mang.push(value);
+        drawTable(mang)
+    }
+
+    function xoaPhanTuThuI(i) {
+        let mangTruoc = mang.slice(0, i);
+        let mangSau = mang.slice(i + 1, mang.length);
+        mang = mangTruoc.concat(mangSau);
+        drawTable(mang);
+
+    }
+
+    function sua(i) {
+        let x = prompt(`Ban muon sua ${mang[i]} thanh gi?`);
+        mang[i] = x;
+        drawTable(mang)
+
+    }
+
+
+</script>
+</body>
+</html>

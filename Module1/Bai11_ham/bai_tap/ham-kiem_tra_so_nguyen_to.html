@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkPrime(num) {
+        let isPrime = true;
+        if (num < 2) {
+            isPrime = false;
+        } else {
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        return isPrime;
+    }
+
+    // let num=parseFloat(prompt("nhập số"))
+    // checkPrime(num);
+
+    function InSNT(a) {
+
+        for (let i = 0; i <= a; i++) {
+            let isNT = checkPrime(i);
+            if (isNT) {
+                document.write(i + ' ');
+            }
+        }
+    }
+    InSNT(10000);
+
+
+</script>
+</body>
+</html>

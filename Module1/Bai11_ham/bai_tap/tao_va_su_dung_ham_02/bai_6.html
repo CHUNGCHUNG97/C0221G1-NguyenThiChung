@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkNumber(a){
+       let isSoNguyenDuong=true;
+        if(a!=NaN && parseInt(a)==a && a>0){
+           return isSoNguyenDuong;
+        }else{
+            isSoNguyenDuong=false;
+            return isSoNguyenDuong;
+        }
+    }
+    let a=prompt('nhập số bất kỳ');
+    alert(checkNumber(a));
+</script>
+</body>
+</html>

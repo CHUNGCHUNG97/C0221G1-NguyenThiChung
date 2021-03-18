@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        let ngoiSao=['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'];
+        let chomSao=['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+        // function checkStar(starInput){
+        //     isFounded=false;
+        //     for (let i = 0; i <ngoiSao.length ; i++) {
+        //         if (starInput==ngoiSao[i]){
+        //             isFounded=true;
+        //           alert(chomSao[i]);
+        //            break;
+        //         }
+        //     }
+        //     if(isFounded==false){
+        //         alert('ngôi sao bạn nhập không đúng')
+        //     }
+        // }
+        function checkStar(starInput){
+            for (let i = 0; i <ngoiSao.length ; i++) {
+                if (starInput==ngoiSao[i]){
+                  return(chomSao[i]);
+                }
+            }
+                return('ngôi sao bạn nhập không đúng');
+        }
+    let starInput=prompt('nhập tên ngôi sao');
+        alert(checkStar(starInput));
+    //
+    // class NgoiSao {
+    //     constructor(ten, chomsao) {
+    //         this.ten = ten;
+    //         this.chomsao = chomsao;
+    //     }
+    // }
+    //
+    // let danhSachNgoiSao = [
+    //     new NgoiSao('Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'),
+    //     new NgoiSao('Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo')
+    // ]
+    // alert(danhSachNgoiSao[0].ten);
+    // alert(danhSachNgoiSao[0].chomsao);
+    // class NgoiSao {
+    //     constructor(ten, chomsao) {
+    //         this.ten = ten;
+    //         this.chomsao = chomsao;
+    //     }
+    // }
+    //
+    // //TAO 4 ngoi sao
+    // let ngoisao1 = new NgoiSao('Polaris', 'Ursa Minor');
+    // let ngoisao2 = new NgoiSao('Aldebaran', 'Tarurus');
+    // let ngoisao3 = new NgoiSao('Deneb', 'Cygnus');
+    // let ngoiSao4 = new NgoiSao('Vega', 'Lyra');
+    //
+    // //Thêm vào 1 danh sach
+    // let mangNgoiSao = [ngoisao1, ngoisao2, ngoisao3, ngoiSao4];
+    // //Lấyw giá trị muốn tìm
+    // let x = prompt('Nhập tên ngôi sao bạn muốn tìm');
+    //
+    // //tạo một biến ->> nếu tìm ra thì gán thằng cần tìm vào nó. Lúc khởi tạo nó là underfined do không xác định
+    // let ngoiSaoCanTim;
+    //
+    //
+    // for (let i = 0; i < mangNgoiSao.length; i++) {
+    //
+    //     if (x == mangNgoiSao[i].ten) {
+    //         //nếu tìm ra thì gán
+    //         ngoiSaoCanTim = mangNgoiSao[i];
+    //         break;
+    //     }
+    // }
+    //
+    //
+    // if (ngoiSaoCanTim != undefined) {
+    //     alert('chom sao ' + ngoiSaoCanTim.chomsao)
+    // }else {
+    //     alert('không tìm ra');
+    // }
+</script>
+</body>
+</html>

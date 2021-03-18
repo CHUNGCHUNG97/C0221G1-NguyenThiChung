@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #105469;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        table {
+            background: #012B39;
+            border-radius: 0.25em;
+            border-collapse: collapse;
+            margin: 1em;
+        }
+
+        th {
+            border-bottom: 1px solid #364043;
+            color: #E2B842;
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 0.5em 1em;
+            text-align: left;
+        }
+
+        td {
+            color: #fff;
+            font-weight: 400;
+            padding: 0.65em 1em;
+        }
+
+        .disabled td {
+            color: #4F5F64;
+        }
+
+        tbody tr {
+            transition: background 0.25s ease;
+        }
+
+        tbody tr:hover {
+            background: #014055;
+        }
+
+        table img {
+            width: 60px;
+        }
+
+        table button {
+            margin: 3px;
+            padding: 2px 6px;
+            font-size: 12px
+        }
+
+    </style>
+</head>
+<body>
+<input placeholder="Tên sản phẩm" id="ten" type="text">
+<input placeholder="Hãng sản phẩm" id="hang" type="text">
+<input placeholder="Giá sản phẩm" id="gia" type="text">
+<input placeholder="Ảnh sản phẩm" id="anh" type="text">
+<button onclick="themDoiTuong()"> Thêm</button>
+<div id="bang">
+
+</div>
+<div style="position: relative; display:none" id="div">
+    <img id="zoom" style="width: 700px">
+</div>
+<script>
+
+    class SanPham {
+        constructor(ten, hang, gia, anh) {
+            this.fieldTen = ten;
+            this.fieldHang = hang;
+            this.fieldGia = gia;
+            this.fieldAnh = anh;
+
+        }
+
+    }
+
+    let tivi1 = new SanPham('TIVI SONY', 'SONY', 1500000, 'https://cdn.tgdd.vn/Products/Images/1942/219650/ffalcon-40sf1-9-550x340.jpg');
+    let tivi2 = new SanPham('TIVI LG', 'LG', 1200000, 'https://meta.vn/Data/image/2019/11/08/tivi-sony-32-inch-smart-32w610g-mau-2019-1.jpg');
+    let sanPhamList = [tivi1, tivi2];
+
+    function drawTable(mang) {
+        let strTb = '<table><thead><tr>' +
+            '<th>STT</th>' +
+            '<th>TÊN SẢN PHẨM</th>' +
+            '<th>HÃNG</th>' +
+            '<th>GIÁ</th>' +
+            '<th>ẢNH</th>' +
+            '<th>CHỨC NĂNG</th>' +
+            '</tr></thead>'
+
+        for (let i = 0; i < mang.length; i++) {
+            strTb += '<tr>' +
+                '<td>' + (i + 1) + '</td>' +
+                '<td>' + mang[i].fieldTen + '</td>' +
+                '<td>' + mang[i].fieldHang + '</td>' +
+                '<td>' + mang[i].fieldGia + '</td>' +
+                '<td><img onmouseenter="showZoom(event.target)" onmouseleave="closeZoom()" src="' + mang[i].fieldAnh + '"></td>' +
+                '<td><button onclick="xoaPhanTu(' + i + ')">XÓA</button><button onclick="suaDoiTuong('+i+')">SỬA</button></td>' +
+                '</tr>'
+        }
+
+        strTb += '</table>';
+        document.getElementById('bang').innerHTML = strTb;
+    }
+
+    drawTable(sanPhamList);
+
+    function xoaPhanTu(i) {
+        sanPhamList.splice(i, 1);
+        drawTable(sanPhamList);
+    }
+    function themDoiTuong(){
+        let tenSP=document.getElementById('ten').value;
+        let hangSP=document.getElementById('hang').value;
+        let giaSP=document.getElementById('gia').value;
+        let anhSP=document.getElementById('anh').value;
+        let sanPhamMoi=new SanPham(tenSP,hangSP,giaSP,anhSP);
+        sanPhamList.push(sanPhamMoi);
+        drawTable(sanPhamList);
+    }
+function suaDoiTuong(i){
+document.getElementById('ten').value=sanPhamList[i].fieldTen;
+document.getElementById('hang').value=sanPhamList[i].fieldHang;
+document.getElementById('gia').value=sanPhamList[i].fieldGia;
+document.getElementById('anh').value=sanPhamList[i].fieldAnh;
+}
+    function showZoom(event) {
+        document.getElementById('zoom').src = event.src;
+        document.getElementById('div').style.display = 'block';
+    }
+
+    function closeZoom() {
+
+        document.getElementById('div').style.display = 'none';
+    }
+
+</script>
+</body>
+</html>

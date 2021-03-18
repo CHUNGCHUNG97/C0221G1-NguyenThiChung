@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkNumber(a){
+       let isNumber=true;
+        if (a!=NaN && parseFloat(a)==a){
+            return isNumber;
+        }else{
+            isNumber=false;
+            return isNumber;
+        }
+    }
+    let a=prompt('nhập vào đây');
+    alert(checkNumber(a));
+</script>
+</body>
+</html>
