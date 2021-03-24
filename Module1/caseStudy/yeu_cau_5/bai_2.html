@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt('nhập số thứ nhất'));
+    let n = parseInt(prompt('nhập số thứ hai'));
+    let arr = [];
+    for (let i = 0; i < m; i++) {
+        arr[i] = [];
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = Math.ceil(Math.random() * 100);
+        }
+    }
+    let count = 0;
+    let soNguyenTo = [];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (isSNT(arr[i][j])) {
+                soNguyenTo.push(arr[i][j]);
+                count++;
+            }
+        }
+    }
+
+    alert(count);
+    alert(soNguyenTo);
+
+
+    function isSNT(soX) {
+        let isSNT = true;
+        if (soX == 2) {
+            isSNT = true;
+        } else if (soX < 2) {
+            isSNT = false;
+        } else {
+            for (let i = 2; i < Math.sqrt(soX); i++) {
+                if (soX % i == 0) {
+                    isSNT = false;
+                    break;
+                }
+            }
+        }
+
+        return isSNT;
+    }
+
+
+</script>
+</body>
+</html>

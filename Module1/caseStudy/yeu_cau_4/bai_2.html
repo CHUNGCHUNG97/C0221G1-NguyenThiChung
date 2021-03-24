@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let kyTu = 'hG121';
+    let mangChua =[];
+    let isContain = false;
+    let count = 0;
+
+    for (let i = 0; i < kyTu.length; i++) {
+        for (let j = 0; j < mangChua.length; j++) {
+            if (kyTu[i] == mangChua[j]) {
+                isContain=true;
+            }
+        }
+        if (!isContain) {
+            mangChua.push(kyTu[i]);
+            count++;
+        }
+    }
+    document.write(count);
+
+</script>
+</body>
+</html>

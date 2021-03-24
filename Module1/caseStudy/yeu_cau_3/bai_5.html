@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>MENU DRINK FOOD</h1>
+<div id="drink"></div>
+<button style="width: 100px;" onclick="exit()">Exit</button>
+<script>
+    //
+    // for (let i = 0; i < listDrinkWater.length; i++) {
+    //     let str = '<ul>' + '<button style="width: 50px" onclick="chooseDrink(' + i + ')">' + (i + 1) + '</button>' + ' :     ' + listDrinkWater[i];
+    //     document.getElementById('drink').innerHTML += str + "</ul>";
+    // }
+    // let total = 0;
+    //
+    //     function chooseDrink(i) {
+    //         let number = prompt('nhập số lượng' + listDrinkWater[i] + ' cần oder( giá : ' + price[i] + 'đ )');
+    //         total += price[i] * number;
+    //         alert('tổng tiền bạn cần thanh toán là : ' + total);
+    //     }
+
+    let listDrinkWater = ['cafe', 'cam vắt', 'nước ép cà rốt', 'nước ép cà chua', 'nước lọc', 'nước dừa'];
+    let price = [10000, 10000, 12000, 15000, 15000, 20000];
+    let total = 0;
+    let strOder = '';
+    let selectedMenu;
+    let countOrder = 1;
+    do {
+        selectedMenu = prompt("Menu thực đơn :\n" +
+            "1. Cafe\n" +
+            "2. Cam vắt\n" +
+            "3. Nước ép cà rốt\n" +
+            "4. Nước ép cà chua\n" +
+            "5. Nước lọc\n" +
+            "6 Nước dừa\n" +
+            "DANH SÁCH ĐÃ ORDER : \n" + strOder + '\n ' +
+            "Nhập lựa chọn của bạn");
+
+        let soLuong = prompt("Giá của " + listDrinkWater[selectedMenu - 1] + " là : " + price[selectedMenu - 1] + "\n" +
+            "Nhập số lượng order: ")
+        total += soLuong * price[selectedMenu - 1];
+        alert('Bạn đã order hết ' + total + ' VNĐ');
+        strOder += countOrder + '. ' + listDrinkWater[selectedMenu - 1] + ' SL : ' + soLuong + '\n';
+        countOrder++;
+    } while (selectedMenu == 7)
+
+
+</script>
+</body>
+</html>

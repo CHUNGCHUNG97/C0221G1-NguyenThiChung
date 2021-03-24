@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="show()"> Ok
+
+</button>
+<script>
+
+    class BongDen {
+        status;
+
+        constructor() {
+        }
+
+        getLight() {
+            if (this.status) {
+                alert('sang')
+            } else {
+                alert('toi')
+            }
+        }
+
+    }
+    let bd = new BongDen();
+
+
+
+
+    class CongTac{
+        status;
+        lamp;
+
+
+        constructor(status, lamp) {
+            this.status = status;
+            this.lamp = lamp;
+            this.lamp.status = this.status;
+        }
+
+        switch(){
+            this.status = !this.status;
+            this.lamp.status = this.status;
+            this.lamp.getLight();
+
+        }
+
+    }
+
+    let ct = new CongTac(true,bd);
+
+
+    function show(){
+        ct.switch();
+
+    }
+
+</script>
+</body>
+</html>

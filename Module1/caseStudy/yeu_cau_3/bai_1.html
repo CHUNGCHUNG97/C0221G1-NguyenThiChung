@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function prefixSums(arr){
+        let a=0;
+        for (let i = 0; i <arr.length ; i++) {
+            a=a+arr[i];
+            arr[i]=a;
+        }
+        return arr;
+    }
+    let arr=[1,2,3,4,5,6];
+    document.write(prefixSums(arr));
+</script>
+</body>
+</html>

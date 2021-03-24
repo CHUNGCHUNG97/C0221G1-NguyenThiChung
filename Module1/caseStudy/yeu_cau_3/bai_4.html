@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let word = ['một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
+    let number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let isFounded = false;
+    let inputNumber = parseInt(prompt('nhập số bất kỳ'));
+    inputNumber = inputNumber.toString();
+    for (let i = 0; i < inputNumber.length; i++) {
+        for (let j = 0; j < number.length; j++) {
+            if (inputNumber[i] == number[j]) {
+                isFounded = true;
+                document.writeln(word[j]);
+                break;
+            }
+        }
+    }
+    if (isFounded==false) {
+        alert('không có số nào phù hợp');
+    }
+
+</script>
+</body>
+</html>

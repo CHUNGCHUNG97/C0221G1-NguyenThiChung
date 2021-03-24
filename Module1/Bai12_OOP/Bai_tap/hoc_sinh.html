@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addStudent()">ADD STUDENT</button>
+<button onclick="removeStudent()">REMOVE</button>
+
+<div id="list"></div>
+<script>
+    class Student {
+        name;
+        id;
+        age;
+
+        constructor(name, id, age) {
+            this.name = name;
+            this.id = id;
+            this.age = age;
+        }
+
+    }
+
+    let studentList = [];
+    let hs1 = new Student('Chung', 1, 24);
+    let hs2 = new Student('Thach', 2, 28);
+    studentList.push(hs1, hs2);
+
+    function addStudent() {
+        let id = studentList.length + 1;
+        let ten = prompt('Ten HS');
+        let tuoi = prompt('Tuoi');
+        let newHs = new Student(ten, id, parseInt(tuoi));
+        studentList.push(newHs);
+        showStudentList(studentList)
+
+    }
+
+    function removeStudent() {
+        let id = prompt('nhap ID muon xoa');
+        let isFounded = false;
+        for (let i = 0; i < studentList.length; i++) {
+            if (studentList[i].id == id) {
+                studentList.splice(i, 1);
+                isFounded = true;
+                break;
+            }
+        }
+        if (!isFounded) {
+            alert('Không có tìm ra');
+        }
+        showStudentList(studentList)
+    }
+
+    function showStudentList(list) {
+
+        let str = '<ul>';
+        for (let i = 0; i < list.length; i++) {
+            str += '<li>' +
+                'ID : ' + list[i].id +
+                '---NAME : ' + list[i].name +
+                '---AGE : ' + list[i].age +
+                '</li>'
+
+        }
+
+        str += '</ul>';
+        document.getElementById('list').innerHTML = str;
+
+    }
+
+</script>
+</body>
+</html>

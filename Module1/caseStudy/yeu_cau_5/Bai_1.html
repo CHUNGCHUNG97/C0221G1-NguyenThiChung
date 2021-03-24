@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt('nhập số thứ nhất'));
+    let n = parseInt(prompt('nhập số thứ hai'));
+    let arr = [];
+    for (let i = 0; i < m; i++) {
+        arr[i] = [];
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = Math.ceil(Math.random() * 10);
+        }
+    }
+    alert(arr);
+   let totalEven=0;
+    for (let i = 0; i <arr.length ; i++) {
+        for (let j = 0; j <arr[i].length ; j++) {
+            if(arr[i][j]%2==0){
+                totalEven+=arr[i][j];
+            }
+        }
+    }
+    alert(totalEven);
+
+</script>
+</body>
+</html>

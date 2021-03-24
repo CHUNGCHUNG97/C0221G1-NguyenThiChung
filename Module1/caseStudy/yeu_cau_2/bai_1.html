@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let salary = parseFloat(prompt("nhập lương nhân viên"));
+    let percent;
+    let taxPersonal;
+    let netSalary;
+    if (salary >= 15000000) {
+        percent = 20 / 100;
+    } else if (salary >= 7000000 && salary < 15000000) {
+        percent = 10 / 100;
+    } else {
+        percent = 5 / 100;
+    }
+    taxPersonal = percent * salary;
+    netSalary=salary-taxPersonal;
+    document.write("thuế thu nhập cá nhân là : "+taxPersonal+"<br>");
+    document.write('tiền lương thực nhận là : '+netSalary);
+</script>
+</body>
+</html>

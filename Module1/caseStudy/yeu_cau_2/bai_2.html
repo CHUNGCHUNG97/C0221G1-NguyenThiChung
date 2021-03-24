@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nguyenAm=['o', 'u', 'i', 'a', 'e','O', 'U', 'I', 'A', 'E'];
+    let kyTu=prompt("nhập ký tự bất kỳ");
+   let  isNguyenAm=false;
+    for (let i = 0; i < nguyenAm.length; i++) {
+        if (kyTu==nguyenAm[i]){
+            isNguyenAm=true;
+            alert(kyTu + ' là nguyên âm');
+            break;
+        }
+    }
+    if(isNguyenAm==false){
+        alert(kyTu+ ' không phải nguyên âm');
+    }
+
+</script>
+</body>
+</html>

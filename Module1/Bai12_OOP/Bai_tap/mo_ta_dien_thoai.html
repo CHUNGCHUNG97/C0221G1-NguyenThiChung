@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="script" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+    <link rel="script" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js">
+    <link rel="script" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+    <link rel="script" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js">
+    <link rel="stylesheet" href="phone.css">
+
+</head>
+<style>
+    /*.phone {*/
+
+    /*    display: inline-block;*/
+    /*    width: 30%;*/
+    /*    height: 500px;*/
+    /*    background-color: #6b808c;*/
+    /*}*/
+
+    /*#data1 {*/
+    /*    width: 80%;*/
+    /*    margin: 10%;*/
+    /*    height: 300px;*/
+    /*    background-color: whitesmoke;*/
+    /*    border: solid 1px black;*/
+    /*}*/
+
+    /*#data0 {*/
+    /*    width: 80%;*/
+    /*    margin: 10%;*/
+    /*    height: 300px;*/
+    /*    background-color: whitesmoke;*/
+    /*    border: solid 1px black;*/
+    /*}*/
+
+    /*.green {*/
+    /*    color: green*/
+    /*}*/
+
+    /*.red {*/
+    /*    color: red;*/
+    /*}*/
+    #content0 {
+        margin-top: 20px;
+        width: 150%;
+        height: 300px;
+        background-color: whitesmoke;
+        transition: all 0.5s;
+        border-radius: 5px;
+        opacity: 0;
+        display:flex;
+        justify-items: center;
+        flex-direction:column;
+
+    }
+
+    #content0 li{
+        font-size: 14px !important;
+    }
+    .show {
+        display: block;
+        height: 300px !important;
+        transition: all 0.5s;
+        opacity: 0.7 !important
+    }
+
+    #cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+<body>
+<div class="phone">
+    <div id="data0"></div>
+    <button onclick="phoneAction(0,'write')">WRITE</button>
+    <button onclick="phoneAction(0,'view')">VIEW</button>
+
+</div>
+<div class="phone">
+    <div id="data1"></div>
+    <button onclick="phoneAction(1,'write')">WRITE</button>
+    <button onclick="phoneAction(1,'view')">VIEW</button>
+
+</div>
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="mobile">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="screen">
+        <img src="https://i.ibb.co/vPv6tT2/bg.jpg">
+        <h2 id="cont"><span style="font-size:40px">10:40 AM</span><br>
+            <span>26th Jan, 2019</span>
+            <div id="content0" class="">
+
+            </div>
+        </h2>
+
+        <ul>
+            <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+            <li><i id="sms" class="fa fa-comment-o" aria-hidden="true" onclick="phoneAction(1,'view')"></i></li>
+            <li><i class="fa fa-picture-o" aria-hidden="true"></i></li>
+            <li><i class="fa fa-camera" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.bottom').click(function () {
+            $('.screen').toggleClass('active')
+        })
+    })
+
+    $(document).ready(function () {
+        $('#sms').click(function () {
+            $('#content0').toggleClass('show')
+        })
+    })
+</script>
+
+
+<div class="youtube">
+    <a href="https://www.youtube.com/channel/UCbwXnUipZsLfUckBPsC7Jog" target="_blank">Click Here For More (880+)
+        Awesome CSS Effects</a>
+</div>
+<script>
+    // let mobile = document.querySelector('.mobile');
+    // let mobileBottom = mobile.querySelector('.mobile__bottom');
+    // let isMobileActivated = null;
+    //
+    // mobileBottom.addEventListener('click', function (evt) {
+    //     evt.preventDefault();
+    //     isMobileActivated = mobile.classList.contains('mobile--activated');
+    //     mobile.classList.toggle('mobile--activated', !isMobileActivated);
+    // });
+
+    class Sms {
+        content;
+        Id;
+        time;
+
+        constructor(content, Id, time) {
+            this.content = content;
+            this.Id = Id;
+            this.time = time;
+        }
+
+        getTime() {
+            let a = this.time
+            return `${a.getHours()}:${a.getMinutes()}:${a.getSeconds()} ${a.getDate()}/${a.getMonth()}/${a.getFullYear()}`
+
+        }
+    }
+
+    class Phone {
+        battery;
+        writingList = [];
+        inbox = [];
+        outbox = [];
+        status = true;
+        name;
+
+
+        constructor(name, status, battery) {
+            this.battery = battery;
+            this.status = status;
+            this.name = name;
+        }
+
+        checkStatus() {
+            return this.status;
+        }
+
+        turnOffPhone() {
+            this.status = false;
+        }
+
+        turnOnPhone() {
+            this.status = true;
+        }
+
+        charging() {
+
+        }
+
+        writingSms() {
+            if (!this.checkStatus()) return;
+            this.battery--;
+            let x = prompt(`${this.name} -> Nội dung tin nhắn : `);
+            this.writingList.push(x);
+            return x;
+        }
+
+        receiveSms(sms) {
+            if (!this.status) return;
+            this.battery--;
+            this.inbox.push(sms);
+        }
+
+        readSms() {
+            if (!this.status) return;
+            this.battery--;
+        }
+
+        previewSentSms() {
+            if (!this.status) return;
+            this.battery--;
+            console.log(this.outbox)
+        }
+
+        sendSms(phoneReceive) {
+            if (!this.status) return;
+            this.battery--;
+            let sms = this.writingSms();
+            let smsGuiDi = new Sms(sms, phoneReceive.name, new Date());
+            let smsNhan = new Sms(sms, this.name, new Date())
+            phoneReceive.receiveSms(smsNhan);
+            this.outbox.push(smsGuiDi);
+
+        }
+
+        viewSms() {
+            console.log('writingList', this.writingList)
+            console.log('outbox', this.outbox)
+            console.log('inbox', this.inbox)
+        }
+
+        checkBattery() {
+            return this.battery;
+        }
+    }
+
+
+    let samsung = new Phone('Samsung', true, 100);
+    let iphone = new Phone('Iphone', false, 100);
+
+
+    let phonelist = [samsung, iphone]
+
+    function phoneAction(index, action) {
+        let biengui;
+        if (action === 'write') {
+            if (index == 0) {
+                biengui = 1;
+            } else {
+                biengui = 0
+            }
+            phonelist[index].sendSms(phonelist[biengui]);
+            genViewSms(phonelist[0], 0)
+            genViewSms(phonelist[1], 1)
+
+        } else if (action === 'view') {
+            phonelist[index].viewSms();
+            genViewSms(phonelist[0], 0)
+            genViewSms(phonelist[1], 1)
+        }
+    }
+
+    function genViewSms(phone, index) {
+        let [inbox, outbox] = [phone.inbox, phone.outbox];
+        let gen = document.getElementById('content' + index);
+
+        let str = '<ul> INBOX';
+        for (let i = 0; i < inbox.length; i++) {
+            str += '<li> <i class="fa fa-inbox red" aria-hidden="true"></i> : ' + inbox[i].content + '           <i class="fa fa-user" aria-hidden="true"></i>' + inbox[i].Id + ' thời gian : ' + inbox[i].getTime() + '</li>'
+        }
+        str += '</ul><ul> OUTBOX';
+        for (let i = 0; i < outbox.length; i++) {
+            str += '<li><i class="fa fa-inbox green" aria-hidden="true"></i> : ' + outbox[i].content + '            <i class="fa fa-user" aria-hidden="true"></i>' + outbox[i].Id + '</li>'
+        }
+        str += '</ul>';
+        console.log(str)
+        gen.innerHTML = str;
+
+
+    }
+
+</script>
+</body>
+</html>

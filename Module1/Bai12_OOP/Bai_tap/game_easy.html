@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="anh" style="position:absolute;top:100px;left:100px; width:150px"
+     src="https://2.bp.blogspot.com/-igowB6lTUvE/XJjuw6xkXGI/AAAAAAAAAII/Gv4ch1sfNJE2Ejcm6fLFfGLiNSigF6G2QCLcBGAs/s1600/hinh-anh-girl-xinh-gai-dep-mac-bikini_5.jpg">
+<button onclick="moveDown()">Down</button>
+<button onclick="moveUp()">Up</button>
+<button onclick="moveRight()">Right</button>
+<button onclick="moveLeft()">Left</button>
+
+
+<script>
+    class Hero {
+        picture;
+        x;
+        y;
+        speed;
+
+
+        constructor(picture, x, y, speed) {
+            this.picture = picture;
+            document.getElementById('anh').src = picture;
+            this.x = x;
+            this.y = y;
+            editCoordinates(this.x,this.y)
+            this.speed = speed;
+        }
+
+        moveLeft() {
+            this.x = this.x - this.speed;
+            editCoordinates(this.x, this.y)
+        }
+
+        moveRight() {
+            this.x = this.x + this.speed;
+            editCoordinates(this.x, this.y)
+        }
+
+        moveUp() {
+            this.y = this.y - this.speed;
+            editCoordinates(this.x, this.y)
+        }
+
+        moveDown() {
+            this.y = this.y + this.speed;
+            editCoordinates(this.x, this.y)
+        }
+    }
+
+    function editCoordinates(x, y) {
+        document.getElementById('anh').style.top = y +'px';
+        document.getElementById('anh').style.left = x+'px';
+    }
+
+
+
+
+    function moveDown() {
+        hero.moveDown()
+    }
+    function moveUp() {
+        hero.moveUp()
+    }
+    function moveLeft() {
+        hero.moveLeft()
+    }
+    function moveRight() {
+        hero.moveRight()
+    }
+    let hero = new Hero('https://i.pinimg.com/originals/08/6f/2d/086f2d8295d09b9e97f77af8f63b9e52.jpg', 500, 200, 100);
+</script>
+</body>
+</html>

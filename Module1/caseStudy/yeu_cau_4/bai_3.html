@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str1 = 'abs12mjsc';
+    let str2 = 'ksmjssadq';
+    let count = 0;
+    while(str1.length>0) {
+        for (let i = 0; i < str2.length; i++) {
+            if (str1[0] == str2[i]) {
+                str2 = str2.replace(str2[i], '');
+                count++;
+                break;
+            }
+        }
+        str1 = str1.replace(str1[0], '');
+    }
+    alert(count)
+    // let str = '12341';
+    // let mang = [];
+    // for (let i = 0; i < str.length; i++) {
+    //     if(!checkExistStringInArray(str[i],mang)){
+    //
+    //         mang.push(str[i])
+    //
+    //     }
+    //
+    // }
+    // alert(mang.length)
+    // function checkExistStringInArray(stringCheck, array) {
+    //     let isContain = false;
+    //     for (let i = 0; i < array.length; i++) {
+    //         if (array[i] === stringCheck) {
+    //             isContain = true;
+    //             break;
+    //         }
+    //     }
+    //     return isContain;
+    //
+    // }
+
+    //
+    // let str = '123431';
+    // let mang = [];
+    // while (str.length > 0) {
+    //     mang.push(str[0])
+    //     str = str.replaceAll(str[0], "");
+    // }
+    //
+    // alert(mang);
+
+
+
+</script>
+
+</body>
+</html>

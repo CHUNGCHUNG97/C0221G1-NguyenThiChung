@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function phanSoLonNhat(numerators, denominators) {
+        let index = 0;
+        let max = numerators[0] / denominators[0]
+        for (let i = 1; i < numerators.length; i++) {
+            if (max <= numerators[i] / denominators[i]) {
+                max = numerators[i] / denominators[i];
+                index=i;
+            }
+        }
+        return index;
+    }
+    let numerators=[2,3,4,5,7,12,8];
+    let denominators=[4,5,3,54,22,1,14];
+    document.writeln(phanSoLonNhat(numerators,denominators));
+</script>
+</body>
+</html>

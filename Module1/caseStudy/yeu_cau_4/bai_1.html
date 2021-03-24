@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strKyTu = 'NguYn    ThI Chung';
+
+
+    function chuanHoaStr(strKyTu) {
+        let kq = '';
+        while (strKyTu.indexOf("  ") !== -1) {
+            strKyTu = strKyTu.replace("  ", " ");
+        }
+        strKyTu = strKyTu.toLowerCase();
+        for (let i = 0; i < strKyTu.length; i++) {
+            if (i === 0) {
+                kq += strKyTu[i].toUpperCase();
+                continue;
+            }
+            if (strKyTu[i - 1] === " ") {
+                kq += strKyTu[i].toUpperCase();
+            } else {
+                kq += strKyTu[i];
+            }
+
+
+        }
+        return kq;
+    }
+
+
+    function tuDaiNhat(x) {
+        x = x.split(' ');
+        let max = x[0].length;
+        let tuCanTim=[];
+        for (let i = 1; i < x.length; i++) {
+            if (max <= x[i].length) {
+                max = x[i].length;
+            }
+        }
+        for (let i = 0; i <x.length ; i++) {
+            if (x[i].length == max) {
+                tuCanTim.push(x[i]);
+            }
+        }
+
+        return tuCanTim;
+    }
+
+
+    //  1.ham chuan hoa -> String => tra ve str da chuan hoa;
+    //    2. tu str da chuan hoa => tim ra tu dai nhat;
+    //3. ham main su dung 2 ham tren : in ra xau truoc khi chuan hoa => sau chuan hoa va tu dai nhat.
+
+    //    promt => str => in
+    //    stCH = func chuan hoa(str) => in
+    //    shoCH => tim....dai nhat => in ra;
+
+      function main() {
+        let chuoiKyTu=prompt("Nhập ký tự bất kỳ");
+        alert(chuoiKyTu);
+          let tuDaChuanHoa = chuanHoaStr(chuoiKyTu);
+        alert(tuDaChuanHoa);
+        alert(tuDaiNhat(tuDaChuanHoa));
+      }
+      main()
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+</body>
+<script>
+    class Circle {
+        constructor(x, y, radius) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+        }
+    }
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green + ")";
+    }
+    function drawCircle() {
+        let c = document.getElementById('myCanvas').getContext("2d");
+        let radius1 = Math.floor(Math.random() * 100);
+        let x=Math.random()*window.innerHeight;
+        let y=Math.random()*window.innerWidth;
+        let circleDraw = new Circle(x, y, radius1);
+        let colors = getRandomColor();
+        c.beginPath();
+        c.arc(circleDraw.x, circleDraw.y, circleDraw.radius, 0, 2 * Math.PI);
+        c.fillStyle = colors;
+        c.fill();
+        c.stroke();
+
+    }
+
+    setInterval(drawCircle,200)
+
+</script>
+</html>
