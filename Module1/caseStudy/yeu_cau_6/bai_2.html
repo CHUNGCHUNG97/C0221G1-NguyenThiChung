@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border: 1px solid
+    }
+
+    table td {
+        border: 1px solid;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+    }
+
+    table td:hover {
+        cursor: pointer;
+        background-color: #6b808c;
+
+    }
+
+    .btn-circle {
+        border-radius: 50px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .nut {
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .a {
+        text-align: center;
+    }
+</style>
+<body>
+<div class="a">
+    <button id="so1" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">1</button>
+    <button id="so2" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">2</button>
+    <button id="so3" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">3</button>
+    <button id="so4" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">4</button>
+    <button id="so5" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">5</button>
+    <button id="so6" onClick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">6</button>
+    <button onClick="randomVietlott()">Random</button>
+    <button onclick="themVeSoVietLott()">Xác Nhận</button>
+    <button onclick="checkVe()">Kiểm tra kết quả</button>
+</div>
+<div style="display: flex; flex-direction: row;justify-content: center; width: 100%" class="my-4">
+    <div id="bangChon" style="display: none"></div>
+</div>
+<script>
+    class VietLott {
+        mangVeSo = new Array(6);
+
+        constructor(array) {
+            this.mangVeSo = array;
+        }
+    }
+
+    class Player {
+        name;
+        veSoList = [];
+
+
+        constructor(name) {
+            this.name = name;
+        }
+
+        addVeSoVietLott(veSo) {
+            if (this.veSoList.length === 4) {
+                alert('đã đủ số lượng vé')
+            } else {
+                this.veSoList[this.veSoList.length] = veSo;
+                alert('số vé hiện có của bạn là ' + this.veSoList.length);
+            }
+        }
+
+        checkVeSo(ketQua) {
+            if (this.veSoList.length == 0) {
+                alert('bạn chưa mua vé số nào');
+                return;
+            }
+            for (let i = 0; i < this.veSoList.length; i++) {
+                console.log(this.veSoList[i])
+                let giai = check1VeTrung(this.veSoList[i], [...ketQua])
+                if (giai === 6) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải đặc biệt');
+                } else if (giai === 5) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải nhất');
+                } else if (giai === 4) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải nhì');
+                } else if (giai === 3) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải ba');
+                } else if (giai === 2) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải tư');
+                } else if (giai === 1) {
+                    alert('Vé số thứ ' + (i + 1) + ' trúng giải năm');
+                } else {
+                    alert('vé số thứ ' + (i + 1) + ' khong trung thuong');
+                }
+            }
+            this.veSoList = [];
+        }
+    }
+
+    function checkVe() {
+        let result = [32, 1, 22, 3, 4, 5];
+        player.checkVeSo(result);
+    }
+
+    let clickButton;
+
+    function drawBangChon(button) {
+        clickButton = button;
+        document.getElementById('bangChon').style.display = "block";
+        let str = "<table>";
+        for (let i = 0; i < 10; i++) {
+            str += "<tr>"
+            for (let j = 0; j < 10; j++) {
+                str += "<td onclick='chonSo(event.target)' >" + (j + 10 * i) + "</td>"
+
+            }
+            str += "</tr>"
+
+        }
+        str += "</table>"
+        document.getElementById('bangChon').innerHTML = str;
+    }
+
+    function chonSo(target) {
+        clickButton.innerText = target.innerText;
+        document.getElementById('bangChon').style.display = 'none';
+    }
+
+    let player = new Player('chung');
+
+    function themVeSoVietLott() {
+        let mangSo = [];
+        for (let i = 1; i < 7; i++) {
+            let soDuocChon = document.getElementById('so' + i).innerText;
+            mangSo.push(parseInt(soDuocChon));
+        }
+        let mangVeSoVietLott = new VietLott(mangSo);
+        player.addVeSoVietLott(mangVeSoVietLott);
+        setDefaultNumber()
+    }
+
+
+    function check1VeTrung(veMua, ketQua) {
+        let count = 0;
+        for (let i = 0; i < veMua.mangVeSo.length; i++) {
+            let soLanChay = ketQua.length;
+            for (let j = 0; j < soLanChay; j++) {
+                if (veMua.mangVeSo[i] === ketQua[j]) {
+                    count++;
+                    ketQua.splice(j, 1);
+                    break;
+
+                }
+            }
+        }
+        return count;
+    }
+
+    function setDefaultNumber() {
+        for (let i = 1; i < 7; i++) {
+            let id = 'so' + i;
+            document.getElementById(id).innerText = i;
+        }
+    }
+
+    function randomVietlott() {
+        for (let i = 1; i < 7; i++) {
+            document.getElementById('so' + i).innerText = Math.ceil(Math.random() * 99);
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

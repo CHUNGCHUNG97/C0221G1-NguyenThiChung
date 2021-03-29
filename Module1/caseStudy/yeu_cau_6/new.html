@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border: 1px solid;
+    }
+
+    table td {
+        border: 1px solid;
+        margin: 10px;
+        text-align: center
+    }
+</style>
+<body>
+<input style="height:20px" id="filter">
+<select id="gioiTinh" style="height:25px">
+    <option value="Nam/Nữ">Nam/Nữ</option>
+    <option value="Nam">Nam</option>
+    <option value="Nữ">Nữ</option>
+</select>
+<button style="margin-left:10px;width:100px;height:30px" onClick="filterStudent()">Find</button>
+<button style="margin-left:10px;width:100px;height:30px" onclick="addStudent()">Add</button>
+<br><br>
+<div id="draw"></div>
+<br>
+
+
+<script>
+    class Student {
+        name;
+        age;
+        gioiTinh;
+        classLearn;
+
+        constructor(name, age, gioiTinh, classLearn) {
+            this.name = name;
+            this.age = age;
+            this.gioiTinh = gioiTinh;
+            this.classLearn = classLearn;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        get age() {
+            return this.age;
+        }
+
+        get classLearn() {
+            return this.classLearn;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setAge(age) {
+            this.age = age;
+        }
+
+        setClassLearn(classLearn) {
+            this.classLearn = classLearn;
+        }
+    }
+
+    let studentList = [];
+    let student1 = new Student("Chung", '24', 'Nữ', 'C0221G1');
+    let student2 = new Student("Thạch", '28', 'Nam', 'C0220G1');
+    studentList.push(student1, student2);
+
+    function draw(listStudent) {
+        let str = '<table>';
+        str += '<tr style="text-align: center"><td>STT</td><td>Tên Sinh Viên</td><td>Tuổi</td><td>Lớp</td>' +
+            '<td>Giới tính</td><td>Chức năng</td></tr>';
+        for (let i = 0; i < listStudent.length; i++) {
+            str += '<tr><td>' + (i + 1) + ' </td><td>' + listStudent[i].name + '</td>' +
+                '<td>' + listStudent[i].age + '</td><td>' + listStudent[i].classLearn + '</td>' +
+                '<td>' + listStudent[i].gioiTinh + '</td>' +
+                '<td ><button style="margin: 10px" onclick="editStudent(' + i + ')">Edit</button>' +
+                '<button style="margin: 10px" onclick="deleteStudent(' + i + ')">Delete</button></td></tr>'
+        }
+
+        str += '</table>';
+        document.getElementById('draw').innerHTML = str;
+    }
+
+    draw(studentList);
+
+    function addStudent() {
+        let a = confirm("bạn muốn thêm học viên??");
+        if (a) {
+            let name = prompt("nhập tên");
+            let age = parseFloat(prompt('nhập tuổi'));
+            let gioiTinh = prompt('nhập giới tính');
+            let classLearn = prompt('nhập lớp học');
+            let student = new Student(name, age, gioiTinh, classLearn);
+            studentList.push(student);
+            draw(studentList);
+        }
+    }
+
+    function editStudent(i) {
+        // let name = prompt('nhập tên muốn thay đổi', studentList[i].name);
+        // if (name == null) return;
+        // let age = parseFloat(prompt('nhập tuổi muốn thay đổi', studentList[i].age));
+        // if (age == null) return;
+        // let classLearn = prompt('nhập lớp muốn sửa', studentList[i].classLearn);
+        // if (classLearn == null) return;
+        // let gioiTinh = prompt('nhập giới tính muốn sửa', studentList[i].gioiTinh);
+        // if (gioiTinh == null) return;
+        // studentList[i].name = name;
+        // studentList[i].age = age;
+        // studentList[i].classLearn = classLearn;
+        // studentList[i].gioiTinh=gioiTinh;
+        // draw(studentList)
+        let thongBao;
+        do {
+            thongBao = (prompt('SỬA NỘI DUNG\n' +
+                '1.Tên\n' +
+                '2.Tuổi\n' +
+                '3.Lớp\n' +
+                '4.Giới tính\n' +
+                '5.Exit'));
+            switch (thongBao) {
+                case '1': {
+                    let name = prompt('nhập tên muốn thay đổi',studentList[i].name);
+                    if(name==null) return;
+                    studentList[i].name = name;
+                    break;
+                }
+                case '2': {
+                    let age = parseInt(prompt('nhập tuổi muốn thay đổi'));
+                    if(age==null || Number.isNaN(age)) return;
+                    studentList[i].age = age;
+                    break;
+                }
+                case '3': {
+                    let lop = prompt('nhập lớp muốn thay đổi');
+                    if(lop==null) return;
+                    studentList[i].classLearn = lop;
+                    break;
+                }
+                case '4': {
+                    let gioiTinh = prompt('nhập giới tính muốn thay đổi');
+                    if(gioiTinh==null) return;
+                    if (gioiTinh.toLowerCase() == 'nam' || gioiTinh.toLowerCase() == 'nữ') {
+                        studentList[i].gioiTinh = gioiTinh;
+                    }
+
+                    break;
+                }
+                default: {
+
+                }
+            }
+            draw(studentList);
+        } while (thongBao > 0 && thongBao < 5);
+    }
+
+    function deleteStudent(i) {
+        let a = confirm('bạn chắc chắn muốn xóa học viên này khỏi danh sách?');
+        if (a) {
+            studentList.splice(i, 1);
+        }
+        draw(studentList);
+    }
+
+    function filterStudent() {
+        let a = document.getElementById('filter').value;
+        let b = document.getElementById('gioiTinh').value;
+        let arrFilter;
+        if (b == 'Nam/Nữ') {
+            arrFilter = studentList.filter(student => student.name.toLowerCase().includes(a.toLowerCase()));
+        } else if (b == "Nam") {
+            arrFilter = studentList.filter(student => student.name.toLowerCase().includes(a.toLowerCase()) && student.gioiTinh == "Nam");
+        } else {
+            arrFilter = studentList.filter(student => student.name.toLowerCase().includes(a.toLowerCase()) && student.gioiTinh == "Nữ");
+        }
+        draw(arrFilter);
+    }
+</script>
+
+</body>
+</html>

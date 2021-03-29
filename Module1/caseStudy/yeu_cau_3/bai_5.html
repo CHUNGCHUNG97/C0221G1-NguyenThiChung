@@ -5,9 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>MENU DRINK FOOD</h1>
-<div id="drink"></div>
-<button style="width: 100px;" onclick="exit()">Exit</button>
 <script>
     //
     // for (let i = 0; i < listDrinkWater.length; i++) {
@@ -40,12 +37,12 @@
             "Nhập lựa chọn của bạn");
 
         let soLuong = prompt("Giá của " + listDrinkWater[selectedMenu - 1] + " là : " + price[selectedMenu - 1] + "\n" +
-            "Nhập số lượng order: ")
+            "Nhập số lượng order: ");
         total += soLuong * price[selectedMenu - 1];
         alert('Bạn đã order hết ' + total + ' VNĐ');
         strOder += countOrder + '. ' + listDrinkWater[selectedMenu - 1] + ' SL : ' + soLuong + '\n';
         countOrder++;
-    } while (selectedMenu == 7)
+    } while (selectedMenu !== 7)
 
 
 </script>

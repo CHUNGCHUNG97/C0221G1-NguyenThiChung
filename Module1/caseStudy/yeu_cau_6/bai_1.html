@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+
+        table {
+            border: solid 1px black;
+
+        }
+
+        table td {
+            border: solid 1px;
+            width: 30px;
+            height: 30px;
+            text-align: center
+
+        }
+
+        table td:hover {
+            cursor: pointer;
+            background-color: #6b808c;
+
+        }
+
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 24px;
+            line-height: 1.33;
+        }
+
+        .btn-circle {
+            width: 50px;
+            height: 50px;
+            padding: 6px 0px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.42857;
+            margin: 5px
+        }
+
+    </style>
+</head>
+<body>
+<div style="display: flex; flex-direction: row;justify-content: center; width: 100%" class="my-4">
+    <button id="so1" onclick="drawBangChon(event.target)" class=" btn btn-danger btn-circle">1</button>
+    <button id="so2" onclick="drawBangChon(event.target)" class="btn btn-danger btn-circle">2</button>
+    <button id="so3" class="btn btn-danger btn-circle" onclick="drawBangChon(event.target)">3</button>
+    <button id="so4" class="btn btn-danger btn-circle" onclick="drawBangChon(event.target)">4</button>
+    <button id="so5" class="btn btn-danger btn-circle" onclick="drawBangChon(event.target)">5</button>
+    <button id="so6" class="btn btn-danger btn-circle" onclick="drawBangChon(event.target)">6</button>
+    <button  class="btn btn-success mx-3 " onclick="ramDomVietLott()">RANDOM</button>
+    <button  class="btn btn-success " onclick="themVietLott()">XÁC NHẬN</button>
+</div>
+<div style="display: flex; flex-direction: row;justify-content: center; width: 100%" class="my-4">
+
+    <div id="bang-chon" style="display: none">
+
+    </div>
+</div>
+
+
+<script>
+    class VietLott {
+        mangSo = new Array(6)
+        constructor(array) {
+            this.mangSo = array;
+        }
+    }
+
+    class Player {
+        veSoList = new Array(4);
+        soVeSo = 0;
+        name;
+
+        constructor(name) {
+            this.name = name;
+        }
+
+        addVietLott(vietLott) {
+            if (this.soVeSo == 4) {
+                alert('đã đủ số lượng');
+                return;
+            }
+            this.veSoList[this.soVeSo] = vietLott;
+            this.soVeSo++;
+            alert('Đã thêm thành công. Hiện bạn có ' + this.soVeSo + ' vé số');
+        }
+
+        checkVietLott(resultArray) {
+
+            /// returrn;
+
+        }
+    }
+
+    let clickButton;
+
+    function drawBangChon(button) {
+        clickButton = button;
+        document.getElementById('bang-chon').style.display = "block";
+        let str = "<table>";
+        for (let i = 0; i < 10; i++) {
+            str += "<tr>"
+            for (let j = 0; j < 10; j++) {
+                str += "<td onclick='chonSo(event.target)' >" + (j + 10 * i) + "</td>"
+
+            }
+            str += "</tr>"
+
+        }
+        str += "</table>"
+        document.getElementById('bang-chon').innerHTML = str;
+    }
+
+    function chonSo(target) {
+        clickButton.innerText = target.innerText;
+        document.getElementById('bang-chon').style.display = 'none';
+    }
+
+    let ngChoi = new Player('Chung');
+
+
+    function themVietLott() {
+        let mangTam = [];
+        for (let i = 1; i < 7; i++) {
+            let soChon = document.getElementById('so' + i).innerText;
+            mangTam.push(soChon);
+        }
+        let vL = new VietLott(mangTam);
+        ngChoi.addVietLott(vL);
+        // console.log(ngChoi)
+    }
+
+    function ramDomVietLott() {
+
+        for (let i = 1; i < 7; i++) {
+            document.getElementById('so' + i).innerText = Math.ceil(Math.random() * 100);
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

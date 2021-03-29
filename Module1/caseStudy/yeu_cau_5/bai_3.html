@@ -15,21 +15,24 @@
             arr[i][j] = Math.ceil(Math.random() * 100);
         }
     }
-    alert(arr);
-    let max;
-    for (let i = 0; i <arr.length ; i++) {
-       max= maxArr(arr[i]);
+    let max = arr[0][0];
+    for (let i = 0; i < arr.length; i++) {
+        if (max <= maxArr(arr[i])) {
+            max = maxArr(arr[i]);
+        }
     }
     alert(max);
-    function maxArr(array){
-        let max=array[0];
-        for (let i = 0; i <array.length ; i++) {
-            if(max<=array[i]){
-                max=array[i];
+
+    function maxArr(array) {
+        let max = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (max <= array[i]) {
+                max = array[i];
             }
         }
         return max;
     }
+
 </script>
 </body>
 </html>
