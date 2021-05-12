@@ -1,4 +1,6 @@
-package transport.controllers;
+package transport.models;
+
+import transport.comons.ContantsTransport;
 
 public class Cars extends Transports {
     int numberSeat;
@@ -12,7 +14,13 @@ public class Cars extends Transports {
 
     @Override
     public String toCSV() {
-        return null;
+        return "Car" + ContantsTransport.COMMA +
+                this.controlSign + ContantsTransport.COMMA +
+                this.manufacturer + ContantsTransport.COMMA +
+                this.yearManufacturer + ContantsTransport.COMMA +
+                this.owner + ContantsTransport.COMMA +
+                this.numberSeat + ContantsTransport.COMMA +
+                this.typeCar;
     }
 
     @Override

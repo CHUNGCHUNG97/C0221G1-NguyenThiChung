@@ -1,4 +1,4 @@
-package transport.controllers;
+package transport.models;
 
 public abstract class Transports {
     protected String controlSign;
@@ -15,12 +15,10 @@ public abstract class Transports {
 
     @Override
     public String toString() {
-        return "Transports{" +
-                "controlSign='" + controlSign + '\'' +
+        return "controlSign='" + controlSign + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", yearManufacturer=" + yearManufacturer +
-                ", owner='" + owner + '\'' +
-                '}';
+                ", owner='" + owner;
     }
 
     public abstract String toCSV();

@@ -1,4 +1,8 @@
 package AbstractClass.Thuc_hanh.animal;
 
-public class InterfaceFruit {
+public abstract class InterfaceFruit implements InterfaceEdible {
+    @Override
+    public String howToEat() {
+        return "could be fried";
+    }
 }

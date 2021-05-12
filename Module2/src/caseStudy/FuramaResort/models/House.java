@@ -1,24 +1,47 @@
-package caseStudy;
+package caseStudy.FuramaResort.models;
 
-public class House extends FuramaResort {
-    String tieuChuanPhong;
-    String moTaTienNghiKhac;
-    int soTang;
+import caseStudy.FuramaResort.commons.Constants;
+
+public class House extends Services {
+    private String tieuChuanPhong;
+    private String moTaTienNghiKhac;
+    private int soTang;
 
     public House() {
     }
 
-    public House(String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
+    public House(String id, String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
+        super(id, tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.soTang = soTang;
     }
 
-    public House(String tenDichVu, String dienTichSuDung, String chiPhiThue, int soLuongNguoiToiDa, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.moTaTienNghiKhac = moTaTienNghiKhac;
-        this.soTang = soTang;
+    @Override
+    public void showInfor() {
+        System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "House{" + super.toString() +
+                "tieuChuanPhong='" + tieuChuanPhong + '\'' +
+                ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
+                ", soTang=" + soTang + '\'' +
+                '}';
+    }
+
+    @Override
+    public String toCSV() {
+        return "HOUSE" + Constants.COMMA + this.id + Constants.COMMA +
+                this.tenDichVu + Constants.COMMA +
+                this.tieuChuanPhong + Constants.COMMA +
+                this.kieuThue + Constants.COMMA +
+                this.dienTichSuDung + Constants.COMMA +
+                this.chiPhiThue + Constants.COMMA +
+                this.soTang + Constants.COMMA +
+                this.moTaTienNghiKhac + Constants.COMMA
+                + this.soLuongNguoiToiDa;
     }
 
     public String getTieuChuanPhong() {
@@ -43,14 +66,5 @@ public class House extends FuramaResort {
 
     public void setSoTang(int soTang) {
         this.soTang = soTang;
-    }
-
-    @Override
-    public String toString() {
-        return "House{" +
-                "tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
-                ", soTang=" + soTang +
-                '}';
     }
 }

@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let n = parseInt(prompt("Nhập số lượng phần tử"));
+
+   while (n <= 20) {
+       let mangSoNguyen = [];
+        for (let i = 0; i < n; i++) {
+            let phanTu = parseInt(prompt("Nhập giá trị phần tử"));
+            mangSoNguyen.push(phanTu);
+        }
+       console.log(mangSoNguyen);
+       console.log('số lượng của mảng là ' + mangSoNguyen.length);
+       let tongSoChan = 0;
+       let tongSoLe = 0;
+       let hieu = 0;
+       for (let i = 0; i < mangSoNguyen.length; i++) {
+           if (mangSoNguyen[i] % 2 === 0) {
+               tongSoChan += mangSoNguyen[i];
+           } else if (mangSoNguyen[i] % 2 !== 0) {
+               tongSoLe += mangSoNguyen[i];
+           }
+       }
+       hieu = tongSoChan - tongSoLe;
+       console.log('hiệu là ' + hieu);
+    }
+        alert('số lượng phần tử không vượt quá 20 số');
+        n = parseInt(prompt("Nhập số lượng phần tử"));
+
+
+
+</script>
 </body>
 </html>

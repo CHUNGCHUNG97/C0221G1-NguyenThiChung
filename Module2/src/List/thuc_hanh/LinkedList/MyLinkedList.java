@@ -1,6 +1,6 @@
-package List.ListEasy.LinkedList;
+package List.thuc_hanh.LinkedList;
 
-public class MyLinkedList {
+public class MyLinkedList<E> {
     private int numNodes = 0;
     private Node head;
 
@@ -46,6 +46,10 @@ public class MyLinkedList {
             temp = temp.next;
         }
         return temp;
+    }
+
+    public int size() {
+        return numNodes;
     }
 
     public void printList() {

@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function kiemtraSoNT(n) {
+        let isSNT = false;
+        if (n < 2) {
+            isSNT = false;
+        } else if (n >= 2) {
+            isSNT = true;
+            for (let i = 2; i < Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    isSNT = false;
+                    break;
+                }
+            }
+        }
+        return isSNT;
+    }
+
+    function soNT(arr) {
+        let mangSoNT = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (kiemtraSoNT(arr[i])) {
+                mangSoNT.push(arr[i]);
+            }
+        }
+        return mangSoNT;
+    }
+
+    let mang = [1, 5, 17, 23, 8, 27, 10, 3];
+    let ketQua = soNT(mang);
+    ketQua = ketQua.sort(function (a, b) {
+        return a - b;
+    });
+    console.log(ketQua);
+
+</script>
 </body>
 </html>

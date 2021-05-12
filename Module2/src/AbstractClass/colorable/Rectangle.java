@@ -1,6 +1,7 @@
-package AbstractClass.bai_tap.Resizeable;
+package AbstractClass.colorable;
 
-public class Rectangle extends Shape implements Resizeable {
+
+public class Rectangle extends Shape {
     private double width;
     private double height;
 
@@ -28,12 +29,6 @@ public class Rectangle extends Shape implements Resizeable {
         this.height = heght;
     }
 
-    @Override
-    public void resize(double precent) {
-        height = height * (1 + precent / 100);
-        width = width * (1 + precent / 100);
-
-    }
 
     @Override
     double getArea() {
@@ -44,4 +39,6 @@ public class Rectangle extends Shape implements Resizeable {
     double Perimeter() {
         return 2 * (height + width);
     }
+
+
 }

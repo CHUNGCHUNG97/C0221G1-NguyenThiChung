@@ -1,4 +1,7 @@
-package transport.controllers;
+package transport.models;
+
+import caseStudy.FuramaResort.commons.Constants;
+import transport.comons.ContantsTransport;
 
 public class Trucks extends Transports {
     double payload;
@@ -10,7 +13,12 @@ public class Trucks extends Transports {
 
     @Override
     public String toCSV() {
-        return null;
+        return "Truck" + ContantsTransport.COMMA +
+                this.controlSign + ContantsTransport.COMMA +
+                this.manufacturer + ContantsTransport.COMMA +
+                this.yearManufacturer + ContantsTransport.COMMA +
+                this.owner + ContantsTransport.COMMA +
+                this.payload;
     }
 
     @Override

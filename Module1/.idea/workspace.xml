@@ -2,14 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/dao_nguoc_phan_tu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tao_ban_co_caro_don_gian.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tao_va_thao_tac_voi_mang.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tim_gia_tri_lon_nhat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai10_mang_1/Thuc_hanh/tim_gia_tri_trong_mang.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7_Bien_kieu_du_lieu_toan_tu/Bai_tap/ung_dung_may_tinh/vidu2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/AddElementArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/GiaTriLonNhatMang2Chieu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/GopMang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/RemoveElementArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Thuc_hanh/ReverseArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Thuc_hanh/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiHinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiSNTDauTien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiSoNguyenToNhoHon100.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/DesignMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/KiemTraSoNguyenTo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/TienGuiNganHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/TinhTienLai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/UocChungLonNhat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vd.html" beforeDir="false" afterPath="$PROJECT_DIR$/vd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/BMI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/DateInMonth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/LeapYear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/LinearEquationSolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/RectangleArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/SystemTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/Variable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +56,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bai10_mang_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
@@ -73,6 +91,9 @@
       <workItem from="1615604224329" duration="6058000" />
       <workItem from="1615720606017" duration="2223000" />
       <workItem from="1615772043052" duration="117000" />
+      <workItem from="1617204547764" duration="306000" />
+      <workItem from="1617267653706" duration="2446000" />
+      <workItem from="1617289041470" duration="173000" />
     </task>
     <task id="LOCAL-00001" summary="tao bang co ban">
       <created>1614830674642</created>

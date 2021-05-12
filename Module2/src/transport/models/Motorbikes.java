@@ -1,4 +1,6 @@
-package transport.controllers;
+package transport.models;
+
+import transport.comons.ContantsTransport;
 
 public class Motorbikes extends Transports {
     int wattage;
@@ -10,12 +12,17 @@ public class Motorbikes extends Transports {
 
     @Override
     public String toCSV() {
-        return null;
+        return "Motorbike" + ContantsTransport.COMMA +
+                this.controlSign + ContantsTransport.COMMA +
+                this.manufacturer + ContantsTransport.COMMA +
+                this.yearManufacturer + ContantsTransport.COMMA +
+                this.owner + ContantsTransport.COMMA +
+                this.wattage;
     }
 
     @Override
     public String toString() {
-        return "Motorbikes{" +super.toString()+
+        return "Motorbikes{" + super.toString() +
                 "wattage=" + wattage +
                 '}';
     }

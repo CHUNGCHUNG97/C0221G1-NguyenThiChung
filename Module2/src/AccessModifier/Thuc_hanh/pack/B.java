@@ -1,4 +1,11 @@
 package AccessModifier.Thuc_hanh.pack;
 
-public class B {
+import AccessModifier.Thuc_hanh.pack2.A;
+
+class B extends A {
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.msg();
+        System.out.println(obj);
+    }
 }

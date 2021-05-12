@@ -1,4 +1,6 @@
 package AbstractClass.Thuc_hanh.animal;
 
-public class InterfaceEdible {
+public interface InterfaceEdible {
+    String howToEat();
 }
+

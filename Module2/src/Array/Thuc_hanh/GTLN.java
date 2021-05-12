@@ -2,7 +2,7 @@ package Array.Thuc_hanh;
 
 import java.util.Scanner;
 
-public class TotalNumberInColumn {
+public class GTLN {
     public static void main(String[] args) {
         int[] arr=new int[5];
         Scanner scanner=new Scanner(System.in);

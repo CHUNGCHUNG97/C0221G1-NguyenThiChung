@@ -4,7 +4,7 @@ import KeThua.Thuc_hanh.doi_tuong_hinh_hoc.Circle;
 
 import java.util.Comparator;
 
-class CircleComparato implements Comparator<Circle> {
+class CircleComparator implements Comparator<Circle> {
 
     @Override
     public int compare(Circle o1, Circle o2) {

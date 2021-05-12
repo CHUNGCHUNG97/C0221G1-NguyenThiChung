@@ -2,9 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
+<style>
+    table {
+        border: 1px solid
+    }
+
+    table td {
+        border: 1px solid
+    }
+</style>
 <body>
-$END$
+<button onclick="addPhone()">Thêm sản phẩm</button>
+<br><br>
+<div id="phone"></div>
+<script>
+    class Phone {
+        maPhone;
+        name;
+        hangSX;
+        price;
+
+        constructor(maPhone, name, hangSX, price) {
+            this.maPhone = maPhone;
+            this.name = name;
+            this.hangSX = hangSX;
+            this.price = price;
+        }
+
+        get maPhone() {
+            return this.maPhone;
+        }
+
+        set maPhone(value) {
+            this.maPhone = value;
+        }
+
+        get name() {
+            return this.name;
+        }
+
+        set name(value) {
+            this.name = value;
+        }
+
+        get hangSX() {
+            return this.hangSX;
+        }
+
+        set hangSX(value) {
+            this.hangSX = value;
+        }
+
+        get price() {
+            return this.price;
+        }
+
+        set price(value) {
+            this.price = value;
+        }
+    }
+
+    let phoneList = [];
+    let phone1 = new Phone('1', 'Samsung', 'Samsung', "10000000");
+    phoneList.push(phone1);
+
+    function draw() {
+        let str = '<table>';
+        str += '<tr><td>Mã Điện Thoại</td><td>Tên Điện Thoại</td><td>Hãng</td><td>Giá</td></tr>';
+        for (let i = 0; i < phoneList.length; i++) {
+            str += '<tr>';
+            str += '<td>' + phoneList[i].maPhone + '</td>' +
+                '<td>' + phoneList[i].name + '</td>' +
+                '<td>' + phoneList[i].hangSX + '</td>' +
+                '<td>' + phoneList[i].price + 'VNĐ' + '</td>'
+
+            str += '</tr>'
+        }
+        str += '</table>';
+        document.getElementById('phone').innerHTML = str;
+    }
+
+    draw(phoneList);
+
+    function addPhone() {
+        let a = confirm("bạn muốn thêm điện thoại??");
+        if (a) {
+            let maPhone = prompt("nhập mã điện thoại");
+            let name = parseFloat(prompt('nhập tên điện thoại'));
+            let hang = prompt('nhập hãng điện thoại');
+            let gia = prompt('nhập giá điện thoại');
+            let phone = new Phone(maPhone, name, hang, gia);
+            phoneList.push(phone);
+            draw(phoneList);
+        }
+    }
+
+</script>
 </body>
 </html>

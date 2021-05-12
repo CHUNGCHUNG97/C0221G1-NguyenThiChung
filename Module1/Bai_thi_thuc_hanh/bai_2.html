@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function demKyTu(str) {
+        let a = str.toUpperCase();
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] == a[i] && str[i] != " " && isNaN(str[i])) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            alert('the strings is not contain upper char')
+        } else {
+            alert(count);
+        }
+    }
+
+    let str = prompt('nhập ký tự bất kỳ');
+    demKyTu(str);
+</script>
 </body>
 </html>

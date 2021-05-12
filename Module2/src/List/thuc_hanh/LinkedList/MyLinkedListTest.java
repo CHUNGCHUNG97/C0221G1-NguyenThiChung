@@ -1,4 +1,4 @@
-package List.ListEasy.LinkedList;
+package List.thuc_hanh.LinkedList;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {

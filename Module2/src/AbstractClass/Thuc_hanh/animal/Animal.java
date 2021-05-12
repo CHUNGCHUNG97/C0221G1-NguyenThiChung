@@ -1,4 +1,8 @@
 package AbstractClass.Thuc_hanh.animal;
 
-public class Animal {
+public abstract class Animal {
+    public abstract String makeSound();
 }
+
+
+
