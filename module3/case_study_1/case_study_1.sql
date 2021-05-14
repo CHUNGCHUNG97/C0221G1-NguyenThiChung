@@ -2,17 +2,17 @@ CREATE DATABASE case_study;
 use case_study;
 create table part
 (
-    idPart   int primary key auto_increment not null,
-    namePart varchar(45)
+    id_part   int primary key auto_increment not null,
+    name_part varchar(45)
 );
-insert into part(namePart)
+insert into part(name_part)
 values ('kế toán'),
        ('thiết kế'),
        ('hồ sơ');
 create table level
 (
-    idLevel int primary key auto_increment not null,
-    level   varchar(45)
+    id_level int primary key auto_increment not null,
+    level    varchar(45)
 );
 insert into level(level)
 values ('đại học'),
@@ -20,125 +20,188 @@ values ('đại học'),
        ('trung cấp');
 create table position
 (
-    idPosition   int primary key auto_increment not null,
-    namePosition varchar(45)
+    id_position   int primary key auto_increment not null,
+    name_position varchar(45)
 );
 
-insert into position (namePosition)
+insert into position (name_position)
 values ('trưởng phòng'),
-       ('phó phòng');
+       ('phó phòng'),
+       ('nhân viên');
 
 create table staff
 (
-    idStaff       int not null primary key auto_increment,
-    nameStaff     varchar(45),
-    idPosition    int,
-    idLevel       int,
-    idPart        int,
+    id_staff      int not null primary key auto_increment,
+    name_staff    varchar(45),
+    id_position   int,
+    id_level      int,
+    id_part       int,
     birthday      date,
     identity_card varchar(45),
     salary        varchar(45),
-    numberPhone   varchar(45),
+    number_phone  varchar(45),
     email         varchar(45),
     address       varchar(45),
-    foreign key (idPart) references part (idPart),
-    foreign key (idLevel) references level (idLevel),
-    foreign key (idPosition) references position (idPosition)
+    foreign key (id_part) references part (id_part),
+    foreign key (id_level) references level (id_level),
+    foreign key (id_position) references position (id_position)
 );
-insert into staff (nameStaff, idPosition, idLevel, idPart, birthday, identity_card, salary, numberPhone, email, address)
+insert into staff (name_staff, id_position, id_level, id_part, birthday, identity_card, salary, number_phone, email,
+                   address)
 values ('hoàng ngọc thạch', 1, 1, 1, '1993-06-01', '218 246 282', '20.000.000', '036 252 126', 'thach@gmail.com',
-        'thanh khê,đà nẵng');
-create table typecustomer
+        'thanh khê,đà nẵng'),
+       ('sỹ phú', 2, 3, 3, '1993-09-11', '210 556 555', '14000000', '0985 445 444', 'syphu@gmail.com', 'Quảng Trị'),
+       ('ngọc trinh', 3, 2, 1, '1998-6-14', '211 466 555', 10000000, '095 4664 333', 'trinh@gmail.com', 'Quảng Ngãi');
+create table type_customer
 (
-    idTypeCustomer   int primary key auto_increment not null,
-    nameTypeCustomer varchar(45)
+    id_type_customer   int primary key auto_increment not null,
+    name_type_customer varchar(45)
 );
-insert into typecustomer (nameTypeCustomer)
-values ('Viet Nam'),
-       ('Nước ngoài');
+insert into type_customer (name_type_customer)
+values ('Diamond'),
+       ('VIP'),
+       ('Normal');
 create table customer
 (
-    idCustomer            int primary key auto_increment not null,
-    idTypeCustomer        int,
-    nameCustomer          varchar(45),
-    birthdayCustomer      date,
+    id_customer           int primary key auto_increment not null,
+    id_type_customer      int,
+    name_customer         varchar(45),
+    birthday_customer     date,
     identity_cardCustomer varchar(45),
-    numberPhoneCustomer   varchar(45),
-    emailCustomer         varchar(45),
-    addressCustomer       varchar(45),
-    foreign key (idTypeCustomer) references typecustomer (idTypeCustomer)
+    number_phone_customer varchar(45),
+    email_customer        varchar(45),
+    address_customer      varchar(45),
+    foreign key (id_type_customer) references type_customer (id_type_customer)
 );
-insert into customer (idTypeCustomer, nameCustomer, birthdayCustomer, identity_cardCustomer, numberPhoneCustomer,
-                      emailCustomer, addressCustomer)
-values (1, 'Nguyễn Thị Chung', '1997-07-11', '212 486 009', '036 252 1226', 'chung@gmail.com', 'thanh khê ,đà nẵng');
-create table typeRental
+insert into customer(id_type_customer, name_customer, birthday_customer, identity_cardCustomer, number_phone_customer,
+                     email_customer, address_customer)
+values (1, 'Nguyễn Thị Chung', '1997-07-11', '212 486 009', '036 252 1226', 'chung@gmail.com', 'thanh khê ,đà nẵng'),
+       (3, 'Thu Hiền', '1993-2-23', '216 333 666', '095 5654 235', 'thuhien@gmail.com', 'hoàng văn thái, đà nẵng'),
+       (2, 'văn thanh', '1996-8-2', '216 456 756', '095 6563 111', 'vanthanh@gmail.com', 'hoàng văn thái, đà nẵng');
+create table type_rental
 (
-    idTypeRental   int primary key not null auto_increment,
-    nameTypeRental varchar(45),
-    price          int
+    id_type_rental   int primary key not null auto_increment,
+    name_type_rental varchar(45),
+    price            int
 );
-insert into typeRental (nameTypeRental, price)
+insert into type_rental (name_type_rental, price)
 values ('theo giờ', 80000),
-       ('theo ngày', 200000);
-create table TypeService
+       ('theo ngày', 200000),
+       ('theo tháng', 20000000);
+create table type_service
 (
-    idTypeService   int primary key not null auto_increment,
-    nameTypeService varchar(45)
+    id_type_service   int primary key not null auto_increment,
+    name_type_service varchar(45)
 );
-insert into typeservice (nameTypeService)
+insert into type_service (name_type_service)
 values ('hồ bơi'),
        ('spa'),
        ('casino');
 create table services
 (
-    idService     int primary key not null auto_increment,
-    nameService   varchar(45),
-    area          int,
-    floors        int,
-    maxPeople     varchar(45),
-    rentalCosts   varchar(45),
-    idTypeRental  int,
-    idTypeService int,
-    status        varchar(45),
-    foreign key (idTypeRental) references typeRental (idTypeRental),
-    foreign key (idTypeService) references TypeService (idTypeService)
+    id_service      int primary key not null auto_increment,
+    name_service    varchar(45),
+    area            int,
+    floors          int,
+    max_people      varchar(45),
+    rental_costs    varchar(45),
+    id_type_rental  int,
+    id_type_service int,
+    status          varchar(45),
+    foreign key (id_type_rental) references type_rental (id_type_rental),
+    foreign key (id_type_service) references type_service (id_type_service)
 );
-insert into services(nameService, area, floors, maxPeople, rentalCosts, idTypeRental, idTypeService, status)
-values ('villa', 100, 2, '10', '15000000', 1, 1, 'tốt');
-create table ServiceExtra
+insert into services(name_service, area, floors, max_people, rental_costs, id_type_rental, id_type_service, status)
+values ('villa', 100, 2, '10', '15000000', 1, 1, 'đang hoạt động'),
+       ('house', 50, 2, '6', '10000000', 3, 2, 'đang hoạt động'),
+       ('room', 30, 1, 2, 5000000, 2, 1, 'đang hoạt động');
+create table Service_extra
 (
-    idServiceExtra     int primary key not null auto_increment,
-    nameServiceExtra   varchar(45),
-    price              int,
-    unit               int,
-    statusAvailability varchar(45)
+    id_service_extra    int primary key not null auto_increment,
+    name_service_extra  varchar(45),
+    price               int,
+    unit                int,
+    status_availability varchar(45)
 );
-insert into ServiceExtra (nameServiceExtra, price, unit, statusAvailability)
-values ('massage', 200000, 2, 'tốt');
+insert into Service_extra (name_service_extra, price, unit, status_availability)
+values ('massage', 200000, 2, 'đang hoạt động'),
+       ('gym', 100000, 1, 'đang hoạt động'),
+       ('ăn sáng', 150000, 4, 'đang hoạt động');
 create table contract
 (
-    idContract int primary key auto_increment not null,
-    idStaff    int,
-    idCustomer int,
-    idService  int,
-    DateStart  date,
-    DateEnd    date,
-    deposits   int,
-    total      int,
-    foreign key (idStaff) references staff (idStaff),
-    foreign key (idCustomer) references customer (idCustomer),
-    foreign key (idService) references services (idService)
+    id_contract int primary key auto_increment not null,
+    id_staff    int,
+    id_customer int,
+    id_service  int,
+    date_start  date,
+    date_end    date,
+    deposits    int,
+    total       int,
+    foreign key (id_staff) references staff (id_staff),
+    foreign key (id_customer) references customer (id_customer),
+    foreign key (id_service) references services (id_service)
 );
-insert into contract(idStaff, idCustomer, idService, DateStart, DateEnd, deposits, total)
-VALUES (1, 1, 1, '2021-05-13', '2021-05-16', 7000000, 20000000);
+insert into contract(id_staff, id_customer, id_service, date_start, date_end, deposits, total)
+VALUES (1, 2, 1, '2021-05-13', '2021-05-16', 5000000, 20000000),
+       (3, 2, 3, '2021-01-14', '2021-01-18', 2000000, 7000000),
+       (2, 3, 1, '2021-01-14', '2021-01-18', 5000000, 15000000);
 create table Contract_details
 (
-    idContract_detail int primary key not null auto_increment,
-    idContract        int,
-    idServiceExtra    int,
-    amount            int,
-    foreign key (idContract) references contract (idContract),
-    foreign key (idServiceExtra) references ServiceExtra (idServiceExtra)
+    id_contract_detail int primary key not null auto_increment,
+    id_contract        int,
+    id_service_extra   int,
+    amount             int,
+    foreign key (id_contract) references contract (id_contract),
+    foreign key (id_service_extra) references service_extra (id_service_extra)
 );
-insert into Contract_details(idContract, idServiceExtra, amount)
-VALUES (1, 1, 1);
+insert into Contract_details(id_contract, id_service_extra, amount)
+VALUES (1, 2, 2),
+       (3, 2, 1),
+       (2, 3, 2);
+select *
+from case_study.customer
+where (name_customer like '%H%' or name_customer like '%K%' or name_customer like '%T%')
+  and LENGTH(name_customer) <= 15;
+
+select *
+from customer
+where (year(curdate()) - year(birthday_customer) > 18
+    and year(curdate()) - year(birthday_customer) < 50)
+    and address_customer like '%Đà Nẵng%'
+   or address_customer like '%Quảng Trị%';
+
+select name_customer, name_type_customer, count(id_contract)
+from customer a
+         inner join type_customer t2 on a.id_type_customer = t2.id_type_customer
+         inner join contract c on c.id_customer = c.id_customer
+where t2.name_type_customer = 'Diamond'
+group by name_type_customer
+order by count(id_contract) asc;
+
+
+select name_customer, name_type_customer, contract.id_contract, count(id_contract) as soluonghopdong
+from contract
+         inner join customer c on contract.id_customer = c.id_customer
+         inner join type_customer tc on c.id_type_customer = tc.id_type_customer
+where name_type_customer = 'Diamond'
+group by name_type_customer
+order by count(id_contract) asc;
+
+
+
+select a.id_customer,
+       a.name_customer,
+       t.name_type_customer,
+       c.id_contract,
+       s.name_service,
+       c.date_start,
+       c.date_end,
+       sum(s.rental_costs + s2.unit * s2.price) as total
+from customer a
+         left join contract c on a.id_customer = c.id_customer
+         left join contract_details cd on c.id_contract = cd.id_contract
+         left join type_customer t on a.id_type_customer = t.id_type_customer
+         left join services s on c.id_service = s.id_service
+         left join service_extra s2 on cd.id_service_extra = s2.id_service_extra
+group by (a.id_customer);
+

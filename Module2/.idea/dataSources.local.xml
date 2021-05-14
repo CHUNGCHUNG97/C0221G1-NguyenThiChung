@@ -14,9 +14,9 @@
           <node kind="schema">
             <name qname="@" />
             <name qname="xuat_nhap_don_hang" />
-            <name qname="case_study" />
             <name qname="quanlysinhvien" />
             <name qname="quan_ly_ban_hang" />
+            <name qname="case_study" />
           </node>
         </introspection-scope>
       </schema-mapping>
