@@ -17,6 +17,8 @@
             <name qname="quanlysinhvien" />
             <name qname="quan_ly_ban_hang" />
             <name qname="case_study" />
+            <name qname="student_management" />
+            <name qname="sale_management" />
           </node>
         </introspection-scope>
       </schema-mapping>
