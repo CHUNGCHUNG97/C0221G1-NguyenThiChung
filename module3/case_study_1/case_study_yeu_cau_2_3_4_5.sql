@@ -11,8 +11,8 @@ select *
 from customer
 where (year(curdate()) - year(birthday_customer) >= 18
     and year(curdate()) - year(birthday_customer) <= 50)
-    and address_customer like '%Đà Nẵng%'
-   or address_customer like '%Quảng Trị%';
+    and (address_customer like '%Đà Nẵng%'
+   or address_customer like '%Quảng Trị%');
 
 -- Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần
 select name_customer, name_type_customer, count(id_contract)
