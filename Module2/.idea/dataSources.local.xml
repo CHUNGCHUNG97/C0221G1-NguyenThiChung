@@ -20,6 +20,7 @@
             <name qname="student_management" />
             <name qname="sale_management" />
             <name qname="classicmodels" />
+            <name qname="demo" />
           </node>
         </introspection-scope>
       </schema-mapping>
