@@ -6,9 +6,12 @@ select s.id_service, s.name_service, s.area, s.rental_costs, ts.name_type_servic
 from services s
          inner join type_service ts on s.id_type_service = ts.id_type_service
          inner join contract c on s.id_service = c.id_service
-where month(date_start) != 1
-  and month(date_start) != 2
-  and month(date_start) != 3;
+where s.id_service not in (select s.id_service
+                                       from contract c
+                                                inner join services s on c.id_service = s.id_service
+                                       where year(c.date_start)>=2019
+                                       group by s.id_service)
+group by s.id_service;
 
 # 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue,
 # tenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách
@@ -48,9 +51,7 @@ from customer c;
 select month(c.date_start) as 'tháng', count(distinct c.id_customer) as doanh_thu
 from contract c
          inner join customer c2 on c.id_customer = c2.id_customer
-where month(c.date_start) in (select month(c3.date_start)
-                              from contract c3
-                              where year(c3.date_start) = 2019)
+where year(c.date_start)=2019
 group by month(c.date_start);
 
 # 10.Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm.

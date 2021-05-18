@@ -19,6 +19,7 @@
             <name qname="case_study" />
             <name qname="student_management" />
             <name qname="sale_management" />
+            <name qname="classicmodels" />
           </node>
         </introspection-scope>
       </schema-mapping>
