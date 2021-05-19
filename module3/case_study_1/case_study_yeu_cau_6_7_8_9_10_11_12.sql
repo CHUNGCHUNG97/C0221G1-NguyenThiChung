@@ -7,10 +7,11 @@ from services s
          inner join type_service ts on s.id_type_service = ts.id_type_service
          inner join contract c on s.id_service = c.id_service
 where s.id_service not in (select s.id_service
-                                       from contract c
-                                                inner join services s on c.id_service = s.id_service
-                                       where year(c.date_start)>=2019
-                                       group by s.id_service)
+                           from contract c
+                                    inner join services s on c.id_service = s.id_service
+                           where year(c.date_start) = 2019
+                             and (month(c.date_start) = 1 or month(c.date_start) = 2 or month(c.date_start) = 3)
+                           group by s.id_service)
 group by s.id_service;
 
 # 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue,
