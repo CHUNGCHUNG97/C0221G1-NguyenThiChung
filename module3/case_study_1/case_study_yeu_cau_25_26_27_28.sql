@@ -22,23 +22,27 @@ create trigger Tr_2
     before update
     on contract
     for each row
+
 begin
-    if (datediff(date_end, date_start) < 2)
+
+    if (datediff(NEW.date_end, OLD.date_start) < 2)
     then
         SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT =
                 'Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày';
     else
-        
-        select concat('update success: ', new.id_contract) as log
+
+        select concat('update success: ', id_contract)
+        from contract as log
         into outfile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/log2.txt';
     end if;
 end
 //
 delimiter ;
 
-update contract
-set date_end='2019-12-16'
-where id_contract = 2;
+update contract c
+set c.date_end='2019-12-18'
+where c.id_contract=2;
+
 
 # 27.a.Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
 delimiter //
