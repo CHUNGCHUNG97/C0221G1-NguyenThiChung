@@ -23,10 +23,13 @@ where ct.id_customer in (select ct2.id_customer
                                from contract c
                                         inner join customer c2 on c.id_customer = c2.id_customer
                                         inner join type_customer tc on c2.id_type_customer = tc.id_type_customer
-                               where total > 10000000
-                                 and year(c.date_start) = 2019
+                                        inner join contract_details cd on c.id_contract = cd.id_contract
+                                        inner join service_extra se on cd.id_service_extra = se.id_service_extra
+                                        inner join services s on c.id_service = s.id_service
+                               where year(c.date_start) = 2019
                                  and tc.name_type_customer = 'Platinium'
-                               group by c2.id_customer) as ct2);
+                               group by c2.id_customer
+                               having sum(s.rental_costs + cd.amount * se.price)>10000000) as ct2);
 
 # 18.Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
 SET FOREIGN_KEY_CHECKS = 0;
