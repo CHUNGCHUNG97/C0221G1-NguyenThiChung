@@ -21,6 +21,7 @@
             <name qname="sale_management" />
             <name qname="classicmodels" />
             <name qname="demo" />
+            <name qname="internship" />
           </node>
         </introspection-scope>
       </schema-mapping>

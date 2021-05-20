@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/AddElementArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/GiaTriLonNhatMang2Chieu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/GopMang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Bai_tap/RemoveElementArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Thuc_hanh/ReverseArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Array/Thuc_hanh/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiHinh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiSNTDauTien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Bai_tap/HienThiSoNguyenToNhoHon100.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/DesignMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/KiemTraSoNguyenTo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/TienGuiNganHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/TinhTienLai.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module2/src/Vong_lap/Thuc_hanh/UocChungLonNhat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/Bai_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai_thi_thuc_hanh/bai_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/BMI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/DateInMonth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/LeapYear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/LinearEquationSolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/RectangleArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/SystemTime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module22/src/IntroductionJava/Thuc_hanh/Variable.java" beforeDir="false" />
-    </list>
+    <list default="true" id="d797b1a5-fa40-43ca-87e4-67752ea61e20" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +29,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Module3" />
   </component>
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
@@ -94,6 +67,7 @@
       <workItem from="1617204547764" duration="306000" />
       <workItem from="1617267653706" duration="2446000" />
       <workItem from="1617289041470" duration="173000" />
+      <workItem from="1621480985026" duration="527000" />
     </task>
     <task id="LOCAL-00001" summary="tao bang co ban">
       <created>1614830674642</created>
@@ -121,10 +95,10 @@
       <screen x="0" y="0" width="1458" height="864" />
     </state>
     <state x="354" y="28" key="CommitChangelistDialog2/0.0.1458.864@0.0.1458.864" timestamp="1614830674154" />
-    <state x="510" y="188" key="FileChooserDialogImpl" timestamp="1615772157870">
+    <state x="510" y="188" key="FileChooserDialogImpl" timestamp="1621481512636">
       <screen x="0" y="0" width="1458" height="864" />
     </state>
-    <state x="510" y="188" key="FileChooserDialogImpl/0.0.1458.864@0.0.1458.864" timestamp="1615772157870" />
+    <state x="510" y="188" key="FileChooserDialogImpl/0.0.1458.864@0.0.1458.864" timestamp="1621481512636" />
     <state x="322" y="166" key="Vcs.Push.Dialog.v2" timestamp="1614830681378">
       <screen x="0" y="0" width="1458" height="864" />
     </state>
