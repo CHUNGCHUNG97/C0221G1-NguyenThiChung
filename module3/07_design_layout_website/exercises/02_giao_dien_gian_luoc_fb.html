@@ -14,6 +14,8 @@
             box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
             position: fixed;
             width: 100%;
+            top: 0;
+            background-color: white;
         }
 
         #content {
@@ -22,8 +24,8 @@
             flex-direction: row;
             justify-content: space-between;
             background-color: #f1f1f1;
-            position: relative;
-            top:8vh;
+            margin-top: 8vh;
+            top: 8vh;
         }
 
         body {
@@ -33,6 +35,9 @@
 
         #left-content {
             min-height: 9vh;
+            margin-top: 20px;
+            position: fixed;
+            left: 0;
         }
 
         #main-content {
@@ -40,10 +45,15 @@
             display: flex;
             justify-items: center;
             flex-direction: column;
+            margin-top: 20px;
+            margin-left: 30%;
         }
 
         #right-content {
             min-height: 9vh;
+            margin-top: 20px;
+            position: fixed;
+            right: 0;
         }
 
         .left {
@@ -78,7 +88,7 @@
             width: 50%;
             border-radius: 20px;
             background-color: #f1f1f1;
-            border-color: inherit;
+            /*border-color: inherit;*/
             -webkit-box-shadow: none;
             box-shadow: none;
             border: none;
@@ -91,13 +101,13 @@
         }
 
         #searchIcon {
-            height: 2.5%;
+            height: 40%;
             margin: auto;
             margin-left: 2%;
             margin-right: 2%;
             position: absolute;
-            left: 1.5%;
-            top: 1.9%;
+            left: 2%;
+            top: 30%;
         }
 
         #menu {
@@ -202,6 +212,7 @@
 
         #menu3 {
             padding: 0;
+            margin-top: 0;
         }
 
 
@@ -214,7 +225,7 @@
         }
 
         #sn {
-            background-color:#f1f1f1;
+            background-color: #f1f1f1;
             height: 40px;
             width: 80%;
             margin-left: 5px;
@@ -231,7 +242,6 @@
         }
 
         #menu4 .d1 {
-            margin-top: 20px;
             justify-content: flex-start;
             display: flex;
             flex-direction: column;
@@ -272,29 +282,35 @@
             margin: 2px;
             font-size: 11px;
         }
-        .ct{
+
+        .ct {
             margin: 5px;
             background-color: white;
-            border-radius:5px;
+            border-radius: 5px;
         }
-        .ct div{
+
+        .ct div {
             margin: 5px;
-            border-radius:5px;
+            border-radius: 5px;
         }
-        .ct1{
+
+        .ct1 {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
         }
-        .ct1 *{
+
+        .ct1 * {
             margin: 5px
         }
-        .ct2{
+
+        .ct2 {
             border-bottom: 1px solid rgba(0, 0, 0, 0.16);
             height: 2px;
         }
-        .ct3 ul{
+
+        .ct3 ul {
             display: flex;
             flex-direction: row;
             list-style: none;
@@ -302,19 +318,122 @@
             padding: 0;
             margin: 5px;
         }
-        .ct3 ul li{
-            width : 33%;
+
+        .ct3 ul li {
+            width: 33%;
             display: flex;
             flex-direction: row;
             align-items: center;
             border-radius: 10px;
         }
-        .ct3 ul li:hover{
-           background-color:wheat;
+
+        .ct3 ul li:hover {
+            background-color: wheat;
             cursor: pointer;
         }
-        .ct3 ul li *{
-           margin: 5px;
+
+        .ct3 ul li * {
+            margin: 4px;
+        }
+
+        .ct3 ul p {
+            font-size: 13px;
+        }
+
+        .ct4 ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            justify-content: space-around;
+            padding: 0;
+            margin: 5px;
+        }
+
+        .ct4 ul li {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+
+        .ct4 ul .sn1 p {
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .sn2 {
+            justify-content: center;
+            border-radius: 100%;
+            width: 40px !important;
+            height: 40px;
+            display: flex;
+
+        }
+
+        .sn2:hover {
+            background-color: red;
+            cursor: pointer;
+        }
+
+        .sn2 img {
+            width: 20px !important;
+            height: 20px !important;
+        }
+
+        .ct5 p {
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .ct6 {
+            margin: 0;
+        }
+
+        .ct6 img {
+            height: 100% !important;
+            width: 100% !important;
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+            border-radius: 0px;
+            padding: 0;
+        }
+
+        .ct7 ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            justify-content: space-around;
+            padding: 0;
+            margin: 5px;
+        }
+
+        .ct7 ul li {
+            width: 33%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 5px;
+            justify-content: center;
+        }
+
+        .ct7 ul li:hover {
+            background-color: wheat;
+            cursor: pointer;
+        }
+
+        .ct7 ul li * {
+            margin: 3px;
+        }
+
+        .ct7 ul p {
+            font-size: 13px;
+        }
+
+        .ct7 ul li img {
+            width: 20px !important;
+            height: 20px !important;
         }
     </style>
 </head>
@@ -343,7 +462,7 @@
             </li>
         </ul>
     </div>
-    <div id="right-header" class="right" >
+    <div id="right-header" class="right">
         <ul id="menu2">
             <li>
                 <img style="border-radius: inherit "
@@ -358,7 +477,7 @@
             </li>
             <li style="overflow:visible!important">
                 <img
-                    src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-3/25/Down-Carrot-512.png">
+                        src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-3/25/Down-Carrot-512.png">
 
             </li>
         </ul>
@@ -392,25 +511,101 @@
             </div>
             <div class="ct3">
                 <ul>
-                    <li><img src="https://nld.mediacdn.vn/2020/5/29/doi-hoa-tim-5-1590731334546464136746.jpg">
-                        <p>Chung Chung</p></li>
-                    <li><img src="https://cdn4.iconfinder.com/data/icons/charity-donation-1/128/f-02-512.png">
-                        <p>Bạn bè</p></li>
-                    <li><img src="https://icon-library.com/images/watch-icon-png/watch-icon-png-19.jpg">
-                        <p>Kỷ niệm</p></li>
+                    <li><img
+                            src="https://png.pngtree.com/png-clipart/20201208/original/pngtree-hd-live-streaming-icon-in-black-on-red-background-png-image_5601913.jpg">
+                        <p>Video Trực Tiếp</p></li>
+                    <li><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png">
+                        <p>Ảnh/Video</p></li>
+                    <li><img
+                            src="https://thumbs.dreamstime.com/b/smile-vector-icon-happy-smiling-face-emoticon-icon-flat-style-yellow-symbol-white-background-smile-vector-icon-happy-150159497.jpg">
+                        <p>Cảm xúc/Hoạt động</p></li>
+                </ul>
+            </div>
+        </div>
 
+        <div class="ct">
+            <div class="ct4">
+                <ul>
+                    <li class="sn1"><img
+                            src="https://kenh14cdn.com/thumb_w/660/2020/7/17/brvn-15950048783381206275371.jpg">
+                        <p>Ngọc Thạch</p></li>
+                    <li class="sn2"><img
+                            src="https://lh3.googleusercontent.com/proxy/EoEOC0Ky2GxDDFjE7E6rkmNioIEqgRDuJavLatR3MIlcxmfH8EFjoE_gvmnYEzVCHCy2Wak45YgD-HBSwgBz5YFIBO5VPVZS5zj3xTb38E4Sy9_raufa">
+                    </li>
+                </ul>
+            </div>
+            <div class="ct5"><p>chào ngày mới!!</p></div>
+            <div class="ct6"><img
+                    src="https://sc01.alicdn.com/kf/HTB1vaeolf6H8KJjSspmq6z2WXXap/221350905/HTB1vaeolf6H8KJjSspmq6z2WXXap.jpg_.webp">
+            </div>
+            <div class="ct7">
+                <ul>
+                    <li><img src="https://i.pinimg.com/736x/96/a2/71/96a27139e8352b383677452d7dd6edd2.jpg">
+                        <p>Thích</p>
+                    </li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/1380/1380338.png">
+                        <p>Bình luận</p></li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/25/25419.png">
+                        <p>Chia sẽ</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ct">
+            <div class="ct4">
+                <ul>
+                    <li class="sn1"><img
+                            src="https://giadinh.mediacdn.vn/thumb_w/640/2020/5/13/photo-3-1589362081547403080612.jpg">
+                        <p>Sỹ Phú</p></li>
+                    <li class="sn2"><img
+                            src="https://lh3.googleusercontent.com/proxy/EoEOC0Ky2GxDDFjE7E6rkmNioIEqgRDuJavLatR3MIlcxmfH8EFjoE_gvmnYEzVCHCy2Wak45YgD-HBSwgBz5YFIBO5VPVZS5zj3xTb38E4Sy9_raufa">
+                    </li>
+                </ul>
+            </div>
+            <div class="ct5"><p>Trai đẹp thì có nhiều</p>
+                <p> Nhưng anh thì chỉ có một</p></div>
+            <div class="ct6"><img
+                    src="https://1.bp.blogspot.com/-iF96ME2Dw40/XwBGo6kWzLI/AAAAAAAAF_g/QkFDKtC87MoCWN7ekYOJ3lfwewC2nTwSACLcBGAsYHQ/w600-h315-p-k-no-nu/vu-minh-quan-saoteen-thumbnail-02.jpg">
+            </div>
+            <div class="ct7">
+                <ul>
+                    <li><img src="https://i.pinimg.com/736x/96/a2/71/96a27139e8352b383677452d7dd6edd2.jpg">
+                        <p>Thích</p>
+                    </li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/1380/1380338.png">
+                        <p>Bình luận</p></li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/25/25419.png">
+                        <p>Chia sẽ</p></li>
                 </ul>
             </div>
         </div>
         <div class="ct">
-
+            <div class="ct4">
+                <ul>
+                    <li class="sn1"><img
+                            src="https://sohanews.sohacdn.com/thumb_w/660/160588918557773824/2021/5/14/18312139410215843864090068819006515203867066n-16209527701471151946608.jpg">
+                        <p>Ngọc Trinh</p></li>
+                    <li class="sn2"><img
+                            src="https://lh3.googleusercontent.com/proxy/EoEOC0Ky2GxDDFjE7E6rkmNioIEqgRDuJavLatR3MIlcxmfH8EFjoE_gvmnYEzVCHCy2Wak45YgD-HBSwgBz5YFIBO5VPVZS5zj3xTb38E4Sy9_raufa">
+                    </li>
+                </ul>
+            </div>
+            <div class="ct5"><p>Không tiền cạp đất mà ăn!!</p></div>
+            <div class="ct6"><img
+                    src="https://vnn-imgs-a1.vgcloud.vn/img.infonet.vn/w490/Uploaded/2020/ovhunsf/2019_12_06/9.jpg">
+            </div>
+            <div class="ct7">
+                <ul>
+                    <li><img src="https://i.pinimg.com/736x/96/a2/71/96a27139e8352b383677452d7dd6edd2.jpg">
+                        <p>Thích</p>
+                    </li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/1380/1380338.png">
+                        <p>Bình luận</p></li>
+                    <li><img src="https://image.flaticon.com/icons/png/512/25/25419.png">
+                        <p>Chia sẽ</p></li>
+                </ul>
+            </div>
         </div>
-        <div class="ct">
-            <img src="https://nld.mediacdn.vn/2020/5/29/doi-hoa-tim-5-1590731334546464136746.jpg">
-            <input
-                    id="sn" placeholder="Chung ơi, bạn đang nghĩ gì thế?">
-        </div>
-
 
     </div>
     <div id="right-content" class="right">
