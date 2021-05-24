@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #header {
+            background-color: lightblue;
+            height: 8vh;
+            font-family: "Imprint MT Shadow";
+            align-items: center;
+            display: flex;
+        }
+
+        #header label {
+            font-size: 25px;
+            width: 400px;
+            font-weight: bold;
+        }
+
+
+        #header-link {
+            background-color: #d9d9d9;
+            height: 5vh;
+            margin-top: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #header-link a {
+            padding: 12px;
+        }
+
+        #body {
+            height: 78vh;
+            margin-top: 3px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #body-1 {
+            background-color: #d9d9d9;
+            width: 25%;
+        }
+
+        #body-1 label {
+            height: 60px;
+            width: 100%;
+        }
+
+        #body-2 {
+            margin-left: 35px;
+            margin-right: 35px;
+        }
+
+        #label-3 p {
+            font-size: 15px;
+        }
+
+        #footer {
+            background-color: #d9d9d9;
+            height: 8vh;
+            margin-top: 3px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        * {
+            border: 0;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1920 - 320));
+        }
+
+        .search-bar input,
+        .search-btn,
+        .search-btn:before,
+        .search-btn:after {
+            transition: all 0.25s ease-out;
+        }
+
+        .search-bar input,
+        .search-btn {
+            width: 3em;
+            height: 3em;
+        }
+
+        .search-bar input:invalid:not(:focus),
+        .search-btn {
+            cursor: pointer;
+        }
+
+        .search-bar,
+        .search-bar input:focus,
+        .search-bar input:valid {
+            width: 100%;
+        }
+
+        .search-bar input:focus,
+        .search-bar input:not(:focus) + .search-btn:focus {
+            outline: transparent;
+        }
+
+        .search-bar {
+
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .search-bar input {
+            background: transparent;
+            margin-top: 5px;
+            border-radius: 1.5em;
+            box-shadow: 0 0 0 0.4em #171717 inset;
+            padding: 0.75em;
+            transform: translate(0.5em, 0.5em) scale(0.6);
+            transform-origin: 100% 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            max-width: 200px;
+
+
+        }
+
+        .search-bar input::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        .search-bar input:focus,
+        .search-bar input:valid {
+            background: #fff;
+            border-radius: 0.375em 0 0 0.375em;
+            box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+            transform: scaleY(1) scaleX(1);
+            min-width: 300px;
+        }
+
+        .search-btn {
+            background: #171717;
+            border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+            padding: 0.75em;
+            position: relative;
+            transform: translate(0.25em, 0.25em) rotate(45deg) scale(0.35, 0.125);
+            transform-origin: 0 50%;
+            margin: 5px 5px 5px 0px;
+
+
+        }
+
+        .search-btn:before,
+        .search-btn:after {
+            content: "";
+            display: block;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .search-btn:before {
+            border-radius: 50%;
+            box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+            top: 0.75em;
+            left: 0.75em;
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        .search-btn:after {
+
+            background: #f1f1f1;
+            border-radius: 0 0.25em 0.25em 0;
+            top: 51%;
+            left: 51%;
+            width: 0.75em;
+            height: 0.25em;
+            transform: translate(0.2em, 0) rotate(45deg);
+            transform-origin: 0 50%;
+        }
+
+        .search-btn span {
+            display: inline-block;
+            overflow: hidden;
+            width: 1px;
+            height: 1px;
+        }
+
+        /* Active state */
+        .search-bar input:focus + .search-btn,
+        .search-bar input:valid + .search-btn {
+            background: #2762f3;
+            border-radius: 0 0.375em 0.375em 0;
+            transform: scale(1);
+        }
+
+        .search-bar input:focus + .search-btn:before,
+        .search-bar input:focus + .search-btn:after,
+        .search-bar input:valid + .search-btn:before,
+        .search-bar input:valid + .search-btn:after {
+            opacity: 1;
+        }
+
+        .search-bar input:focus + .search-btn:hover,
+        .search-bar input:valid + .search-btn:hover,
+        .search-bar input:valid:not(:focus) + .search-btn:focus {
+            background: #0c48db;
+        }
+
+        .search-bar input:focus + .search-btn:active,
+        .search-bar input:valid + .search-btn:active {
+            transform: translateY(1px);
+        }
+
+        @media screen and (prefers-color-scheme: dark) {
+            body, input {
+                color: #f1f1f1;
+            }
+
+            body {
+                background: #171717;
+            }
+
+            .search-bar input {
+                box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+            }
+
+            .search-bar input:focus,
+            .search-bar input:valid {
+                background: #3d3d3d;
+                box-shadow: 0 0 0 0.1em #3d3d3d inset;
+            }
+
+            .search-btn {
+                background: #f1f1f1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div id="header"><label>PHIM HOẠT HÌNH</label>
+        <form action="" class="search-bar">
+            <input type="search" name="search" pattern=".*\S.*" required>
+            <button class="search-btn" type="submit">
+                <span>Search</span>
+            </button>
+        </form>
+    </div>
+    <div id="header-link">
+        <a>Phim hoạt hình</a>|
+        <a>Phim hoạt hình yêu thích</a>|
+        <a>Nhân vật hoạt hình</a>|
+        <a>Góp ý</a>
+    </div>
+    <div id="body">
+        <div id="body-1"><label>
+            <iframe width="400" height="250" src="https://www.youtube.com/embed/BCjDuu-17HA"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <h4>Hoạt Hình Doraemon - Khi Chỉ Có 2 Người, Họ Làm Gì?</h4>
+        </label>
+            <label id="label-2">
+                <iframe width="400" height="250" src="https://www.youtube.com/embed/h5qEYuX0geI"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <h4>[S2] We Bare Bears - Tập 8 - Mất Đi Ice Bear - Hoạt Hình Tiếng Việt Mới 2021</h4></label>
+        </div>
+        <div id="body-2"><label id="label-3">
+            <iframe width="1100" height="540" src="https://www.youtube.com/embed/WZnlFDGBZQw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <h4>Cổ tích Tấm Cám | Phim 3D Cổ tích Việt Nam | FULL</h4>
+            <p>Nước Đại Việt cổ xưa có nàng Tấm xinh đẹp sống chung với Cám và mụ dì ghẻ. Tấm bị mẹ con Cám đối xử tệ
+                bạc. Tấm đem con cá bống về nhà nuôi trong giếng nhưng cá bống bị mẹ con Cám bắt lên ăn thịt. Ông Bụt
+                hiện ra bảo Tấm lấy xương cá bống bỏ vào lọ đem chôn.
+
+                Lúc đó triều đình thông báo tuyển vợ cho Thái tử, tất cả các cô gái đều có thể vào cung cho Thái tử xem
+                mặt. Tấm cũng muốn đi nhưng dì ghẻ bắt Tấm lựa đậu đen và đậu trắng. Tấm khóc, ông Bụt lại hiện ra bảo
+                Tấm đào bốn lọ xương cá bống lên. Ông Bụt biến ra bộ đồ đẹp và con ngựa cho Tấm vào cung. Trên đường đi
+                Tấm làm rơi chiếc giày xuống sông. Thái tử vô tình đi ra bờ sông rồi nhặt được chiếc giày tuyệt đẹp của
+                Tấm. Thái tử truyền lệnh ai mang vừa chiếc giày sẽ được làm vợ Thái tử. Các cô gái thay phiên nhau thử
+                giày, trong đó có cả Cám, nhưng không ai mang vừa. Đến khi Tấm bước vào mang vừa giày, Thái tử đồng ý
+                cưới Tấm. Tấm làm vợ Thái tử trước sự ghen tức của mẹ con Cám.</p>
+        </label>
+        </div>
+    </div>
+    <div id="footer">2021 - thiết kế web bởi chungchung.com</div>
+</div>
+</body>
+</html>
