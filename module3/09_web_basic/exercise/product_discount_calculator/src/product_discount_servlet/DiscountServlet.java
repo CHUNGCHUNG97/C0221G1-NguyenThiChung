@@ -10,7 +10,7 @@ import java.io.IOException;
 
 
 @WebServlet(name = "Discount_servlet", value = "/display-discount")
-public class Discount_servlet extends HttpServlet {
+public class DiscountServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String productDescription = request.getParameter("productDescription");
         float listPrice = Float.parseFloat(request.getParameter("listPrice"));

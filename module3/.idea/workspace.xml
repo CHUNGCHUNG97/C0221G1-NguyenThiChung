@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22aa7065-fda3-4bb2-bbcf-b9731c66da65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/09_web_basic/exercise/product_discount_calculator/src/product_disount_servlet/Discount_servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09_web_basic/exercise/product_discount_calculator/src/product_disount_servlet/Discount.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study_02/02_screen_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -21,6 +28,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/09_web_basic/exercise/product_discount_calculator/product_discount_calculator.iml" />
@@ -36,6 +44,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622078283971</updated>
       <workItem from="1622078289948" duration="422000" />
+      <workItem from="1622122328626" duration="5160000" />
     </task>
     <servers />
   </component>
