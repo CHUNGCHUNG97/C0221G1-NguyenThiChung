@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="01_screen_home_page:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/01_screen_home_page_jar</output-path>
+    <root id="archive" name="01_screen_home_page.jar" />
+  </artifact>
+</component>

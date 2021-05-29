@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22aa7065-fda3-4bb2-bbcf-b9731c66da65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/case_study_02/02_screen_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/src/Repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/src/controller/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/src/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/src/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/src/service/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/web/view/customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/web/view/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_JSP_JSTL/exercises/customer_management/web/view/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/.idea/libraries/jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/src/controller/ProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/src/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/src/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/src/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/src/service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/web/view/add.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/web/view/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/web/view/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11_MVC_model/exercise/product_management/web/view/remove.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study_02/01_screen_home_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_study_02/01_screen_home_page/.idea/artifacts/01_screen_home_page_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case_study_02/02_screen_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/case_study_02/02_screen_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1622078283971</updated>
       <workItem from="1622078289948" duration="422000" />
-      <workItem from="1622122328626" duration="5160000" />
+      <workItem from="1622122328626" duration="6785000" />
+      <workItem from="1622220462644" duration="729000" />
     </task>
     <servers />
   </component>
