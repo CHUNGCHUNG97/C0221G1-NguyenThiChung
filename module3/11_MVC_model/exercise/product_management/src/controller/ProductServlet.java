@@ -75,12 +75,21 @@ public class ProductServlet extends HttpServlet {
             }
             case "remove": {
                 remove(request, response);
-
+                break;
+            }
+            case "search": {
+                showFormSearch(request, response);
             }
             default: {
                 break;
             }
         }
+    }
+
+    private void showFormSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        request.setAttribute("products", productService.search(name));
+        request.getRequestDispatcher("view/list.jsp").forward(request, response);
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

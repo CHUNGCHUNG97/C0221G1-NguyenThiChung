@@ -15,4 +15,6 @@ public interface ProductService {
 
     Product remove(int id);
 
+    List<Product> search(String name);
+
 }

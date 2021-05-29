@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public class ProductRepository implements ProductService {
+public class ProductRepository {
     private static Map<Integer, Product> products;
 
     static {
@@ -19,29 +20,33 @@ public class ProductRepository implements ProductService {
         products.put(4, new Product(4, "Xiaomi", 10000000, "Xiaomi"));
     }
 
-    @Override
+
     public List<Product> findAll() {
         return new ArrayList<>(products.values());
     }
 
-    @Override
+
     public Product findById(int id) {
         return products.get(id);
     }
 
-    @Override
+
     public void add(Product product) {
         products.put(product.getId(), product);
     }
 
-    @Override
+
     public void update(int id, Product product) {
         products.put(id, product);
     }
 
-    @Override
     public Product remove(int id) {
         products.remove(id);
         return null;
+    }
+
+
+    public List<Product> search(String name) {
+        return findAll().stream().filter(ob -> ob.getName().contains(name)).collect(Collectors.toList());
     }
 }

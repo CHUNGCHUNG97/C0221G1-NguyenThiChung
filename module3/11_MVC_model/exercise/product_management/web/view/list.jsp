@@ -22,6 +22,11 @@
             <a href="product?action=add">
                 <button type="button" class="btn btn-primary">Add Product</button>
             </a>
+            <form method="get" action="/product">
+                <input type="text" name="name" placeholder="search name product">
+                <input type="text" name="action" value="search" hidden>
+                <input type="submit" value="name">
+            </form>
             <table class="table table-striped table-dark">
                 <thead>
                 <tr>
@@ -49,15 +54,6 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <%--            <form method="post" action="/customer">--%>
-            <%--                <div class="form-group">--%>
-            <%--                    <input type="text" class="form-control" name="name" placeholder="Id"></br>--%>
-            <%--                    <input type="date" class="form-control" name="birthday" placeholder="Name"></br>--%>
-            <%--                    <input type="text" class="form-control" name="address" placeholder="Email"></br>--%>
-            <%--                    <input type="text" class="form-control" name="img" placeholder="Address"></br>--%>
-            <%--                    <input type="submit" value="ADD">--%>
-            <%--                </div>--%>
-            <%--            </form>--%>
         </div>
     </div>
     <div id="modal"></div>

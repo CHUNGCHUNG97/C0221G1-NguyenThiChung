@@ -33,4 +33,9 @@ public class ProductServiceImpl implements ProductService {
         productRepository.remove(id);
         return null;
     }
+
+    @Override
+    public List<Product> search(String name) {
+        return productRepository.search(name);
+    }
 }
