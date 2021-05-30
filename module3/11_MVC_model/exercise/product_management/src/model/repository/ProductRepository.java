@@ -1,7 +1,6 @@
-package repository;
+package model.repository;
 
 import model.Product;
-import service.ProductService;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 package controller;
 
 import model.Product;
-import service.ProductService;
-import service.ProductServiceImpl;
+import model.service.ProductService;
+import model.service.ProductServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,16 +43,6 @@ public class ProductServlet extends HttpServlet {
                 break;
             }
         }
-    }
-
-    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        float price = Float.parseFloat(request.getParameter("price"));
-        String manufacture = request.getParameter("manufacture");
-        Product product = new Product(id, name, price, manufacture);
-        productService.update(product.getId(), product);
-        response.sendRedirect("/");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -109,6 +99,16 @@ public class ProductServlet extends HttpServlet {
         String id = request.getParameter("id");
         request.setAttribute("product", productService.findById(Integer.parseInt(id)));
         request.getRequestDispatcher("view/edit.jsp").forward(request, response);
+    }
+
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        float price = Float.parseFloat(request.getParameter("price"));
+        String manufacture = request.getParameter("manufacture");
+        Product product = new Product(id, name, price, manufacture);
+        productService.update(product.getId(), product);
+        response.sendRedirect("/");
     }
 
     private void showFormAdd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

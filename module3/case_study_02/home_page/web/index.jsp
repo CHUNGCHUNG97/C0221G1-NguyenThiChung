@@ -41,8 +41,9 @@
             margin-top: 14px !important;
         }
 
+
         .footer {
-            height: 10vh !important;
+            height: 6vh !important;
         }
     </style>
 
@@ -64,7 +65,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/furama?type=home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/furama?type=employee">Employee</a>
@@ -73,10 +74,10 @@
                             <a class="nav-link" href="/furama?type=customer">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contract</a>
+                            <a class="nav-link" href="/furama?type=service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Service</a>
+                            <a class="nav-link" href="/furama?type=contract">Contract</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -88,67 +89,121 @@
         </div>
 
     </div>
-    <div class="content row">
-        <div class="col-md-3">
-            <c:if test="${type=='employee'}">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Employee list</a>
-                    <a href="#" class="list-group-item list-group-item-action">Create new Employee</a>
+    <c:choose>
+        <c:when test="${type=='home'}">
+            <div class="content row mt-1">
+                <div class="col-md-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-interval="3000">
+                                <img src="https://hopefultravel.com.vn/upload/news/canhocondotelfurama2-6514-5155.jpg"
+                                     class="d-block w-100" alt="..." height="580px">
+                            </div>
+                            <div class="carousel-item" data-interval="3000">
+                                <img src="https://furamavietnam.com/wp-content/uploads/2018/07/Vietnam_Danang_Furama_Resort_Exterior_Beach.jpg"
+                                     class="d-block w-100" alt="..." height="580px">
+                            </div>
+                            <div class="carousel-item" data-interval="3000">
+                                <img src="https://hopefultravel.com.vn/upload/news/canhocondotelfurama2-6514-5155.jpg"
+                                     class="d-block w-100" alt="..." height="580px">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
-            </c:if>
-            <c:if test="${type=='customer'}">
-                <div class="list-group">
-                    <a href="/furama?type=customer&action=list" class="list-group-item list-group-item-action">Customer list</a>
-                    <a href="/furama?type=customer&action=create" class="list-group-item list-group-item-action">Create new Customer</a>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="content row">
+                <div class="col-md-3 border-right">
+                    <c:if test="${type=='employee'}">
+                        <div class="list-group ">
+                            <a href="#" class="list-group-item list-group-item-action">Employee list</a>
+                            <a href="#" class="list-group-item list-group-item-action">Create new Employee</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${type=='customer'}">
+                        <div class="list-group">
+                            <a href="/furama?type=customer&action=list" class="list-group-item list-group-item-action">Customer
+                                list</a>
+                            <a href="/furama?type=customer&action=create"
+                               class="list-group-item list-group-item-action">Create
+                                new Customer</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${type=='service'}">
+                        <div class="list-group">
+                            <a href="/furama?type=service&action=list" class="list-group-item list-group-item-action">Service
+                                list</a>
+                            <a href="/furama?type=service&action=create"
+                               class="list-group-item list-group-item-action">Create
+                                new Service</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${type=='contract'}">
+                        <div class="list-group">
+                            <a href="/furama?type=contract&action=list" class="list-group-item list-group-item-action">Contract
+                                list</a>
+                            <a href="/furama?type=contract&action=create"
+                               class="list-group-item list-group-item-action">Create
+                                new Contract</a>
+                        </div>
+                    </c:if>
+
                 </div>
-            </c:if>
 
 
-        </div>
-
-
-        <div class="col-md-9">
-            <c:if test="${action=='list' && type=='customer'}">
-                <table class="table table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </c:if>
+                <div class="col-md-9">
+                    <c:if test="${action=='list' && type=='customer'}">
+                        <table class="table table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </c:if>
+                </div>
+            </div>
+        </c:otherwise>
+    </c:choose>
+    <div class="footer row  align-items-center bg-success mt-2">
+        <div class="col-md-12 d-flex justify-content-center">
+            Đặt phòng ngay tại: www.danang.intercontinental.com
         </div>
     </div>
-</div>
-</div>
-<div class="footer row">
-    <div class="red sixteen wide column">
-
-    </div>
-</div>
 </div>
 
 

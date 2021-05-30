@@ -1,7 +1,7 @@
-package service;
+package model.service;
 
 import model.Product;
-import repository.ProductRepository;
+import model.repository.ProductRepository;
 
 import java.util.List;
 
