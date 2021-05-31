@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.User;
+import model.bean.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

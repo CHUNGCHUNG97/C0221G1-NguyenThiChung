@@ -23,8 +23,8 @@
                 <input type="text" name="action" value="search" hidden>
                 <input type="submit" value="search">
             </form>
-            <a href="/user?action=sort&value=name asc">Sort by Name asc</a>
-            <a href="/user?action=sort&value=name desc">Sort by Name desc</a>
+            <a href="/user?action=sort&sortData=name asc">Sort by Name asc</a>
+            <a href="/user?action=sort&sortData=name desc">Sort by Name desc</a>
             <table class="table table-striped table-dark">
                 <thead>
                 <tr>

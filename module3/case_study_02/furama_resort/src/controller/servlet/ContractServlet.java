@@ -59,7 +59,7 @@ public class ContractServlet extends HttpServlet {
         try {
             request.setAttribute("type", "contract");
             request.setAttribute("action", "create");
-            request.getRequestDispatcher("view/furama.jsp").forward(request, response);
+            request.getRequestDispatcher("view/contract/create.jsp").forward(request, response);
 
         } catch (Exception e) {
             request.getRequestDispatcher("view/404.jsp").forward(request, response);
@@ -73,7 +73,7 @@ public class ContractServlet extends HttpServlet {
             request.setAttribute("type", "contract");
             request.setAttribute("action", "list");
             request.setAttribute("list", contractService.findAll());
-            request.getRequestDispatcher("view/furama.jsp").forward(request, response);
+            request.getRequestDispatcher("view/contract/list.jsp").forward(request, response);
 
         } catch (Exception e) {
             request.getRequestDispatcher("view/404.jsp").forward(request, response);

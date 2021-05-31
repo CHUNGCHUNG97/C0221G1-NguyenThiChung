@@ -60,7 +60,7 @@ public class CustomerServlet extends HttpServlet {
         try {
             request.setAttribute("type", "customer");
             request.setAttribute("action", "create");
-            request.getRequestDispatcher("view/furama.jsp").forward(request, response);
+            request.getRequestDispatcher("view/customer/create.jsp").forward(request, response);
 
         } catch (Exception e) {
             request.getRequestDispatcher("view/404.jsp").forward(request, response);
@@ -74,7 +74,7 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("type", "customer");
             request.setAttribute("action", "list");
             request.setAttribute("list", customerService.findAll());
-            request.getRequestDispatcher("view/furama.jsp").forward(request, response);
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request, response);
 
         } catch (Exception e) {
             request.getRequestDispatcher("view/404.jsp").forward(request, response);

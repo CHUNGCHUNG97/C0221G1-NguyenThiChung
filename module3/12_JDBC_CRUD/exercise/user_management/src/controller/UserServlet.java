@@ -1,12 +1,9 @@
 package controller;
 
-import com.sun.deploy.nativesandbox.comm.Response;
-import model.User;
+import model.bean.User;
 import model.service.IUserService;
 import model.service.UserServiceImpl;
-import sun.misc.Request;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,8 +52,8 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showUserListBySort(HttpServletRequest request, HttpServletResponse response) {
-        String value = request.getParameter("value");
-        List<User> userList = userService.searchAllBySort(value);
+        String sortData = request.getParameter("sortData");
+        List<User> userList = userService.searchAllBySort(sortData);
         request.setAttribute("users", userList);
         try {
             request.getRequestDispatcher("view/user.jsp").forward(request, response);

@@ -1,6 +1,6 @@
 package model.service;
 
-import model.User;
+import model.bean.User;
 import model.repository.UserRepository;
 
 import java.util.List;
