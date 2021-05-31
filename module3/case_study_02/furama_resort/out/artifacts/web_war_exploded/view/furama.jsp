@@ -96,7 +96,7 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-interval="3000">
-                                <img src="https://hopefultravel.com.vn/upload/news/canhocondotelfurama2-6514-5155.jpg"
+                                <img src="https://resortdanang.info/wp-content/uploads/2019/01/resort-furama-da-nang-1024x576.jpg"
                                      class="d-block w-100" alt="..." height="580px">
                             </div>
                             <div class="carousel-item" data-interval="3000">
