@@ -1,7 +1,7 @@
 package model.service.contract;
 
 import model.Contract;
-import model.Customer;
+import model.bean.Customer;
 
 import java.util.List;
 

@@ -77,7 +77,7 @@
 
         </div>
         <div class="col-md-9">
-            <table class="table table-dark">
+            <table class="table table-light table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -92,7 +92,7 @@
 
                         <td>${employee.id}</td>
                         <td>${employee.fullName}</td>
-                        <td><a href="#">Edit</a></td>
+                        <td><a href="employee?action=edit&id=${employee.id}">Edit</a></td>
                         <td>
                             <button onclick="showModal(${employee.id},'${employee.fullName}','employee')">
                                 Delete
@@ -110,6 +110,33 @@
         Đặt phòng ngay tại: www.danang.intercontinental.com
     </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="contentModal">
+            </div>
+            <div class="modal-footer">
+                <a id="hrefDelete" type="button" class="btn btn-primary">OK</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showModal(id, name) {
+        document.getElementById("hrefDelete").href = "?action=delete&id=" + id;
+        document.getElementById("contentModal").innerText = "Are you sure to delete : " + name + " ?";
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), null)
+        myModal.show();
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

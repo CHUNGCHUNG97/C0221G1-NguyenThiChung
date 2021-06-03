@@ -1,7 +1,5 @@
 package model.service.employee;
 
-
-import model.Customer;
 import model.Employee;
 
 import java.util.List;

@@ -1,7 +1,6 @@
-package model.repository;
+package model.repository.contract;
 
 import model.Contract;
-import model.Customer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

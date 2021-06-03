@@ -17,7 +17,8 @@
             width: 700px;
             margin-top: 30px;
         }
-        p{
+
+        p {
             height: 40px;
             font-size: 25px;
         }
@@ -25,47 +26,47 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <p class="bg-success text-center">EDIT EMPLOYEE</p>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="bg-success text-center">EDIT EMPLOYEE</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
-                    <label for="exampleInputEmail">Id Product</label>
+                    <label for="exampleInputEmail">Id Employee</label>
                     <input type="number" class="form-control" id="exampleInputEmail"
-                           aria-describedby="emailHelp" name="id">
+                           aria-describedby="emailHelp" name="id" value="${employee.id}" required readonly>
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+                    <label for="exampleInputPassword1">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="fullName"
+                           value="${employee.fullName}">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword2">Price</label>
-                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword3">Manufacture</label>
-                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">
-                </div>
+                <%--                <div class="form-group">--%>
+                <%--                    <label for="exampleInputPassword2">Price</label>--%>
+                <%--                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">--%>
+                <%--                </div>--%>
+                <%--                <div class="form-group">--%>
+                <%--                    <label for="exampleInputPassword3">Manufacture</label>--%>
+                <%--                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">--%>
+                <%--                </div>--%>
 
-
-            </form>
-        </div>
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-6 ">
-                    <a href="/contract?action=back" class="btn btn-primary">Back to menu</a>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Confirm Edit</button>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <a href="/employee" class="btn btn-primary">Back to menu</a>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Confirm Edit</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -1,6 +1,5 @@
 package model.repository.employee;
 
-import model.Customer;
 import model.Employee;
 
 import java.util.ArrayList;

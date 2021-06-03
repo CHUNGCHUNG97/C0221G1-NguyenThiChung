@@ -5,13 +5,15 @@
   Time: 9:13 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <style>
         .myheader {
             height: 10vh !important;
@@ -24,6 +26,9 @@
 
         .footer {
             height: 6vh !important;
+        }
+        tr th{
+            text-align: center;
         }
     </style>
 </head>
@@ -67,7 +72,7 @@
         </div>
     </div>
     <div class="content row">
-        <div class="col-md-3 border-right">
+        <div class="col-md-2 border-right">
             <div class="list-group">
                 <a href="/customer?action=list" class="list-group-item list-group-item-action">Customer
                     list</a>
@@ -76,12 +81,19 @@
                     new Customer</a>
             </div>
         </div>
-        <div class="col-md-9">
-            <table class="table table-dark">
+        <div class="col-md-10">
+            <table class="table table-striped table-light ">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
+                    <th scope="col" style="width: 20px">Id Customer</th>
+                    <th scope="col" style="width: 20px !important;">Type Customer</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">Id Card</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -90,11 +102,18 @@
                 <c:forEach var="customer" items="${list}">
                     <tr>
 
-                        <td>${customer.id}</td>
-                        <td>${customer.fullName}</td>
-                        <td><a href="#">Edit</a></td>
+                        <td>${customer.idCustomer}</td>
+                        <td>${customer.typeCustomer.name}</td>
+                        <td>${customer.nameCustomer}</td>
+                        <td>${customer.birthdayCustomer}</td>
+                        <td>${customer.idCardCustomer}</td>
+                        <td>${customer.genderCustomer==1?"Nữ":"Nam"}</td>
+                        <td>${customer.phoneCustomer}</td>
+                        <td>${customer.emailCustomer}</td>
+                        <td>${customer.addressCustomer}</td>
+                        <td><a href="customer?action=edit&id=${customer.idCustomer}">Edit</a></td>
                         <td>
-                            <button onclick="showModal(${customer.id},'${customer.fullName}','customer')">
+                            <button onclick="showModal(${customer.idCustomer},'${customer.nameCustomer}')">
                                 Delete
                             </button>
                         </td>
@@ -110,6 +129,33 @@
         Đặt phòng ngay tại: www.danang.intercontinental.com
     </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="contentModal">
+            </div>
+            <div class="modal-footer">
+                <a id="hrefDelete" type="button" class="btn btn-primary">OK</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showModal(id, name) {
+        document.getElementById("hrefDelete").href = "?action=delete&id=" + id;
+        document.getElementById("contentModal").innerText = "Are you sure to delete : " + name + " ?";
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), null)
+        myModal.show();
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

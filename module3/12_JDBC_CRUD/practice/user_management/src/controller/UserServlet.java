@@ -100,8 +100,8 @@ public class UserServlet extends HttpServlet {
 
     private void insertUser(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        String email = request.getParameter("name");
-        String country = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
         User user = new User(name, email, country);
         userService.insertUser(user);
         try {

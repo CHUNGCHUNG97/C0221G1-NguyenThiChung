@@ -1,8 +1,7 @@
 package model.service.contract;
 
 import model.Contract;
-import model.Customer;
-import model.repository.ContractRepository;
+import model.repository.contract.ContractRepository;
 
 import java.util.List;
 

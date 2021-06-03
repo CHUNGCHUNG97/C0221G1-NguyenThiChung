@@ -5,37 +5,96 @@
   Time: 9:50 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        .container-fluid {
+            width: 700px;
+            margin-top: 5px;
+
+        }
+
+        p {
+            height: 40px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail">Id Product</label>
-        <input type="number" class="form-control" id="exampleInputEmail"
-               aria-describedby="emailHelp" name="id">
+<div class="container-fluid">
+    <form method="post" action="/customer?action=create">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="bg-success text-center">CREATE NEW CUSTOMER</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail">Customer Id</label>
+                    <input type="number" class="form-control" id="exampleInputEmail"
+                           aria-describedby="emailHelp" name="idCustomer" hidden>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Type Customer</label>
+                    <select name="typeCustomer">
+                        <c:forEach var="type" items="${typeCustomers}">
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Customer Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" name="nameCustomer">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword8">Customer Birthday</label>
+                    <input type="date" class="form-control" id="exampleInputPassword8" name="birthdayCustomer">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Customer Id Card</label>
+                    <input type="text" class="form-control" id="exampleInputPassword4" name="idCardCustomer">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword6">Gender</label>
+                    <select name="genderCustomer" class="form-control">
+                        <option value="0">Nam</option>
+                        <option value="1">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword5">Customer Phone</label>
+                    <input type="text" class="form-control" id="exampleInputPassword5" name="phoneCustomer">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword6">Customer Email</label>
+                    <input type="text" class="form-control" id="exampleInputPassword6" name="emailCustomer">
+                </div>
+                <div class="form-group">
 
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword">Name</label>
-        <input type="text" class="form-control" id="exampleInputPassword" name="name">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Price</label>
-        <input type="number" class="form-control" id="exampleInputPassword1" name="price">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword2">Manufacture</label>
-        <input type="text" class="form-control" id="exampleInputPassword2" name="manufacture">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add</button>
-</form>
+                    <label for="exampleInputPassword7">Customer Address</label>
+                    <input type="text" class="form-control" id="exampleInputPassword7" name="addressCustomer">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <a href="/customer" class="btn btn-primary">Back to menu</a>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Add Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -1,6 +1,6 @@
 package model.service.customer;
 
-import model.Customer;
+import model.bean.Customer;
 
 import java.util.List;
 
@@ -10,10 +10,11 @@ public interface CustomerService {
     Customer findById(int id);
 
     void add(Customer customer);
+    void add(Customer customer, int type);
 
-    void update(int id, Customer customer);
+    void update(Customer customer, int type);
 
-    Customer remove(int id);
-
-    List<Customer> search(String name);
+    public boolean remove(int id);
+//
+//    List<Customer> search(String name);
 }

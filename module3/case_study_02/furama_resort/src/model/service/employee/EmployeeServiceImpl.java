@@ -1,8 +1,7 @@
 package model.service.employee;
 
-import model.Customer;
 import model.Employee;
-import model.repository.EmployeeRepository;
+import model.repository.employee.EmployeeRepository;
 
 import java.util.List;
 

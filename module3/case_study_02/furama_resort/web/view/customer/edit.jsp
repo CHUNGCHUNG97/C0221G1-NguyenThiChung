@@ -5,7 +5,8 @@
   Time: 9:50 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -17,54 +18,87 @@
             width: 700px;
             margin-top: 30px;
         }
-        p{
+
+        p {
             height: 40px;
             font-size: 25px;
         }
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <p class="bg-success text-center">EDIT CONTRACT</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail">Id Product</label>
-                    <input type="number" class="form-control" id="exampleInputEmail"
-                           aria-describedby="emailHelp" name="id">
-
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword2">Price</label>
-                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword3">Manufacture</label>
-                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">
-                </div>
-
-
-            </form>
-        </div>
-        <div class="col-md-12">
+<div>
+    <div class="container-fluid">
+        <form method="post" action="/customer?action=edit">
             <div class="row">
-                <div class="col-md-6 ">
-                    <a href="/contract?action=back" class="btn btn-primary">Back to menu</a>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Confirm Edit</button>
+                <div class="col-md-12">
+                    <p class="bg-success text-center">CREATE NEW CUSTOMER</p>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <input type="number" class="form-control" id="exampleInputEmail"
+                           aria-describedby="emailHelp" name="idCustomer" value="${customer.idCustomer}" hidden>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Type Customer</label>
+                        <select name="typeCustomer">
+                            <c:forEach var="type" items="${typeCustomers}">
+                                <option value="${type.id}" ${type.id==customer.typeCustomer.id?"selected":""}>${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword2">Customer Name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword2" name="nameCustomer"
+                               value="${customer.nameCustomer}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword8">Customer Birthday</label>
+                        <input type="date" class="form-control" id="exampleInputPassword8" name="birthdayCustomer"
+                               value="${customer.birthdayCustomer}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Customer Id Card</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" name="idCardCustomer"
+                               value="${customer.idCardCustomer}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword6">Gender</label>
+                        <select name="genderCustomer" class="form-control">
+                            <option value="0"  ${customer.genderCustomer==0?"selected":""}>Nam</option>
+                            <option value="1"  ${customer.genderCustomer==1?"selected":""}>Nữ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword5">Customer Phone</label>
+                        <input type="text" class="form-control" id="exampleInputPassword5" name="phoneCustomer"
+                               value="${customer.phoneCustomer}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword6">Customer Email</label>
+                        <input type="text" class="form-control" id="exampleInputPassword6" name="emailCustomer"
+                               value="${customer.emailCustomer}">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="exampleInputPassword7">Customer Address</label>
+                        <input type="text" class="form-control" id="exampleInputPassword7" name="addressCustomer"
+                               value="${customer.addressCustomer}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <a href="/customer" class="btn btn-primary">Back to menu</a>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Add Customer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

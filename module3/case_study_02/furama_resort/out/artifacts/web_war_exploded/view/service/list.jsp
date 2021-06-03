@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -77,11 +78,16 @@
             </div>
         </div>
         <div class="col-md-9">
-            <table class="table table-dark">
+            <table class="table table-light table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
+                    <th scope="col">Id Service</th>
+                    <th scope="col">Name Service</th>
+                    <th scope="col">Area Service</th>
+                    <th scope="col">Cost Service</th>
+                    <th scope="col">Max People Service</th>
+                    <th scope="col"> Type Rent</th>
+                    <th scope="col">Type Service</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -90,11 +96,16 @@
                 <c:forEach var="service" items="${list}">
                     <tr>
 
-                        <td>${service.id}</td>
-                        <td>${service.name}</td>
-                        <td><a href="#">Edit</a></td>
+                        <td>${service.idService}</td>
+                        <td>${service.nameService}</td>
+                        <td><fmt:formatNumber value="${service.areaService}" type="number"/>m2</td>
+                        <td><fmt:formatNumber value="${service.costService}" type="number" /> vnd</td>
+                        <td>${service.maxPeopleService}</td>
+                        <td>${service.typeRent.name}</td>
+                        <td>${service.typeService.name}</td>
+                        <td><a href="service?action=edit&id=${service.idService}">Edit</a></td>
                         <td>
-                            <button onclick="showModal(${service.id},'${service.name}','service')">
+                            <button onclick=" showModal(${service.idService},'${service.nameService}')">
                                 Delete
                             </button>
                         </td>
@@ -110,6 +121,33 @@
         Đặt phòng ngay tại: www.danang.intercontinental.com
     </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="contentModal">
+            </div>
+            <div class="modal-footer">
+                <a id="hrefDelete" type="button" class="btn btn-primary">OK</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showModal(id, name) {
+        document.getElementById("hrefDelete").href = "?action=delete&id=" + id;
+        document.getElementById("contentModal").innerText = "Are you sure to delete : " + name + " ?";
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), null)
+        myModal.show();
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

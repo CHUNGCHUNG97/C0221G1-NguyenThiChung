@@ -12,29 +12,60 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        .container-fluid {
+            width: 700px;
+            margin-top: 30px;
+        }
+
+        p {
+            height: 40px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail">Id Product</label>
-        <input type="number" class="form-control" id="exampleInputEmail"
-               aria-describedby="emailHelp" name="id">
+<div class="container-fluid">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="bg-success text-center">CREATE NEW EMPLOYEE</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail">Id Employee</label>
+                    <input type="number" class="form-control" id="exampleInputEmail"
+                           aria-describedby="emailHelp" name="id">
 
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword">Name</label>
-        <input type="text" class="form-control" id="exampleInputPassword" name="name">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Price</label>
-        <input type="number" class="form-control" id="exampleInputPassword1" name="price">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword2">Manufacture</label>
-        <input type="text" class="form-control" id="exampleInputPassword2" name="manufacture">
-    </div>
-    <button type="submit" class="btn btn-primary">Add</button>
-</form>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="fullName">
+                </div>
+                <%--                <div class="form-group">--%>
+                <%--                    <label for="exampleInputPassword2">Price</label>--%>
+                <%--                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">--%>
+                <%--                </div>--%>
+                <%--                <div class="form-group">--%>
+                <%--                    <label for="exampleInputPassword3">Manufacture</label>--%>
+                <%--                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">--%>
+                <%--                </div>--%>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <a href="/employee" class="btn btn-primary">Back to menu</a>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Add Employee</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

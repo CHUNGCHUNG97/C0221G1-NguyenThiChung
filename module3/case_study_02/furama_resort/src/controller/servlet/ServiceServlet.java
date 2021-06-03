@@ -1,5 +1,6 @@
 package controller.servlet;
 
+import model.bean.Service;
 import model.service.service.ServiceService;
 import model.service.service.ServiceServiceImpl;
 
@@ -15,6 +16,26 @@ public class ServiceServlet extends HttpServlet {
     ServiceServiceImpl serviceService = new ServiceServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "list";
+        }
+        switch (action) {
+            case "list": {
+                showList(request, response);
+                break;
+            }
+            case "create": {
+                addService(request, response);
+                break;
+            }
+            case "edit": {
+                update(request, response);
+                break;
+            }
+            default:
+                break;
+        }
 
     }
 
@@ -32,32 +53,45 @@ public class ServiceServlet extends HttpServlet {
                 showCreate(request, response);
                 break;
             }
-            case "delete": {
-                deleteService(request, response);
+//            case "edit": {
+//                showFormEdit(request, response);
+//                break;
+//            }
+//            case "delete": {
+//                deleteService(request, response);
+//                break;
+//            }
+            default:
                 break;
-            }
         }
     }
 
-    private void deleteService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            int id = Integer.parseInt(request.getParameter("id"));
-            serviceService.remove(id);
-//            request.setAttribute("type", "employee");
-//            request.setAttribute("action", "list");
-//            request.setAttribute("list", employeeService.findAll());
-//            request.getRequestDispatcher("view/furama.jsp").forward(request, response);
-            response.sendRedirect("/service");
-        } catch (Exception e) {
-            request.getRequestDispatcher("view/404.jsp").forward(request, response);
-
-        }
-
-    }
+//    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        request.setAttribute("service", serviceService.findById(id));
+//        try {
+//            request.getRequestDispatcher("view/service/edit.jsp").forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    private void deleteService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        try {
+//            int id = Integer.parseInt(request.getParameter("id"));
+//            serviceService.remove(id);
+//            response.sendRedirect("/service");
+//        } catch (Exception e) {
+//            request.getRequestDispatcher("view/404.jsp").forward(request, response);
+//
+//        }
+//
+//    }
 
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.setAttribute("type", "service");
             request.setAttribute("action", "create");
             request.getRequestDispatcher("view/service/create.jsp").forward(request, response);
 
@@ -65,12 +99,22 @@ public class ServiceServlet extends HttpServlet {
             request.getRequestDispatcher("view/404.jsp").forward(request, response);
 
         }
+    }
 
+    private void addService(HttpServletRequest request, HttpServletResponse response) {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        String name = request.getParameter("name");
+//        Service service = new Service(id, name);
+//        serviceService.add(service);
+//        try {
+//            response.sendRedirect("/service");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.setAttribute("type", "service");
             request.setAttribute("action", "list");
             request.setAttribute("list", serviceService.findAll());
             request.getRequestDispatcher("view/service/list.jsp").forward(request, response);
@@ -80,5 +124,17 @@ public class ServiceServlet extends HttpServlet {
 
         }
 
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        String name = request.getParameter("name");
+//        Service service = new Service(id, name);
+//        serviceService.update(service.getId(), service);
+//        try {
+//            response.sendRedirect("/service");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }
