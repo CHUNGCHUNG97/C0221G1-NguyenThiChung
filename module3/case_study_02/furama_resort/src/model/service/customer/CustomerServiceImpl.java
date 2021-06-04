@@ -30,15 +30,24 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-
     @Override
-    public void update(Customer customer,int type) {
+    public void update(Customer customer, int type) {
         customerRepository.update(customer, type);
     }
 
     @Override
     public boolean remove(int id) {
         return customerRepository.remove(id);
+    }
+
+    @Override
+    public List<Customer> pagination(int page, int pageSize) {
+        return customerRepository.getListByPagination(page, pageSize);
+    }
+
+    @Override
+    public long count() {
+        return customerRepository.countAll();
     }
 
 

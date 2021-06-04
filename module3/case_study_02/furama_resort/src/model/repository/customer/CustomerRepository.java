@@ -16,6 +16,15 @@ public class CustomerRepository {
     private static final String SELECT_ALL_CUSTOMER = "select *\n" +
             "from customer\n" +
             "         left join customer_type ct on customer.customer_type_id = ct.customer_type_id;";
+
+    private static final String COUNT_ALL = "SELECT count(*) as count from customer";
+
+
+    private static final String PAGINATION = "select *\n" +
+            "from customer\n" +
+            "         left join customer_type ct on customer.customer_type_id = ct.customer_type_id limit ? offset ?";
+
+
     private static final String INSERT_INTO = "insert into customer(customer_type_id, customer_name, customer_birthday, customer_id_card, customer_gender,\n" +
             "customer_phone, customer_email, customer_address) values (?,?,?,?,?,?,?,?);";
     private static final String FIND_BY_ID = "select * from customer" +
@@ -120,13 +129,6 @@ public class CustomerRepository {
         return customer;
     }
 
-    //
-//
-//    public void add(Customer customer) {
-//        customers.put(customer.getCustomer_id(), customer);
-//    }
-//
-//
     public void update(Customer customer, int type) {
         Connection connection = databaseRepository.connectDataBase();
         try {
@@ -161,9 +163,56 @@ public class CustomerRepository {
         }
         return check;
     }
-//
-//
-//    public List<Customer> search(String name) {
-//        return findAll().stream().filter(ob -> ob.getCustomer_name().contains(name)).collect(Collectors.toList());
-//    }
+
+
+    public List<Customer> getListByPagination( int page,int pageSize) {
+        Connection connection = databaseRepository.connectDataBase();
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(PAGINATION);
+            preparedStatement.setInt(1, pageSize);
+            preparedStatement.setInt(2, (page - 1) * pageSize);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idCustomer = resultSet.getInt("customer_id");
+                int idTypeCustomer = resultSet.getInt("customer_type_id");
+                String nameTypeCustomer = resultSet.getString("customer_type_name");
+                TypeCustomer typeCustomer = new TypeCustomer(idTypeCustomer, nameTypeCustomer);
+                String nameCustomer = resultSet.getString("customer_name");
+                String birthdayCustomer = resultSet.getString("customer_birthday");
+                String idCardCustomer = resultSet.getString("customer_id_card");
+                int genderCustomer = resultSet.getInt("customer_gender");
+                String phoneCustomer = resultSet.getString("customer_phone");
+                String emailCustomer = resultSet.getString("customer_email");
+                String addressCustomer = resultSet.getString("customer_address");
+                Customer customer = new Customer(idCustomer, typeCustomer, nameCustomer, birthdayCustomer, idCardCustomer, genderCustomer, phoneCustomer, emailCustomer, addressCustomer);
+                customerList.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
+
+
+    }
+
+    public long countAll() {
+        Connection connection = databaseRepository.connectDataBase();
+        List<Customer> customerList = new ArrayList<>();
+        long count = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(COUNT_ALL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                count = resultSet.getInt("count");
+
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return count;
+
+    }
 }

@@ -1,7 +1,7 @@
 package model.service.type_customer;
 
 import model.bean.TypeCustomer;
-import model.repository.service.type_service.TypeCustomerRepository;
+import model.repository.customer.type_customer.TypeCustomerRepository;
 
 import java.util.List;
 

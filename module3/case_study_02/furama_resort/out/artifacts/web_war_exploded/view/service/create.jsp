@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="showCreateForm('1')">
 <div class="container-fluid">
     <form method="post">
         <div class="row">
@@ -35,23 +35,60 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="exampleInputEmail">Id Service</label>
+                    <label>Type Service</label>
+                    <select name="idTypeService" onchange="showCreateForm(event.target.value)">
+                        <c:forEach var="type" items="${typeServices}">
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+
                     <input type="number" class="form-control" id="exampleInputEmail"
-                           aria-describedby="emailHelp" name="id">
+                           aria-describedby="emailHelp" name="idService" hidden>
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="nameService" name="nameService">
                 </div>
-<%--                <div class="form-group">--%>
-                <%--                    <label for="exampleInputPassword2">Price</label>--%>
-                <%--                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">--%>
-                <%--                </div>--%>
-                <%--                <div class="form-group">--%>
-                <%--                    <label for="exampleInputPassword3">Manufacture</label>--%>
-                <%--                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">--%>
-                <%--                </div>--%>
+                <div class="form-group">
+                    <label>Area Service</label>
+                    <input type="number" class="form-control" id="area" name="areaService">
+                </div>
+                <div class="form-group">
+                    <label>Cost</label>
+                    <input type="number" class="form-control" id="cost" name="costService">
+                </div>
+                <div class="form-group">
+                    <label>Max People</label>
+                    <input type="number" class="form-control" id="maxPeople" name="maxPeopleService">
+                </div>
+                <div class="form-group">
+                    <label>Type Rent</label>
+                    <select name="idTypeRent" id="nameRent">
+                        <c:forEach var="type" items="${typeRents}">
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label id="standardRoomL">Standard Room</label>
+                    <input type="text" class="form-control" id="standardRoom" name="standardRoom">
+                </div>
+                <div class="form-group">
+                    <label id="descriptionL">Description Other Convenience</label>
+                    <input type="text" class="form-control" id="description" name="descriptionOtherConvenience">
+                </div>
+                <div class="form-group">
+                    <label id="poolL">Area Pool</label>
+                    <input type="text" class="form-control" id="pool" name="areaPool">
+                </div>
+                <div class="form-group">
+                    <label id="floorL">Number Of Floors</label>
+                    <input type="text" class="form-control" id="floor" name="numberOfFloors">
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="row">
@@ -67,7 +104,42 @@
     </form>
 </div>
 
+<script>
 
+    function showCreateForm(typeCreate) {
+        switch (Number.parseInt(typeCreate)) {
+            case 1: {
+                ['standardRoom', 'description', 'pool', 'floor'].forEach(id => {
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(id + 'L').style.display = 'block';
+                });
+                break;
+            }
+            case 3: {
+                ['standardRoom', 'description', 'floor'].forEach(id => {
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(id + 'L').style.display = 'block';
+                });
+                ['pool'].forEach(id => {
+                    document.getElementById(id).style.display = 'none';
+                    document.getElementById(id + 'L').style.display = 'none';
+                    document.getElementById(id).value = null;
+                })
+                break;
+            }
+            case 2: {
+                ['standardRoom', 'description', 'pool', 'floor'].forEach(id => {
+                    document.getElementById(id).style.display = 'none';
+                    document.getElementById(id + 'L').style.display = 'none';
+                    document.getElementById(id).value = null;
+                });
+                break;
+            }
+            default:
+                break;
+        }
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

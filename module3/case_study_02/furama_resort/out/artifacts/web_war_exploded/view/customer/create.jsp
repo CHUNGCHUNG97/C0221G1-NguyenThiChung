@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="exampleInputEmail">Customer Id</label>
+
                     <input type="number" class="form-control" id="exampleInputEmail"
                            aria-describedby="emailHelp" name="idCustomer" hidden>
                 </div>

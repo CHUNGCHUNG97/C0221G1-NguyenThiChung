@@ -92,8 +92,8 @@ public class CustomerServlet extends HttpServlet {
         String phoneCustomer = request.getParameter("phoneCustomer");
         String emailCustomer = request.getParameter("emailCustomer");
         String addressCustomer = request.getParameter("addressCustomer");
-        Customer customer = new Customer(idCustomer,nameCustomer, birthdayCustomer, idCardCustomer, genderCustomer, phoneCustomer, emailCustomer, addressCustomer);
-        customerService.update(customer,idTypeCustomer);
+        Customer customer = new Customer(idCustomer, nameCustomer, birthdayCustomer, idCardCustomer, genderCustomer, phoneCustomer, emailCustomer, addressCustomer);
+        customerService.update(customer, idTypeCustomer);
         try {
             response.sendRedirect("/customer");
         } catch (IOException e) {
@@ -151,7 +151,27 @@ public class CustomerServlet extends HttpServlet {
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setAttribute("action", "list");
-            request.setAttribute("list", customerService.findAll());
+            int page;
+            request.getParameter("page");
+            int pageSize;
+            request.getParameter("size");
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (Exception e) {
+                page = 1;
+            }
+            try {
+                pageSize = Integer.parseInt(request.getParameter("pageSize"));
+            } catch (Exception e) {
+                pageSize = 8;
+            }
+            List<Customer> customers = customerService.pagination(page, pageSize);
+            long total = customerService.count();
+            request.setAttribute("action", "list");
+            request.setAttribute("total", total);
+            request.setAttribute("page", page);
+            request.setAttribute("pageSize", pageSize);
+            request.setAttribute("list", customers);
             request.getRequestDispatcher("view/customer/list.jsp").forward(request, response);
 
         } catch (Exception e) {

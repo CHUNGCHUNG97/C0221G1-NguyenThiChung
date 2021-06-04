@@ -14,7 +14,8 @@ public interface CustomerService {
 
     void update(Customer customer, int type);
 
-    public boolean remove(int id);
-//
-//    List<Customer> search(String name);
+     boolean remove(int id);
+
+    List<Customer> pagination(int page, int pageSize);
+    long count();
 }

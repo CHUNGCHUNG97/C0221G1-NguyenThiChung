@@ -6,14 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <style>
         .myheader {
             height: 10vh !important;
@@ -27,7 +27,8 @@
         .footer {
             height: 6vh !important;
         }
-        tr th{
+
+        tr th {
             text-align: center;
         }
     </style>
@@ -124,6 +125,25 @@
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        <c:forEach begin="1" end="${total/pageSize+1}" var="i">
+            <li class="page-item"><a class="page-link"  style="${i==page? 'color: blue; font-weight: 700':'color:black'}" href="customer?action=list&page=${i}&pageSize=${pageSize}">${i}</a></li>
+        </c:forEach>
+
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 <div class="footer row  align-items-center bg-success mt-2">
     <div class="col-md-12 d-flex justify-content-center">
         Đặt phòng ngay tại: www.danang.intercontinental.com

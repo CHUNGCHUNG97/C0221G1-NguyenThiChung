@@ -16,16 +16,21 @@ public class ServiceServiceImpl implements ServiceService {
         return serviceRepository.findAll();
     }
 
-//    @Override
+    //    @Override
 //    public Service findById(int id) {
 //        return serviceRepository.findById(id);
 //    }
 //
-//    @Override
-//    public void add(Service service) {
-//        serviceRepository.add(service);
-//    }
-//
+    @Override
+    public void add(Service service) {
+        serviceRepository.insertService(service);
+    }
+
+    @Override
+    public void add(Service service, int idTypeRent, int idTypeService) {
+        serviceRepository.insertService(service, idTypeRent, idTypeService);
+    }
+
 //    @Override
 //    public void update(int id, Service service) {
 //        serviceRepository.update(id, service);
