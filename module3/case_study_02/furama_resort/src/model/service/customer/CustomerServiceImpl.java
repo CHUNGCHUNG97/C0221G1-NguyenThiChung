@@ -50,6 +50,11 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.countAll();
     }
 
+    @Override
+    public List<Customer> search(String name) {
+        return customerRepository.search(name);
+    }
+
 
 //
 //    @Override

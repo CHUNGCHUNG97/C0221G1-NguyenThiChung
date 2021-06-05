@@ -10,12 +10,16 @@ public interface CustomerService {
     Customer findById(int id);
 
     void add(Customer customer);
+
     void add(Customer customer, int type);
 
     void update(Customer customer, int type);
 
-     boolean remove(int id);
+    boolean remove(int id);
 
     List<Customer> pagination(int page, int pageSize);
+
     long count();
+
+    List<Customer> search(String name);
 }

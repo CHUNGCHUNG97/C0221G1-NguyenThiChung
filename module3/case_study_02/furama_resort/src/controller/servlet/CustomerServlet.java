@@ -64,8 +64,25 @@ public class CustomerServlet extends HttpServlet {
                 deleteCustomer(request, response);
                 break;
             }
+            case "search": {
+                search(request, response);
+                break;
+            }
             default:
                 break;
+        }
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        List<Customer> customers = customerService.search(name);
+        request.setAttribute("list", customers);
+        try {
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

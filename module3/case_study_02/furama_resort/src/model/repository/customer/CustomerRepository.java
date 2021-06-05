@@ -19,22 +19,57 @@ public class CustomerRepository {
 
     private static final String COUNT_ALL = "SELECT count(*) as count from customer";
 
-
     private static final String PAGINATION = "select *\n" +
             "from customer\n" +
             "         left join customer_type ct on customer.customer_type_id = ct.customer_type_id limit ? offset ?";
 
-
+    private static String SEARCH = "select * from customer left join customer_type ct on customer.customer_type_id = ct.customer_type_id " +
+            "   where customer_name like ?\n " +
+            "   or customer_id_card like ?\n " +
+            "   or customer_address like ?\n " +
+            "   or customer_email like ?\n " +
+            "   or customer_phone like ? ";
     private static final String INSERT_INTO = "insert into customer(customer_type_id, customer_name, customer_birthday, customer_id_card, customer_gender,\n" +
             "customer_phone, customer_email, customer_address) values (?,?,?,?,?,?,?,?);";
     private static final String FIND_BY_ID = "select * from customer" +
             " left join customer_type ct on customer.customer_type_id = ct.customer_type_id WHERE customer.customer_id=?";
 
     private static final String UPDATE = "UPDATE customer t SET " +
-            "t.customer_type_id=?, t.customer_name = ?, t.customer_birthday = ?," +
-            " t.customer_id_card = ?, t.customer_gender = ?, t.customer_phone = ?," +
-            " t.customer_email = ?, t.customer_address = ? WHERE t.customer_id = ?";
-    private static final String DELETE = "DELETE FROM customer WHERE customer_id = ?";
+            " t.customer_type_id=?, t.customer_name = ?, t.customer_birthday = ?, " +
+            " t.customer_id_card = ?, t.customer_gender = ?, t.customer_phone = ?, " +
+            " t.customer_email = ?, t.customer_address = ? WHERE t.customer_id = ? ";
+    private static final String DELETE = "DELETE FROM customer WHERE customer_id = ? ";
+
+    public List<Customer> search(String name) {
+        Connection connection = databaseRepository.connectDataBase();
+        List<Customer> customers = new ArrayList<>();
+        try {
+            String fixSearchString = "\'%"+ name+"%\'";
+            String SQL = SEARCH.replaceAll("\\?", fixSearchString);
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+//            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("customer_id");
+                int idTypeCustomer = resultSet.getInt("customer_type_id");
+                String nameTypeCustomer = resultSet.getString("customer_type_name");
+                TypeCustomer typeCustomer = new TypeCustomer(idTypeCustomer, nameTypeCustomer);
+                String nameCustomer = resultSet.getString("customer_name");
+                String birthday = resultSet.getString("customer_birthday");
+                String idCard = resultSet.getString("customer_id_card");
+                int gender = resultSet.getInt("customer_gender");
+                String phone = resultSet.getString("customer_phone");
+                String email = resultSet.getString("customer_email");
+                String address = resultSet.getString("customer_address");
+                Customer customer = new Customer(id, typeCustomer, nameCustomer, birthday, idCard, gender, phone, email, address);
+                customers.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customers;
+    }
 
     public void insertCustomer(Customer customer) {
         Connection connection = databaseRepository.connectDataBase();
@@ -165,7 +200,7 @@ public class CustomerRepository {
     }
 
 
-    public List<Customer> getListByPagination( int page,int pageSize) {
+    public List<Customer> getListByPagination(int page, int pageSize) {
         Connection connection = databaseRepository.connectDataBase();
         List<Customer> customerList = new ArrayList<>();
         try {

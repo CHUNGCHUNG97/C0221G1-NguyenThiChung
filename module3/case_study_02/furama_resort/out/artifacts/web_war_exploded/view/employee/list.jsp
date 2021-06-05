@@ -80,21 +80,31 @@
             <table class="table table-light table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Education Degree</th>
+                    <th scope="col">Division</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="employee" items="${list}">
+                <c:forEach var="employee" items="${employees}">
                     <tr>
 
                         <td>${employee.id}</td>
-                        <td>${employee.fullName}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.position.name}</td>
+                        <td>${employee.educationDegree.name}</td>
+                        <td>${employee.division.name}</td>
+                        <td>${employee.phone}</td>
+                        <td>${employee.address}</td>
                         <td><a href="employee?action=edit&id=${employee.id}">Edit</a></td>
                         <td>
-                            <button onclick="showModal(${employee.id},'${employee.fullName}','employee')">
+                            <button onclick="showModal(${employee.id},'${employee.name}')">
                                 Delete
                             </button>
                         </td>
