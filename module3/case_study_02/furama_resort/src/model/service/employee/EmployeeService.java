@@ -9,8 +9,8 @@ public interface EmployeeService {
 
 //    Employee findById(int id);
 
-//    void add(Employee employee);
-
+    void add(Employee employee);
+    void add(Employee employee,int idPosition,int idEducation, int idDivison, String username);
 //    void update(int id, Employee employee);
 //
 //    Employee remove(int id);

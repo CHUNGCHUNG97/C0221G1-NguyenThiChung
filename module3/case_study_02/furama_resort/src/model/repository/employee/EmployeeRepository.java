@@ -17,10 +17,15 @@ public class EmployeeRepository {
             " left join education_degree ed on employee.education_degree_id = ed.education_degree_id\n" +
             " left join division d on employee.division_id = d.divison_id\n" +
             " left join user u on employee.user_name = u.user_name;";
+    private static final String INSERT_INTO = "insert into employee (employee_name, position_id, education_degree_id, " +
+            " division_id, employee_birthday, employee_id_card,\n" +
+            " employee_salary, employee_phone, employee_email, employee_address, user_name)\n" +
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     DatabaseRepository databaseRepository = new DatabaseRepository();
+    Connection connection;
 
     public List<Employee> findAll() {
-        Connection connection = databaseRepository.connectDataBase();
+        connection = databaseRepository.connectDataBase();
         List<Employee> employees = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL);
@@ -55,15 +60,53 @@ public class EmployeeRepository {
         return employees;
     }
 
-//
+    //
 //    public Employee findById(int id) {
 //        return employees.get(id);
 //    }
 //
 //
-//    public void add(Employee employee) {
-//        employees.put(employee.getId(), employee);
-//    }
+    public void insertEmployee(Employee employee) {
+        connection = databaseRepository.connectDataBase();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO);
+            preparedStatement.setString(1, employee.getName());
+            preparedStatement.setInt(2, employee.getPosition().getId());
+            preparedStatement.setInt(3, employee.getEducationDegree().getId());
+            preparedStatement.setInt(4, employee.getDivision().getId());
+            preparedStatement.setString(5, employee.getBirthday());
+            preparedStatement.setString(6, employee.getIdCard());
+            preparedStatement.setDouble(7, employee.getSalary());
+            preparedStatement.setString(8, employee.getPhone());
+            preparedStatement.setString(9, employee.getEmail());
+            preparedStatement.setString(10, employee.getAddress());
+            preparedStatement.setString(11, employee.getUser().getName());
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+     public void insertEmployee(Employee employee,int idPosition, int idEducation, int idDivision, String userName) {
+        connection = databaseRepository.connectDataBase();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO);
+            preparedStatement.setString(1, employee.getName());
+            preparedStatement.setInt(2, idPosition);
+            preparedStatement.setInt(3, idEducation);
+            preparedStatement.setInt(4, idDivision);
+            preparedStatement.setString(5, employee.getBirthday());
+            preparedStatement.setString(6, employee.getIdCard());
+            preparedStatement.setDouble(7, employee.getSalary());
+            preparedStatement.setString(8, employee.getPhone());
+            preparedStatement.setString(9, employee.getEmail());
+            preparedStatement.setString(10, employee.getAddress());
+            preparedStatement.setString(11, userName);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 //
 //
 //    public void update(int id, Employee employee) {

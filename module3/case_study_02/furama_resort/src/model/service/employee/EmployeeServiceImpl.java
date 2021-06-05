@@ -18,10 +18,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        return employeeRepository.findById(id);
 //    }
 
-//    @Override
-//    public void add(Employee employee) {
-//        employeeRepository.add(employee);
-//    }
+    @Override
+    public void add(Employee employee) {
+        employeeRepository.insertEmployee(employee);
+    }
+
+    @Override
+    public void add(Employee employee, int idPosition, int idEducation, int idDivison, String username) {
+        employeeRepository.insertEmployee(employee,idPosition,idEducation,idDivison,username);
+    }
 
 //    @Override
 //    public void update(int id, Employee employee) {
