@@ -26,7 +26,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <form method="post">
+    <form method="post" action="/employee?action=edit">
         <div class="row">
             <div class="col-md-12">
                 <p class="bg-success text-center">EDIT EMPLOYEE</p>
@@ -35,33 +35,83 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="exampleInputEmail">Id Employee</label>
                     <input type="number" class="form-control" id="exampleInputEmail"
-                           aria-describedby="emailHelp" name="id" value="${employee.id}" required readonly>
-
+                           aria-describedby="emailHelp" name="id" value="${employee.id}" hidden>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Full Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="fullName"
-                           value="${employee.fullName}">
+                    <label for="exampleInputPassword2">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword" name="name"
+                           value="${employee.name}">
                 </div>
-                <%--                <div class="form-group">--%>
-                <%--                    <label for="exampleInputPassword2">Price</label>--%>
-                <%--                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">--%>
-                <%--                </div>--%>
-                <%--                <div class="form-group">--%>
-                <%--                    <label for="exampleInputPassword3">Manufacture</label>--%>
-                <%--                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">--%>
-                <%--                </div>--%>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Position</label>
+                    <select name="idPosition">
+                        <c:forEach var="type" items="${positions}">
+                            <option value="${type.id}" ${type.id==employee.position.id?"selected":""}>${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Education Degree</label>
+                    <select name="idEducation">
+                        <c:forEach var="type" items="${educationDegrees}">
+                            <option value="${type.id}" ${type.id==employee.educationDegree.id?"selected":""}>${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Division</label>
+                    <select name="idDivision">
+                        <c:forEach var="type" items="${divisions}">
+                            <option value="${type.id}" ${type.id==employee.division.id?"selected":""}>${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Birthday</label>
+                    <input type="date" class="form-control" id="exampleInputPassword2" name="birthday"
+                           value="${employee.birthday}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Id Card</label>
+                    <input type="text" class="form-control" id="exampleInputPassword4" name="idCard"
+                           value="${employee.idCard}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword5">Salary</label>
+                    <input type="number" class="form-control" id="exampleInputPassword5" name="salary"
+                           value="${employee.salary}">
+                </div>
+                <div class=" form-group">
+                    <label for="exampleInputPassword6">Phone</label>
+                    <input type="text" class="form-control" id="exampleInputPassword6" name="phone"
+                           value="${employee.phone}">
+                </div>
+                <div class=" form-group">
+                    <label for="exampleInputPassword7">Email</label>
+                    <input type="text" class="form-control" id="exampleInputPassword7" name="email"
+                           value="${employee.email}">
+                </div>
+                <div class=" form-group">
 
+                    <label for="exampleInputPassword8">Address</label>
+                    <input type="text" class="form-control" id="exampleInputPassword8" name="address"
+                           value="${employee.address}">
+                </div>
+                <div class=" form-group">
+                    <label for="exampleInputPassword8">User Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword9" name="userName"
+                           value="${employee.user.name}"
+                           required readonly>
+                </div>
             </div>
-            <div class="col-md-12">
+            <div class=" col-md-12">
                 <div class="row">
                     <div class="col-md-6 ">
                         <a href="/employee" class="btn btn-primary">Back to menu</a>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Confirm Edit</button>
+                        <button type="submit" class="btn btn-primary">Add Employee</button>
                     </div>
                 </div>
             </div>

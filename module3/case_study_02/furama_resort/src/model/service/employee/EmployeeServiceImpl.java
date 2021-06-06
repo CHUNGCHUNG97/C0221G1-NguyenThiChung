@@ -13,10 +13,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAll();
     }
 
-//    @Override
-//    public Employee findById(int id) {
-//        return employeeRepository.findById(id);
-//    }
+    @Override
+    public Employee findById(int id) {
+        return employeeRepository.findById(id);
+    }
 
     @Override
     public void add(Employee employee) {
@@ -25,22 +25,32 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void add(Employee employee, int idPosition, int idEducation, int idDivison, String username) {
-        employeeRepository.insertEmployee(employee,idPosition,idEducation,idDivison,username);
+        employeeRepository.insertEmployee(employee, idPosition, idEducation, idDivison, username);
     }
 
-//    @Override
-//    public void update(int id, Employee employee) {
-//        employeeRepository.update(id, employee);
-//    }
-//
-//    @Override
-//    public Employee remove(int id) {
-//        employeeRepository.remove(id);
-//        return null;
-//    }
-//
-//    @Override
-//    public List<Employee> search(String name) {
-//        return employeeRepository.search(name);
-//    }
+    @Override
+    public List<Employee> pagination(int page, int pageSize) {
+        return employeeRepository.getListByPagination(page, pageSize);
+    }
+
+    @Override
+    public long count() {
+        return employeeRepository.countAll();
+    }
+
+    @Override
+    public void update(Employee employee, int idPosition, int idEducation, int idDivision, String userName) {
+        employeeRepository.update(employee, idPosition, idEducation, idDivision, userName);
+    }
+
+
+    @Override
+    public boolean remove(int id) {
+        return employeeRepository.remove(id);
+    }
+
+    @Override
+    public List<Employee> search(String name) {
+        return employeeRepository.search(name);
+    }
 }

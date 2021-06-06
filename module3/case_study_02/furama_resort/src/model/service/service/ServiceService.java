@@ -7,8 +7,8 @@ import java.util.List;
 public interface ServiceService {
     List<Service> findAll();
 
-    //    L findById(int id);
-//
+    Service findById(int id);
+
     void add(Service service);
 
     void add(Service service, int idTypeRent, int idTypeService);

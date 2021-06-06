@@ -59,7 +59,9 @@
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+                               name="name">
+                        <input type="text" name="action" value="search" hidden>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
@@ -115,6 +117,26 @@
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        <c:forEach begin="1" end="${total/pageSize+1}" var="i">
+            <li class="page-item"><a class="page-link" style="${i==page? 'color: blue; font-weight: 700':'color:black'}"
+                                     href="employee?action=list&page=${i}&pageSize=${pageSize}">${i}</a></li>
+        </c:forEach>
+
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 <div class="footer row  align-items-center bg-success mt-2">
     <div class="col-md-12 d-flex justify-content-center">
         Đặt phòng ngay tại: www.danang.intercontinental.com

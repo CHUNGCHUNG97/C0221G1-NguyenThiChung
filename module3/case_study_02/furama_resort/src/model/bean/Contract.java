@@ -1,12 +1,24 @@
-package model;
+package model.bean;
 
 public class Contract {
     private int id;
-    private String name;
+    private String dateStart;
+    private String dateEnd;
+    private double deposit;
+    private double totalMoney;
+    private Employee employee;
+    private Customer customer;
+    private Service service;
 
-    public Contract(int id, String name) {
+    public Contract(int id, String dateStart, String dateEnd, double deposit, double totalMoney, Employee employee, Customer customer, Service service) {
         this.id = id;
-        this.name = name;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.deposit = deposit;
+        this.totalMoney = totalMoney;
+        this.employee = employee;
+        this.customer = customer;
+        this.service = service;
     }
 
     public int getId() {
@@ -17,11 +29,59 @@ public class Contract {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDateStart() {
+        return dateStart;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
+    }
+
+    public double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 }

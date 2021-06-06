@@ -1,6 +1,5 @@
 package model.service.service;
 
-import model.Contract;
 import model.bean.Service;
 import model.repository.contract.ContractRepository;
 import model.repository.service.ServiceRepository;
@@ -16,11 +15,11 @@ public class ServiceServiceImpl implements ServiceService {
         return serviceRepository.findAll();
     }
 
-    //    @Override
-//    public Service findById(int id) {
-//        return serviceRepository.findById(id);
-//    }
-//
+        @Override
+    public Service findById(int id) {
+        return serviceRepository.findById(id);
+    }
+
     @Override
     public void add(Service service) {
         serviceRepository.insertService(service);

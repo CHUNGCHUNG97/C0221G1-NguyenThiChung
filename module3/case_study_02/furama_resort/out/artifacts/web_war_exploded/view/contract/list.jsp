@@ -80,21 +80,29 @@
             <table class="table table-light table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Employee</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Date Start</th>
+                    <th scope="col">Date End</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="contract" items="${list}">
+                <c:forEach var="contract" items="${contracts}">
                     <tr>
 
                         <td>${contract.id}</td>
-                        <td>${contract.name}</td>
+                        <td>${contract.employee.name}</td>
+                        <td>${contract.customer.nameCustomer}</td>
+                        <td>${contract.service.nameService}</td>
+                        <td>${contract.dateStart}</td>
+                        <td>${contract.dateEnd}</td>
                         <td><a href="contract?action=edit&id=${contract.id}">Edit</a></td>
                         <td>
-                            <button onclick="showModal(${contract.id},'${contract.name}')">
+                            <button onclick="showModal(${contract.id})">
                                 Delete
                             </button>
                         </td>
@@ -130,9 +138,9 @@
     </div>
 </div>
 <script>
-    function showModal(id, name) {
+    function showModal(id) {
         document.getElementById("hrefDelete").href = "?action=delete&id=" + id;
-        document.getElementById("contentModal").innerText = "Are you sure to delete : " + name + " ?";
+        document.getElementById("contentModal").innerText = "Are you sure to delete contract: " + i + "?";
         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), null)
         myModal.show();
     }

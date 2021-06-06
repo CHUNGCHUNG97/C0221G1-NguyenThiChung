@@ -31,7 +31,7 @@
         <form method="post" action="/customer?action=edit">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="bg-success text-center">CREATE NEW CUSTOMER</p>
+                    <p class="bg-success text-center">EDIT CUSTOMER</p>
                 </div>
             </div>
             <div class="row">
