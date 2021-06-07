@@ -9,6 +9,9 @@ public class TypeCustomer {
         this.name = name;
     }
 
+    public TypeCustomer() {
+    }
+
     public int getId() {
         return id;
     }

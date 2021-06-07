@@ -88,6 +88,7 @@
                     <th scope="col">Date End</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Detail</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -106,6 +107,7 @@
                                 Delete
                             </button>
                         </td>
+                        <td><a href="detail?action=list&idContract=${contract.id}">Detail</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

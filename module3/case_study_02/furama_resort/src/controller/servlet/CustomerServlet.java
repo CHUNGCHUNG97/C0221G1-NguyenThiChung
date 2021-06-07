@@ -2,6 +2,7 @@ package controller.servlet;
 
 import model.bean.Customer;
 import model.bean.TypeCustomer;
+import model.service.contract.ContractServiceImpl;
 import model.service.customer.CustomerServiceImpl;
 import model.service.type_customer.TypeCustomerServiceImpl;
 
@@ -12,11 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     TypeCustomerServiceImpl typeCustomerService = new TypeCustomerServiceImpl();
+    ContractServiceImpl contractService = new ContractServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -68,17 +71,65 @@ public class CustomerServlet extends HttpServlet {
                 search(request, response);
                 break;
             }
+            case "hasContract": {
+                customerUsingService(request, response);
+                break;
+            }
             default:
                 break;
         }
     }
+
+    private void customerUsingService(HttpServletRequest request, HttpServletResponse response) {
+        try {
+
+//            int page;
+//            request.getParameter("page");
+//            int pageSize;
+//            request.getParameter("size");
+//            try {
+//                page = Integer.parseInt(request.getParameter("page"));
+//            } catch (Exception e) {
+//                page = 1;
+//            }
+//            try {
+//                pageSize = Integer.parseInt(request.getParameter("pageSize"));
+//            } catch (Exception e) {
+//                pageSize = 8;
+//            }
+            List<Customer> customers = customerService.getCustomerListHasContract();
+            long total = customerService.count();
+//            request.setAttribute("action", "list");
+//            request.setAttribute("total", total);
+//            request.setAttribute("page", page);
+//            request.setAttribute("pageSize", pageSize);
+            customers = customers.stream().map(ob -> {
+                ob.setContractList(contractService.getListByCustomerId(ob.getIdCustomer()));
+                return ob;
+            }).collect(Collectors.toList());
+            request.setAttribute("list", customers);
+            request.getRequestDispatcher("view/customer/customer_using_service.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            try {
+                request.getRequestDispatcher("view/404.jsp").forward(request, response);
+            } catch (ServletException servletException) {
+                servletException.printStackTrace();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
+        }
+
+    }
+
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         List<Customer> customers = customerService.search(name);
         request.setAttribute("list", customers);
         try {
-            request.getRequestDispatcher("view/customer/list.jsp").forward(request,response);
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

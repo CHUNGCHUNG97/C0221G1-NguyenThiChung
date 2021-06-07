@@ -60,7 +60,8 @@ public class ServiceRepository {
         Connection connection = databaseRepository.connectDataBase();
         Service service = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL);
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id1 = resultSet.getInt("service_id");

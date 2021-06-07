@@ -1,5 +1,11 @@
 package controller.servlet;
 
+import model.bean.Contract;
+import model.bean.Customer;
+import model.bean.Employee;
+import model.bean.Service;
+import model.service.attach_service.AttachServiceImpl;
+import model.service.attach_service.AttachServiceService;
 import model.service.contract.ContractServiceImpl;
 
 
@@ -25,7 +31,7 @@ public class ContractServlet extends HttpServlet {
                 break;
             }
             case "create": {
-//                addContract(request, response);
+                addContract(request, response);
                 break;
             }
             case "edit": {
@@ -77,6 +83,7 @@ public class ContractServlet extends HttpServlet {
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setAttribute("action", "create");
+
             request.getRequestDispatcher("view/contract/create.jsp").forward(request, response);
 
         } catch (Exception e) {
@@ -85,17 +92,22 @@ public class ContractServlet extends HttpServlet {
         }
     }
 
-//    private void addContract(HttpServletRequest request, HttpServletResponse response) {
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        String name = request.getParameter("name");
-//        Contract contract = new Contract(id, name);
-//        contractService.add(contract);
-//        try {
-//            response.sendRedirect("/contract");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void addContract(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            int idEmployee = Integer.parseInt(request.getParameter("idEmployee"));
+            int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
+            int idService = Integer.parseInt(request.getParameter("idService"));
+            String dateStart = request.getParameter("dateStart");
+            String dateEnd = request.getParameter("dateEnd");
+            double deposit = Double.parseDouble(request.getParameter("deposit"));
+            double totalMoney = Double.parseDouble(request.getParameter("totalMoney"));
+            Contract contract = new Contract(dateStart, dateEnd, deposit, totalMoney);
+            contractService.add(contract, idEmployee, idCustomer, idService);
+            response.sendRedirect("/contract");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 //
 //    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
 //        int id = Integer.parseInt(request.getParameter("id"));
@@ -124,6 +136,7 @@ public class ContractServlet extends HttpServlet {
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setAttribute("action", "list");
+
             request.setAttribute("contracts", contractService.findAll());
             request.getRequestDispatcher("view/contract/list.jsp").forward(request, response);
 

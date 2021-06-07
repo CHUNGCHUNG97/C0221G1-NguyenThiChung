@@ -35,23 +35,41 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="exampleInputEmail">Id Contract</label>
+                    <%--                    <label for="exampleInputEmail">Id Contract</label>--%>
                     <input type="number" class="form-control" id="exampleInputEmail"
-                           aria-describedby="emailHelp" name="id">
-
+                           aria-describedby="emailHelp" name="id" hidden>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+                    <label for="exampleInputEmail">Id Employee</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1"
+                           aria-describedby="emailHelp" name="idEmployee">
                 </div>
-<%--                <div class="form-group">--%>
-<%--                    <label for="exampleInputPassword2">Price</label>--%>
-<%--                    <input type="number" class="form-control" id="exampleInputPassword2" name="price">--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="exampleInputPassword3">Manufacture</label>--%>
-<%--                    <input type="text" class="form-control" id="exampleInputPassword3" name="manufacture">--%>
-<%--                </div>--%>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Id Customer</label>
+                    <input type="number" class="form-control" id="exampleInputEmail2"
+                           aria-describedby="emailHelp" name="idCustomer">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Id Service</label>
+                    <input type="number" class="form-control" id="exampleInputEmail3"
+                           aria-describedby="emailHelp" name="idService">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Date Start</label>
+                    <input type="date" class="form-control" id="exampleInputPassword2" name="dateStart">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Date Start</label>
+                    <input type="date" class="form-control" id="exampleInputPassword3" name="dateEnd">
+                </div>
+                <div class="form-group">
+                    <label>Deposit</label>
+                    <input type="number" class="form-control" id="exampleInputPassword4" name="deposit">
+                </div>
+                <div class="form-group">
+                    <label>Total Money</label>
+                    <input type="number" class="form-control" id="exampleInputPassword" name="totalMoney">
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="row">

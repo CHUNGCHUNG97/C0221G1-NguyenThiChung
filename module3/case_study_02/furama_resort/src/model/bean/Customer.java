@@ -1,5 +1,8 @@
 package model.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private int idCustomer;
     private TypeCustomer typeCustomer;
@@ -10,6 +13,7 @@ public class Customer {
     private String phoneCustomer;
     private String emailCustomer;
     private String addressCustomer;
+    List<Contract> contractList = new ArrayList<>();
 
     public Customer(int idCustomer, TypeCustomer typeCustomer, String nameCustomer, String birthdayCustomer,
                     String idCardCustomer, int genderCustomer, String phoneCustomer, String emailCustomer,
@@ -44,6 +48,19 @@ public class Customer {
         this.phoneCustomer = phoneCustomer;
         this.emailCustomer = emailCustomer;
         this.addressCustomer = addressCustomer;
+    }
+
+    public Customer(int idCustomer, TypeCustomer typeCustomer, String nameCustomer, String birthdayCustomer, String idCardCustomer, int genderCustomer, String phoneCustomer, String emailCustomer, String addressCustomer, List<Contract> contractList) {
+        this.idCustomer = idCustomer;
+        this.typeCustomer = typeCustomer;
+        this.nameCustomer = nameCustomer;
+        this.birthdayCustomer = birthdayCustomer;
+        this.idCardCustomer = idCardCustomer;
+        this.genderCustomer = genderCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.emailCustomer = emailCustomer;
+        this.addressCustomer = addressCustomer;
+        this.contractList = contractList;
     }
 
     public int getIdCustomer() {
@@ -118,5 +135,13 @@ public class Customer {
 
     public void setTypeCustomer(TypeCustomer typeCustomer) {
         this.typeCustomer = typeCustomer;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }

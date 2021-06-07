@@ -1,13 +1,17 @@
 package model.service.customer;
 
 import model.bean.Customer;
+import model.repository.contract.ContractRepository;
 import model.repository.customer.CustomerRepository;
+import model.service.contract.ContractServiceImpl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CustomerServiceImpl implements CustomerService {
 
     CustomerRepository customerRepository = new CustomerRepository();
+   
 
     @Override
     public List<Customer> findAll() {
@@ -53,6 +57,13 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Customer> search(String name) {
         return customerRepository.search(name);
+    }
+
+    @Override
+    public List<Customer> getCustomerListHasContract() {
+        List<Customer> customers = customerRepository.getCustomerListHasContract();
+
+        return customers;
     }
 
 

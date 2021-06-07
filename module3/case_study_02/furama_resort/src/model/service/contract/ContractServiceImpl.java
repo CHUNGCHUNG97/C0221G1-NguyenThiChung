@@ -13,16 +13,27 @@ public class ContractServiceImpl implements ContractService {
         return contractRepository.findAll();
     }
 
+    @Override
+    public Contract findById(int id) {
+        return contractRepository.findById(id);
+    }
 
-//    @Override
-//    public Contract findById(int id) {
-//        return contractRepository.findById(id);
-//    }
-//
-//    @Override
-//    public void add(Contract contract) {
-//        contractRepository.add(contract);
-//    }
+    @Override
+    public void add(Contract contract) {
+        contractRepository.insertContract(contract);
+    }
+
+    @Override
+    public void add(Contract contract, int idEmployee, int idCustomer, int idService) {
+        contractRepository.insertContract(contract, idEmployee, idCustomer, idService);
+    }
+
+    @Override
+    public List<Contract> getListByCustomerId(int customerId) {
+        return contractRepository.getListByCustomerId(customerId);
+    }
+
+
 //
 //    @Override
 //    public void update(int id, Contract contract) {

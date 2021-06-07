@@ -1,8 +1,10 @@
 package model.repository.customer;
 
+import model.bean.Contract;
 import model.bean.Customer;
 import model.bean.TypeCustomer;
 import model.repository.DatabaseRepository;
+import model.repository.contract.ContractRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,12 +41,22 @@ public class CustomerRepository {
             " t.customer_id_card = ?, t.customer_gender = ?, t.customer_phone = ?, " +
             " t.customer_email = ?, t.customer_address = ? WHERE t.customer_id = ? ";
     private static final String DELETE = "DELETE FROM customer WHERE customer_id = ? ";
+    private static final String SELECT_CUSTOMER_USING = "select customer.customer_id, customer_type_id, customer_name, customer_birthday, customer_id_card, customer_gender, customer_phone, customer_email, customer_address from customer\n" +
+            "            inner join contract c on customer.customer_id = c.customer_id\n" +
+            "            where c.contract_end_date <date (now())\n" +
+            "            group by customer_id";
+    private static final String CONTRACT_BY_CUSTOMER = "select contract.contract_id, cd.contract_detail_id, attach_service_name, contract_start_date, contract_end_date\n" +
+            "from contract\n" +
+            "         inner join customer c on contract.customer_id = c.customer_id\n" +
+            "         inner join contract_detail cd on contract.contract_id = cd.contract_id\n" +
+            "         inner join attach_service `as` on cd.attach_service_id = `as`.attach_service_id\n" +
+            "where c.customer_id = ?\n";
 
     public List<Customer> search(String name) {
         Connection connection = databaseRepository.connectDataBase();
         List<Customer> customers = new ArrayList<>();
         try {
-            String fixSearchString = "\'%"+ name+"%\'";
+            String fixSearchString = "\'%" + name + "%\'";
             String SQL = SEARCH.replaceAll("\\?", fixSearchString);
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -127,6 +139,34 @@ public class CustomerRepository {
                 String emailCustomer = resultSet.getString("customer_email");
                 String addressCustomer = resultSet.getString("customer_address");
                 Customer customer = new Customer(idCustomer, typeCustomer, nameCustomer, birthdayCustomer, idCardCustomer, genderCustomer, phoneCustomer, emailCustomer, addressCustomer);
+                customerList.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
+    }
+
+    public List<Customer> getCustomerListHasContract() {
+        Connection connection = databaseRepository.connectDataBase();
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_USING);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("customer_id");
+                int idTypeCustomer = resultSet.getInt("customer_type_id");
+//                String nameTypeCustomer = resultSet.getString("customer_type_name");
+                TypeCustomer typeCustomer = new TypeCustomer();
+                String nameCustomer = resultSet.getString("customer_name");
+                String birthday = resultSet.getString("customer_birthday");
+                String idCard = resultSet.getString("customer_id_card");
+                int gender = resultSet.getInt("customer_gender");
+                String phone = resultSet.getString("customer_phone");
+                String email = resultSet.getString("customer_email");
+                String address = resultSet.getString("customer_address");
+
+                Customer customer = new Customer(id, typeCustomer, nameCustomer, birthday, idCard, gender, phone, email, address);
                 customerList.add(customer);
             }
         } catch (SQLException throwables) {
@@ -248,6 +288,6 @@ public class CustomerRepository {
             throwables.printStackTrace();
         }
         return count;
-
     }
+
 }

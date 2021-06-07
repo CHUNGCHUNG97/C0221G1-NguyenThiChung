@@ -22,4 +22,6 @@ public interface CustomerService {
     long count();
 
     List<Customer> search(String name);
+
+    List<Customer> getCustomerListHasContract();
 }

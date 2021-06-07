@@ -5,12 +5,22 @@ public class AttachService {
     private String nameAttach;
     private double costAttach;
     private int unitAttach;
+    private String status;
 
-    public AttachService(int idAttach, String nameAttach, double costAttach, int unitAttach) {
+    public AttachService(int idAttach, String nameAttach, double costAttach, int unitAttach, String status) {
         this.idAttach = idAttach;
         this.nameAttach = nameAttach;
         this.costAttach = costAttach;
         this.unitAttach = unitAttach;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getIdAttach() {
