@@ -6,6 +6,7 @@ import model.repository.employee.education_degree.EducationDegreeRepository;
 import model.service.division.DivisionServiceImpl;
 import model.service.education_degree.EducationDegreeServiceImpl;
 import model.service.employee.EmployeeServiceImpl;
+import model.service.exception.ValidateException;
 import model.service.position.PositionServiceImpl;
 
 import javax.servlet.ServletException;
@@ -68,8 +69,8 @@ public class EmployeeServlet extends HttpServlet {
                 deleteEmployee(request, response);
                 break;
             }
-            case "search":{
-                search(request,response);
+            case "search": {
+                search(request, response);
                 break;
             }
         }
@@ -80,7 +81,7 @@ public class EmployeeServlet extends HttpServlet {
         List<Employee> employees = employeeService.search(name);
         request.setAttribute("employees", employees);
         try {
-            request.getRequestDispatcher("view/employee/list.jsp").forward(request,response);
+            request.getRequestDispatcher("view/employee/list.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -114,7 +115,8 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-    private void addEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void addEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Employee employee = null;
         try {
             String name = request.getParameter("name");
             int idPosition = Integer.parseInt(request.getParameter("idPosition"));
@@ -127,12 +129,25 @@ public class EmployeeServlet extends HttpServlet {
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             String userName = request.getParameter("userName");
-            Employee employee = new Employee(name, birthday, idCard, salary, phone, email, address);
-            employeeService.add(employee, idPosition, idEducation, idDivision, userName);
+            employee = new Employee(name, birthday, idCard, salary, phone, email, address);
+            List<String> errors = employeeService.add(employee, idPosition, idEducation, idDivision, userName);
+            if(errors.isEmpty()){
+                request.setAttribute("message", "Employee created");
+            }else {
+                request.setAttribute("errors", errors);
+            }
 
-            response.sendRedirect("/employee");
-        } catch (IOException e) {
+
+        } catch (Exception e) {
+            request.setAttribute("message", e.getMessage());
             e.printStackTrace();
+        } finally {
+            request.setAttribute("employee", employee);
+            request.setAttribute("action", "create");
+            request.setAttribute("positions", positionService.getAll());
+            request.setAttribute("educationDegrees", degreeService.getAll());
+            request.setAttribute("divisions", divisionService.getAll());
+            request.getRequestDispatcher("view/employee/create.jsp").forward(request, response);
         }
     }
 

@@ -26,6 +26,10 @@
 </head>
 <body>
 <div class="container-fluid">
+    <c:forEach items="${errors}" var="error">
+        <h5 style="color: red">${error}</h5>
+    </c:forEach>
+
     <form method="post" action="/employee?action=create">
         <div class="row">
             <div class="col-md-12">
@@ -41,7 +45,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword2">Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword" name="name">
+                    <input type="text" class="form-control" id="exampleInputPassword" name="name"
+                           value="${employee!=null?employee.name:""}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">Position</label>
@@ -81,7 +86,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword6">Phone</label>
-                    <input type="text" class="form-control" id="exampleInputPassword6" name="phone">
+                    <input type="text" class="form-control" id="exampleInputPassword6" name="phone"
+                           value="${employee!=null?employee.phone:""}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword7">Email</label>

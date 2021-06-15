@@ -207,11 +207,18 @@ public class CustomerServlet extends HttpServlet {
 
         Customer customer = new Customer(nameCustomer, birthdayCustomer, idCardCustomer,
                 genderCustomer, phoneCustomer, emailCustomer, addressCustomer);
-        customerService.add(customer, idTypeCustomer);
-
+        List<String> errors = customerService.add(customer, idTypeCustomer);
+        if (errors.isEmpty()) {
+            errors.add("create success");
+        }
+        request.setAttribute("errors", errors);
         try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
+            request.setAttribute("customer", customer);
+            request.setAttribute("typeCustomers", typeCustomerService.getAll());
+            request.setAttribute("idTypeCustomer",idTypeCustomer);
+//            request.setAttribute("action","create");
+            request.getRequestDispatcher("view/customer/create.jsp").forward(request, response);
+        } catch (IOException | ServletException e) {
             e.printStackTrace();
         }
     }

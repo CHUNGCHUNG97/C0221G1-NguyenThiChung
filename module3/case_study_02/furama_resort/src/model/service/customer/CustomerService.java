@@ -11,7 +11,7 @@ public interface CustomerService {
 
     void add(Customer customer);
 
-    void add(Customer customer, int type);
+    List<String> add(Customer customer, int type);
 
     void update(Customer customer, int type);
 

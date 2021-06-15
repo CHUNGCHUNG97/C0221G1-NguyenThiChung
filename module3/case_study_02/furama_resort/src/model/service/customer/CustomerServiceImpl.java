@@ -4,6 +4,7 @@ import model.bean.Customer;
 import model.repository.contract.ContractRepository;
 import model.repository.customer.CustomerRepository;
 import model.service.contract.ContractServiceImpl;
+import model.service.validators.CustomerValidator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 public class CustomerServiceImpl implements CustomerService {
 
     CustomerRepository customerRepository = new CustomerRepository();
-   
+    CustomerValidator customerValidator = new CustomerValidator();
 
     @Override
     public List<Customer> findAll() {
@@ -29,8 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void add(Customer customer, int type) {
-        customerRepository.insertCustomer(customer, type);
+    public List<String> add(Customer customer, int type) {
+        List<String> errors = customerValidator.validateCustomer(customer);
+        if (errors.isEmpty()) {
+           customerRepository.insertCustomer(customer, type);
+        }
+        return errors;
     }
 
 

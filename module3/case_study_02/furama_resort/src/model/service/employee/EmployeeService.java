@@ -2,7 +2,9 @@ package model.service.employee;
 
 import model.bean.Customer;
 import model.bean.Employee;
+import model.service.exception.ValidateException;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface EmployeeService {
@@ -12,7 +14,7 @@ public interface EmployeeService {
 
     void add(Employee employee);
 
-    void add(Employee employee, int idPosition, int idEducation, int idDivison, String username);
+    List<String> add(Employee employee, int idPosition, int idEducation, int idDivison, String username) throws ValidateException, ParseException;
 
     public List<Employee> pagination(int page, int pageSize);
 
