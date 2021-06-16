@@ -1,6 +1,7 @@
 package com.codegym.service.impl;
 
 import com.codegym.service.IDictionaryService;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
