@@ -31,14 +31,8 @@ public class MailController {
     }
 
     @PostMapping(value = "/mail")
-    public String createMail(@ModelAttribute Mail mail, Model model, RedirectAttributes redirectAttributes) {
-        try {
+    public String createMail(@ModelAttribute Mail mail, Model model) {
             model.addAttribute("mail", mail);
-            redirectAttributes.addFlashAttribute("msg", "create success");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("msg", "create fail");
-        }
-
         return "mail";
     }
 }
