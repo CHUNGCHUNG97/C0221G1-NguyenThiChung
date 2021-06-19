@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+</head>
+<body>
+<div class="container">
+    <h3>Products</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+                <a th:href="@{/product/create}">
+                    Add new product
+                </a>
+            </p>
+        </div>
+        <div class="col-md-8">
+
+            <form class="d-flex justify-content-end" action="/product/search" method="get">
+                <input class="form-control" type="search" placeholder="Search" name="name" aria-label="Search" style="width: 80% !important; display: inline-block">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+
+        </div>
+    </div>
+    <div class="row">
+
+        <table id="products">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>View</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="row,rowStat : ${products}">
+                <td th:text="${row.getName()}"></td>
+                <td th:text="${row.getPrice()}"></td>
+                <td th:text="${row.getQuantity()}"></td>
+                <td><a th:href="@{/product/{id}/edit(id=${row.getId()})}">edit</a></td>
+                <td><a th:href="@{/product/{id}/delete(id=${row.getId()})}">delete</a></td>
+                <td><a th:href="@{/product/{id}/view(id=${row.getId()})}">view</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer th:replace="/layout :: footer"></footer>
+</div>
+
+
+
+</body>
+</html>
