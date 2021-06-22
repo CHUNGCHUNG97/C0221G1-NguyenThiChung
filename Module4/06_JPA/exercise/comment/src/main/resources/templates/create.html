@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-th-charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Maitree:300,400,600|Montserrat" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>* {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #DBE2EC;
+        padding: 100px;
+    }
+
+    .container-comments {
+        background: #fff;
+        width: 70%;
+        box-shadow: 0px 5px 50px rgba(0, 0, 0, .2);
+        margin: auto;
+        padding: 30px;
+        position: relative;
+    }
+
+    .container-pictures {
+        background: #fff;
+        width: 70%;
+        box-shadow: 0px 5px 50px rgba(0, 0, 0, .2);
+        margin: auto;
+        padding: 30px;
+        position: relative;
+    }
+
+    h3 {
+        font-family: Montserrat, sans-serif;
+        font-size: .9em;
+        text-align: center;
+        margin: 0;
+    }
+
+    #close {
+        width: 14px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+
+    .comment {
+        margin-top: 2px;
+        padding: 10px;
+    }
+
+    .photo {
+        with: 60px;
+        height: 60px;
+        border-radius: 100%;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .comment-text {
+        width: 80%;
+        float: left;
+    }
+
+    .name {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .9em;
+        color: #2C3137;
+        font-weight: 600;
+    }
+
+    .time {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .8em;
+        color: #a0a0a0;
+        padding-left: 20px;
+        font-weight: 400;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Location_dot_grey.svg/500px-Location_dot_grey.svg.png");
+        background-repeat: no-repeat;
+        background-size: 4px;
+        background-position: top 8px left 5px;
+    }
+
+    p {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .9em;
+        color: #626A73;
+    }
+
+    /* To clear the div Clearfix, I am using the nth child from 2nd div onwards. */
+    .comment:nth-child(n+2):after {
+        display: block;
+        content: " ";
+        clear: both;
+    }
+
+    .comment:hover {
+        background: #eaeaea;
+        border-radius: 5px;
+    }
+
+    .img {
+        width: 100%
+    }
+
+
+    .rating {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        overflow: hidden;
+        flex-direction: row-reverse;
+        height: 40px;
+        position: relative;
+    }
+
+    .rating-0 {
+        filter: grayscale(100%);
+    }
+
+    .rating > input {
+        display: none;
+    }
+
+    .rating > label {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-top: auto;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 76%;
+        transition: .3s;
+    }
+
+    .rating > input:checked ~ label,
+    .rating > input:checked ~ label ~ label {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+    }
+
+    .rating > input:not(:checked) ~ label:hover,
+    .rating > input:not(:checked) ~ label:hover ~ label {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+    }
+
+    .feedback {
+
+        background-color: #fff;
+        width: 100%;
+        padding: 5px 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+    }
+
+    .rating > label {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-top: auto;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 76%;
+        transition: .3s;
+    }
+
+    .rating > input:checked ~ label,
+    .rating > input:checked ~ label ~ label {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+    }
+
+    .rating > input:not(:checked) ~ label:hover,
+    .rating > input:not(:checked) ~ label:hover ~ label {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+    }
+
+    .feedback {
+
+        background-color: #fff;
+        width: 100%;
+        padding: 5px 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+    }
+
+    .stars-rating {
+        --star: 18px;
+        --stars-width: calc(var(--star) * 5);
+        --stars-height: var(--star);
+        --gap: calc(var(--star) / 100);
+        --rating: 0;
+        --rating-width: calc(
+                (var(--gap) * var(--rating)) + (var(--star) * var(--rating))
+        );
+        position: relative;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg width='328' height='64' viewBox='0 0 328 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 0L39.1844 22.1115H62.4338L43.6247 35.7771L50.8091 57.8885L32 44.2229L13.1909 57.8885L20.3753 35.7771L1.56619 22.1115H24.8156L32 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M98 0L105.184 22.1115H128.434L109.625 35.7771L116.809 57.8885L98 44.2229L79.1909 57.8885L86.3753 35.7771L67.5662 22.1115H90.8156L98 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M164 0L171.184 22.1115H194.434L175.625 35.7771L182.809 57.8885L164 44.2229L145.191 57.8885L152.375 35.7771L133.566 22.1115H156.816L164 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M230 0L237.184 22.1115H260.434L241.625 35.7771L248.809 57.8885L230 44.2229L211.191 57.8885L218.375 35.7771L199.566 22.1115H222.816L230 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M296 0L303.184 22.1115H326.434L307.625 35.7771L314.809 57.8885L296 44.2229L277.191 57.8885L284.375 35.7771L265.566 22.1115H288.816L296 0Z' fill='%23C4C4C4'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: var(--stars-width) auto;
+        height: var(--stars-height);
+        width: var(--stars-width);
+    }
+
+    .rating2 {
+
+        position: absolute;
+        overflow: hidden;
+        background-image: url("data:image/svg+xml,%3Csvg width='1030' height='186' viewBox='0 0 1030 186' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M93 0L113.88 64.2614H181.448L126.784 103.977L147.664 168.239L93 128.523L38.336 168.239L59.2158 103.977L4.55174 64.2614H72.1202L93 0Z' fill='gold'/%3E%3Cpath d='M304 0L324.88 64.2614H392.448L337.784 103.977L358.664 168.239L304 128.523L249.336 168.239L270.216 103.977L215.552 64.2614H283.12L304 0Z' fill='gold'/%3E%3Cpath d='M515 0L535.88 64.2614H603.448L548.784 103.977L569.664 168.239L515 128.523L460.336 168.239L481.216 103.977L426.552 64.2614H494.12L515 0Z' fill='gold'/%3E%3Cpath d='M726 0L746.88 64.2614H814.448L759.784 103.977L780.664 168.239L726 128.523L671.336 168.239L692.216 103.977L637.552 64.2614H705.12L726 0Z' fill='gold'/%3E%3Cpath d='M937 0L957.88 64.2614H1025.45L970.784 103.977L991.664 168.239L937 128.523L882.336 168.239L903.216 103.977L848.552 64.2614H916.12L937 0Z' fill='gold'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: var(--stars-width) auto;
+        height: var(--stars-height);
+        width: var(--rating-width);
+    }
+
+    </style>
+
+
+</head>
+<body>
+<div class="container-pictures">
+    <img class="img"
+         src="https://cdn.tgdd.vn/Files/2019/10/30/1213903/chup-anh-thien-ha-milky-way-la-gi-cach-chup-anh-milky-way-cuc-dep-mat-5.jpg">
+</div>
+<div class="container-comments">
+    <!--            Sô lượng comments = comments.size();-->
+
+    <div class="comment">
+        <form th:action="@{/comment/save}" method="post" th:object="${comment}" accept-charset="utf-8">
+            <input th:field="*{id}" value="" hidden>
+            <label class="">Author</label>
+            <input th:field="*{author}" class="form-control">
+            <label class="">Feedback</label>
+            <textarea th:field="*{feedback}" class="form-control is-invalid" id="validationTextarea"
+                      placeholder="Your comment"
+                      required></textarea>
+            <label class="">Rating</label>
+            <div class="feedback form-control">
+                <div class="rating">
+                    <input type="radio"  id="rating-5">
+                    <label for="rating-5" onclick="rating(5)"></label>
+
+                    <input type="radio"  id="rating-4">
+                    <label for="rating-4" onclick="rating(4)"></label>
+
+                    <input type="radio"  id="rating-3">
+                    <label for="rating-3" onclick="rating(3)"></label>
+
+                    <input type="radio"  id="rating-2">
+                    <label for="rating-2" onclick="rating(2)"></label>
+                    <input type="radio"  id="rating-1">
+                    <label for="rating-1" onclick="rating(1)"></label>
+                </div>
+            </div>
+            <!--               Tạo 1 input nhận rating;&#45;&#45; gọi sự kiện để maping value>-->
+            <input name="rating" id="rating" class="form-control" th:field="*{rating}" hidden>
+            <button class="btn btn-success my-2" type="submit">Submit</button>
+        </form>
+
+    </div>
+
+
+    <h3 style="margin-top: 10px; font-weight: 600">COMMENTS (<strong th:text="${comments.size()}"></strong>)</h3>
+
+    <! //th:each cho thằng div comment bên dưới-->
+    <div class="comment" th:each="row : ${comments}">
+        <img src="https://api-private.atlassian.com/users/3ed7bde5a8c78e8d0d38eca297f62495/avatar"
+             class="photo">
+
+        <div class="comment-text">
+            <p class="name" th:text="${row.getAuthor()}">thehound
+                <!-- Muốn xịn xò thì sửa cái Date trong classComment thành LocalDateTime.-->
+
+            </p>
+            <span class="time" th:text="${row.getCreatedDate()}">3 day</span>
+            <p th:text="${row.getFeedback()}"></p>
+            <a th:href="'/comment/like/'+${row.getId()}">
+                <label style="padding-right: 5px" th:text="${row.getLikes()}">8989</label>
+                <i class="far fa-thumbs-up"></i>
+
+            </a>
+            <div class='stars-rating' th:style="'--rating:'+ ${row.getRating()}">
+
+                <div class="rating2"></div>
+            </div>
+
+        </div>
+
+    </div> <!-- .comment -->
+
+</div> <!-- #container -->
+<script>
+    function rating(number) {
+        document.getElementById('rating').value = number;
+    }
+</script>
+</body>
+</html>
