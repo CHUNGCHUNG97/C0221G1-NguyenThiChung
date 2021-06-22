@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping(value = "/comment",produces = "text/plain;charset=UTF-8")
 public class CommentController {
     @Autowired
     CommentService commentService;
@@ -20,7 +20,7 @@ public class CommentController {
         List<Comment> list = commentService.showAll();
         model.addAttribute("comment", new Comment());
         model.addAttribute("comments", list);
-        return "home";
+        return "create";
     }
 
     @PostMapping(value = "/save")

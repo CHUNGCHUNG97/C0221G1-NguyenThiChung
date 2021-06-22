@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -19,7 +20,11 @@ public class CommentRepositoryImpl implements CommentRepository {
 
     @Override
     public List<Comment> showAll() {
-        return DataBaseRepository.entityManager.createQuery("select c from Comment as c", Comment.class).getResultList();
+        String findAllByDateNow = "SELECT c FROM Comment as c where c.createdDate = :date";
+        TypedQuery<Comment> query = DataBaseRepository.entityManager.createQuery(findAllByDateNow, Comment.class);
+        query.setParameter("date", new Date());
+
+        return query.getResultList();
 
     }
 
