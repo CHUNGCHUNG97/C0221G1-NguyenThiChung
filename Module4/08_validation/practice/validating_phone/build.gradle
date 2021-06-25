@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'product'
+group = 'com.codegym'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -19,12 +19,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
-//    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.1'
-
-
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
 
 }
 

@@ -3,12 +3,18 @@ package product.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import product.demo.model.entity.Product;
 import product.demo.model.service.IProductService;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -26,11 +32,12 @@ public class ProductController {
         if (pageSize == null) {
             pageSize = 5;
         }
+
         Page<Product> products;
         if (search != null) {
-            products = productService.findAllByNameContaining(search, PageRequest.of(page, pageSize));
+            products = productService.findAllByNameContaining(search, PageRequest.of(page, pageSize,Sort.by("name").ascending()));
         } else {
-            products = productService.findAll(PageRequest.of(page, pageSize));
+            products = productService.findAll(PageRequest.of(page, pageSize,Sort.by("name").ascending()));
         }
         model.addAttribute("products", products);
         model.addAttribute("search", search);
@@ -44,10 +51,14 @@ public class ProductController {
     }
 
     @PostMapping("product/demo/save")
-    public String save(Product product, RedirectAttributes redirectAttributes) {
-        productService.create(product);
-        redirectAttributes.addFlashAttribute("message", "save success");
-        return "redirect:/product/demo/create";
+    public String save(@ModelAttribute @Valid Product product, BindingResult bindingResult , RedirectAttributes redirectAttributes  ) {
+        if(bindingResult.hasErrors()){
+        }else{
+            productService.create(product);
+            redirectAttributes.addFlashAttribute("message", "save success");
+
+        }
+        return "create";
     }
 
     @GetMapping(value = "/edit/{id}")
