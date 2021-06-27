@@ -16,9 +16,19 @@ public class Blog {
     private Date date;
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id" ,referencedColumnName = "id")
+    private Category category;
     public Blog() {
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public int getId() {
         return id;

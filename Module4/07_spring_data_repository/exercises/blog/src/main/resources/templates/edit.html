@@ -24,6 +24,11 @@
       <label>Quantity</label>
       <input type="text" th:field="*{quantity}"/>
     </div>
+    <div>
+      <select th:field="*{category}">
+        <option th:each="item:${categories}" th:value="${item}" th:text="${item.category}" th:selected="${}"></option>
+      </select>
+    </div>
     <input type="submit" value="Edit"/>
   </form>
 </div>

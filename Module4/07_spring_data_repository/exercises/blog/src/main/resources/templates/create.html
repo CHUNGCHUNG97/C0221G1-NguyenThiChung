@@ -158,6 +158,9 @@
             <textarea th:field="*{content}" class="form-control is-invalid" id="validationTextarea"
                       placeholder="Your comment"
                       required></textarea>
+            <select th:field="*{category}">
+                <option th:each="item:${categories}" th:value="${item.id}" th:text="${item.category}"></option>
+            </select>
             <button class="btn btn-success my-2" type="submit">Submit</button>
         </form>
 

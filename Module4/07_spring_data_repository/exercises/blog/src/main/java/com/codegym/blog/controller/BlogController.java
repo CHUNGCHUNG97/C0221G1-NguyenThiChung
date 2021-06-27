@@ -2,6 +2,7 @@ package com.codegym.blog.controller;
 
 import com.codegym.blog.model.Blog;
 import com.codegym.blog.service.IBlogService;
+import com.codegym.blog.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,13 +20,15 @@ import java.util.Optional;
 public class BlogController {
     @Autowired
     IBlogService blogService;
+    @Autowired
+    ICategoryService categoryService;
 
     @GetMapping(value = "/home")
     public String home(@RequestParam(required = false) String search,
                        @RequestParam(required = false) Integer page,
                        @RequestParam(name = "sort", required = false, defaultValue = "ASC") String sort,
                        @RequestParam(required = false) Integer pageSize, Model model) {
-        Sort sortable=null;
+        Sort sortable = null;
         if (sort.equals("ASC")) {
             sortable = Sort.by("date").ascending();
         }
@@ -39,21 +42,23 @@ public class BlogController {
             pageSize = 5;
         }
         Page<Blog> list;
-        if (search!=null) {
+        if (search != null) {
             assert sortable != null;
-            list = blogService.findAllByTitleContaining(search, PageRequest.of(page,pageSize,sortable));
+            list = blogService.findAllByTitleContaining(search, PageRequest.of(page, pageSize, sortable));
         } else {
             assert sortable != null;
-            list = blogService.showAll(PageRequest.of(page,pageSize,sortable));
+            list = blogService.showAll(PageRequest.of(page, pageSize, sortable));
         }
         model.addAttribute("blogs", list);
         model.addAttribute("search", search);
+        model.addAttribute("categories", categoryService.findAll());
         return "home";
     }
 
     @GetMapping(value = "/create")
     public String create(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categories", categoryService.findAll());
         return "create";
     }
 
@@ -67,6 +72,7 @@ public class BlogController {
     @GetMapping(value = "/view/{id}")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("blog", blogService.findById(id));
+        model.addAttribute("categories", categoryService.findAll());
         return "view";
     }
 
