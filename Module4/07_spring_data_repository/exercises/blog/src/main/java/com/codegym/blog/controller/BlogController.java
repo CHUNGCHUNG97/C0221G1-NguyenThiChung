@@ -84,7 +84,6 @@ public class BlogController {
 
     @GetMapping(value = "/delete/{id}")
     public String update(@PathVariable int id, Model model) {
-
         blogService.delete(blogService.findById(id));
         return "redirect:/home";
     }
