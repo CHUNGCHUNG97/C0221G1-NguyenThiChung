@@ -1,6 +1,6 @@
 package com.codegym.book.controller;
 
-import com.codegym.book.model.service.BookException;
+import com.codegym.book.exception.BookException;
 import com.codegym.book.model.service.IBookService;
 import com.codegym.book.model.service.IBorrowBookService;
 import org.springframework.beans.factory.annotation.Autowired;

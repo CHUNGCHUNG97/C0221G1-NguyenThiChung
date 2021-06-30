@@ -1,5 +1,6 @@
 package com.codegym.book.model.service;
 
+import com.codegym.book.exception.BookException;
 import com.codegym.book.model.entity.BorrowBook;
 
 import java.util.List;

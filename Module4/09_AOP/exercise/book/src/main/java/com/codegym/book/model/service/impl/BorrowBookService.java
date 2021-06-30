@@ -4,13 +4,12 @@ import com.codegym.book.model.Repository.BookRepository;
 import com.codegym.book.model.Repository.BorrowBookRepository;
 import com.codegym.book.model.entity.Book;
 import com.codegym.book.model.entity.BorrowBook;
-import com.codegym.book.model.service.BookException;
+import com.codegym.book.exception.BookException;
 import com.codegym.book.model.service.IBorrowBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 @Service

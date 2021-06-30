@@ -1,9 +1,9 @@
 package com.codegym.book.model.service;
 
+import com.codegym.book.exception.BookException;
 import com.codegym.book.model.entity.Book;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IBookService {
     List<Book> findAll();

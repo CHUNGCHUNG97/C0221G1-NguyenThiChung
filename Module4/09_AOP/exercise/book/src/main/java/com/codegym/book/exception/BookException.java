@@ -1,4 +1,4 @@
-package com.codegym.book.model.service;
+package com.codegym.book.exception;
 
 public class BookException extends Exception{
     public BookException(String message) {

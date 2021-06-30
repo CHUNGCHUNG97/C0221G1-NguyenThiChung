@@ -1,4 +1,4 @@
-package com.codegym.book.model.entity;
+package com.codegym.book.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
