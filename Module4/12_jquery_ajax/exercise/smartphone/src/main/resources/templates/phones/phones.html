@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary my-2" onclick="showModal('CREATE')">CREATE NEW PHONE</button>
+            <button type="button" class="btn btn-primary" id="showModal" data-toggle="modal" data-target="#createPhone" hidden>Trigger</button>
+
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-dark" id="smartPhoneTable">
+                <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Producer</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">MODIFIER</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body" id="phoneDetail">-->
+
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="modal fade" id="createPhone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="1231231321">
+                <form id="form">
+                    <input type="text" class="form-control" id="phoneId" aria-describedby="emailHelp" hidden>
+                    <div class="form-group">
+                        <label for="producer">Producer</label>
+                        <input type="text" class="form-control" id="producer" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id= "closeCreateModal" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                <button type="button" id="savePhoneButton" class="btn btn-primary" onclick="save()">SAVE</button>
+                <button type="button" id="editPhoneButton" class="btn btn-primary" onclick="update()">EDIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+
+
+<script>
+
+    function showModal(mode, id) {
+        if(mode==="CREATE"){
+            $('#form').trigger("reset");
+            $('#modalTitle').text('CREATE NEW PHONE');
+            $("#savePhoneButton").show();
+            $("#editPhoneButton").hide();
+
+            $('#showModal').click();
+        }else{
+            $('#modalTitle').text('EDIT PHONE')
+            $("#savePhoneButton").hide();
+            $("#editPhoneButton").show();
+            showEditForm(id);
+        }
+
+    }
+    function save() {
+        const phone = {
+            producer: $('#producer').val(),
+            model: $('#model').val(),
+            price: parseInt($('#price').val()),
+            id: 0
+
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/smartphones/",
+            data: JSON.stringify(phone),
+            contentType: 'application/json; charset=utf-8',
+            success: saveSuccess,
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+        event.preventDefault()
+    }
+
+
+    function saveSuccess() {
+        alert('saved');
+        $('#closeCreateModal').click();
+        window.location.reload();
+    }
+
+    function update() {
+        const phone = {
+            producer: $('#producer').val(),
+            model: $('#model').val(),
+            price: parseInt($('#price').val()),
+            id: parseInt($('#phoneId').val())
+
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/smartphones/update",
+            data: JSON.stringify(phone),
+            contentType: 'application/json; charset=utf-8',
+            success: saveSuccess,
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+        event.preventDefault()
+
+    }
+
+    function getList() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/smartphones/list",
+            contentType: 'application/json; charset=utf-8',
+            success: getListSuccessHandler,
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+
+    }
+
+    function getListSuccessHandler(data) {
+        data.forEach((ob, index) => {
+            document.getElementById("smartPhoneTable").insertRow(-1).innerHTML = genSmartPhoneRow(ob, index);
+        })
+
+
+    }
+
+    function genSmartPhoneRow(phone, index) {
+        return `<tr>
+             <td>${index + 1}</td>
+             <td>${phone.producer}</td>
+             <td>${phone.model}</td>
+              <td>${phone.price}</td>
+              <td><buton type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="showModal('EDIT',${phone.id})" >EDIT</buton> <button>DELETE</button></td>
+
+
+</tr>`
+    }
+
+    // A $( document ).ready() block.
+    $(document).ready(function () {
+        getList();
+    });
+
+    function showEditForm(id) {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/smartphones/edit/" + id,
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $('#producer').val(data.producer);
+                $('#price').val(data.price);
+                $('#phoneId').val(data.id);
+                $('#model').val(data.model);
+                $('#showModal').click();
+            },
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+    }
+</script>
+</body>
+</html>

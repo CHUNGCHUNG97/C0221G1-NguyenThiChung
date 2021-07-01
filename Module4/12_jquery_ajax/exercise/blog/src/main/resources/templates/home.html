@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Maitree:300,400,600|Montserrat" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+    <style>* {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #DBE2EC;
+        padding: 100px;
+    }
+
+    .container-blogs {
+        background: #fff;
+        width: 70%;
+        box-shadow: 0px 5px 50px rgba(0, 0, 0, .2);
+        margin: auto;
+        padding: 30px;
+        position: relative;
+    }
+
+    h3 {
+        font-family: Montserrat, sans-serif;
+        font-size: .9em;
+        text-align: center;
+        margin: 0;
+    }
+
+    .blog {
+        margin-top: 2px;
+        padding: 10px;
+    }
+
+    .comment-text {
+        width: 80%;
+        float: left;
+    }
+
+    .name {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .9em;
+        color: #2C3137;
+        font-weight: 600;
+    }
+
+    .time {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .8em;
+        color: #a0a0a0;
+        padding-left: 20px;
+        font-weight: 400;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Location_dot_grey.svg/500px-Location_dot_grey.svg.png");
+        background-repeat: no-repeat;
+        background-size: 4px;
+        background-position: top 8px left 5px;
+    }
+
+    p {
+        margin: 0;
+        font-family: Maitree;
+        font-size: .9em;
+        color: #626A73;
+    }
+
+    /* To clear the div Clearfix, I am using the nth child from 2nd div onwards. */
+    .blog:nth-child(n+2):after {
+        display: block;
+        content: " ";
+        clear: both;
+    }
+
+    .blog:hover {
+        background: #eaeaea;
+        border-radius: 5px;
+    }
+
+    </style>
+
+
+</head>
+<body>
+<div class="container-blogs">
+    <a href="/create">CREATE</a>
+    <!--    //Tạo 1 input chứa thông tin page hiện tại. Ẩn đi-->
+    <input id="page" value="0" hidden>
+    <form>
+        Search by title name:
+        <input name="search" type="text" placeholder="SEARCH" id="search"/>
+        <select id="pageSize">
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+        </select>
+        <input type="button" value="Search" onclick="getList(true)"/>
+    </form>
+    <br/>
+    <table class="table table-bordered dark" id="blogList">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Date</th>
+            <th scope="col">Content</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody id="tableContent">
+
+        </tbody>
+    </table>
+    <!--    //TẠO NÚT XEM THÊM. KhI XEM THÊM MÌNH CHỈ CẦN LẤY TRANG TIẾP THEO-->
+    <button onclick="nextPage()" id="nextPage">XEM THÊM
+    </button>
+
+</div> <!-- #container -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="email" class="form-control" id="id" aria-describedby="emailHelp"
+                           placeholder="Enter email" hidden>
+                    <div class="form-group">
+                        <label for="title">Tittle</label>
+                        <input type="email" class="form-control" id="title" aria-describedby="emailHelp"
+                               placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" id="author" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Content</label>
+                        <textarea type="text" class="form-control" id="content" placeholder="Password"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Category</label>
+                        <select class="form-control" id="category">
+
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateBlog()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+
+    // A $( document ).ready() block. LOAD TRANG KHI MỚI VÔ WEB> CALL TỚI GETLÍT
+    $(document).ready(function () {
+        getList(false);
+
+
+    });
+
+    function genBlog(contentListElement) {
+        return `<tr>
+                  <td>${contentListElement.title}</td>
+                  <td>${contentListElement.author}</td>
+                  <td>${contentListElement.date}</td>
+                  <td>${contentListElement.content}</td>
+                   <td><a>DELETE</a> <button class="btn " onclick="edit(${contentListElement.id})" data-toggle="modal" data-target="#exampleModal">EDIT</button></td>
+                </tr>`
+    }
+
+    function updateBlog() {
+        const title = $('#title').val();
+        const author = $('#author').val();
+        const content = $('#content').val();
+        const date = $('#date').val();
+        const categoryId = $('#category').val();
+        const id = $('#id').val();
+        const blog = {
+            id: id,
+            content: content,
+            author: author,
+            date: date,
+            title: title,
+            category: {
+                id: categoryId
+            }
+        }
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(blog),
+            contentType: "application/json",
+            //tên API
+            url: "http://localhost:8080/blogRest/",
+            //xử lý khi thành công
+            success: function (data) {
+                alert("Thanh công");
+                $('#closeModal').click();
+                getList(true);
+            },
+            error: function () {
+                alert("Thất bại");
+            }
+
+
+        });
+
+
+    }
+
+    function nextPage() {
+        //lấy giá trị page hiện tại
+        const currentPage = parseInt($('#page').val());
+        //tăng thêm 1 page;
+        $('#page').val(currentPage + 1);
+        //Lấy danh sách blogs.
+        getList(false);
+    }
+
+    function edit(id) {
+
+
+        $.ajax({
+            type: "GET",
+            //tên API
+            url: "http://localhost:8080/blogRest/blog/" + id,
+            //xử lý khi thành công
+            success: function (data) {
+                matchValueToForm(data)
+            }
+        });
+
+
+    }
+
+
+    function matchValueToForm(blog) {
+        $("#category").empty();
+        $.ajax({
+            type: "GET",
+            //tên API
+            url: "http://localhost:8080/blogRest/category",
+
+            //xử lý khi thành công
+            success: function (data) {
+                data.forEach(ob => {
+                    $("#category").append($('<option>',
+                        {
+                            value: ob.id,
+                            text: ob.category
+                        }));
+                })
+                $('#title').val(blog.title);
+                $('#author').val(blog.author);
+                $('#content').val(blog.content);
+                $('#date').val(blog.date);
+                $('#category').val(blog.category.id);
+                $('#id').val(blog.id);
+                $("#category").val(blog.category.id).change();
+            }
+        });
+
+
+    }
+
+    function getList(isSearchFromButton) {
+        //Neu lay danh sach bằng cách ấn nút ssarch -> xóa body. reset page về page 0
+        if (isSearchFromButton) {
+            $('#blogList').find("tr:gt(0)").remove();
+            $('#page').val(0);
+        }
+
+        const search = $('#search').val();
+        const pageSize = $('#pageSize').val();
+        const page = $('#page').val();
+        $.ajax({
+            type: "GET",
+            //tên API
+            url: "http://localhost:8080/blogRest/list",
+            data: {
+                search: search,
+                page: page,
+                pageSize: pageSize
+            },
+            //xử lý khi thành công
+            success: function (data) {
+                const contentList = data.content;
+                const pageable = data.pageable;
+                console.log(data)
+                //H chuyển sang thêm cột cho bảng. chứ k phải là vẽ mới nữa
+                contentList.forEach(ob => {
+                    document.getElementById("blogList").insertRow(-1).innerHTML = genBlog(ob);
+                })
+
+                //Xử lý nút xem thêm khi ở page cuối cùng.ôn. string va number
+                if (data.totalPages - 1 == $('#page').val() || data.totalPages === 0) {
+                    $('#nextPage').hide()
+                } else {
+                    $('#nextPage').show()
+                }
+
+
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
